@@ -26,10 +26,10 @@
     .slider:before {
         position: absolute;
         content: "";
-        height: 7px;
+        height: 12px;
         width: 9px;
         left: 4px;
-        bottom: 2px;
+        bottom: 3.3px;
         background-color: white;
         -webkit-transition: .4s;
         transition: .4s;
@@ -51,12 +51,13 @@ input:checked + .slider:before {
 
 /* Rounded sliders */
 .slider.round {
+   height: 19px;
     border-radius: 34px;
 }
 
-    .slider.round:before {
-        border-radius: 40%;
-    }
+.slider.round:before {
+    border-radius: 40%;
+}
 
 
 
