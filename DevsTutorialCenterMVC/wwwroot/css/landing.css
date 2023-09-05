@@ -1,4 +1,6 @@
-﻿.frame-1, .frame-2, .frame-3, .frame-4, .frame-5{
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+.frame-1, .frame-2, .frame-3, .frame-4, .frame-5{
     width: 100%;
 }
 .frame-5 {
@@ -208,6 +210,9 @@
     position: absolute;
     left: -36px;
     top: -97px;
+    display: flex;
+    justify-content: flex-start; /* centers horizontally */
+    align-items: center;
 }
 .rectangle-19 {
     background: linear-gradient( 101.01deg, rgba(52, 168, 83, 1) 0%, rgba(0, 0, 0, 0.08) 100% );
@@ -275,6 +280,17 @@
     margin-left: 39rem;
     margin-top: 1rem
 }
+
+.text-get {
+    color: var(--white, #ffffff);
+    text-align: left;
+    font: var(--button-semi-bold-14, 600 14px/20px "Inter", sans-serif);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 
 .text2 {
     color: #fff;
@@ -488,7 +504,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     flex-shrink: 0;
-    width: 482px;
+    width: 540px;
     position: relative;
 }
 
@@ -743,9 +759,6 @@
     overflow: hidden;
     color:#ffffff;
 }
-.button-defaultt text2{
-    color: #ffffff;
-}
 .text22 {
     color: var(--main-text, #101828);
     text-align: left;
@@ -793,7 +806,7 @@
     text-align: left;
     font: var(--button-semi-bold-14, 600 14px/20px "Inter", sans-serif);
     position: relative;
-    display: flex;
+    display: contents;
     align-items: center;
     justify-content: flex-start;
 }
