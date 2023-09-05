@@ -20,14 +20,5 @@ namespace DevsTutorialCenterMVC.Controllers
             return View();
         }
 
-        public IActionResult PublishedArticles()
-        {
-            return View();
-        }
-
-        public IActionResult PendingArticles()
-        {
-            return View();
-        }
     }
 }

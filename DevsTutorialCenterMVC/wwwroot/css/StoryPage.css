@@ -123,20 +123,37 @@ h3 {
     margin-bottom: 2rem;
     margin-top: 2rem;
 }
-
+/*
 .active-article {
     color: #34a853;
     border-bottom: 2px solid #34a853;
+}*/
+
+.story-nav-item {
+    padding-bottom: 0rem;
 }
 
-.story-list-item {
-    padding-bottom: 1rem;
+.story-nav-item a {
+    color: inherit;
+    text-decoration: none;
 }
 
-    .story-list-item a {
-        color: inherit;
-        text-decoration: none;
-    }
+
+.story-nav-pills, .story-nav-pills .show > .story-nav-link {
+    background: none;
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    border-bottom: 1px solid #d0d5dd;
+    color: #667085;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.story-nav-link.active {
+    color: #34a853;
+    border-bottom: 2px solid #34a853;
+}
 
 .story-content {
     display: flex;
