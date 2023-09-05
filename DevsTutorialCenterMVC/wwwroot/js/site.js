@@ -13,6 +13,19 @@ function toggleDropdown() {
     }
 }
 
+
+function toggleOption() {
+    var options = document.getElementsByClassName('options-view');
+
+    for (let option of options) {
+        if (option.style.display === "block") {
+            option.style.display = "none";
+        } else {
+            option.style.display = "block";
+        }
+    }
+}
+
 // Close the dropdown if the user clicks outside of it
 //window.onclick = function (event) {
 //    if (!event.target.matches('.dropdown-content')) {
