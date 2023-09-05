@@ -161,7 +161,7 @@ h3 {
 }
 
 .story-articles {
-    background-color: #fefefe;
+   
     width: 65%;
     align-self: flex-start;
 }
@@ -174,7 +174,6 @@ article {
     display: flex;
     align-items: center;
     gap: .8rem;
-    color: #98a2b3;
     padding: 1.6rem 0 2.5rem 0;
 }
 
@@ -184,6 +183,7 @@ article {
 
 .story-article-text h2 {
     margin-bottom: 1rem;
+    color: #101828;
 }
 
 
@@ -191,6 +191,7 @@ article {
     line-height: 135%;
     letter-spacing: 0.015rem;
     margin-bottom: .8rem;
+    color: #475467;
 }
 
 .story-last-edited {
@@ -266,7 +267,7 @@ article {
     align-items: center;
     gap: 3rem;
     padding: 1rem 0;
-    background-color: #fcfcfc;
+ 
 }
 
 .story-recom-article h4 {
