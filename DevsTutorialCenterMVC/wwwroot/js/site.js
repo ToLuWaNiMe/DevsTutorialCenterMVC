@@ -5,7 +5,7 @@
 
 // Function to toggle the dropdown
 function toggleDropdown() {
-    var dropdown = document.getElementById('Dropdown');
+    var dropdown = document.getElementById('Dropdown-ify');
     if (dropdown.style.display === "block") {
         dropdown.style.display = "none";
     } else {
@@ -15,7 +15,7 @@ function toggleDropdown() {
 
 
 function toggleOption() {
-    var options = document.getElementsByClassName('options-view');
+    var options = document.getElementsByClassName('options-view-ify');
 
     for (let option of options) {
         if (option.style.display === "block") {

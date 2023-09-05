@@ -16,13 +16,13 @@
             <form method="post" asp-area="" asp-controller="Article" asp-action="Create">
                 <div class="d-flex flex-column justify-content-between h-100">
                     <div id="article-title" class="col p-0 d-flex align-items-center mb-3">
-                        <input name="Title" class="form-control" placeholder="Title">
+                        <input name="Title" class="form-control input-ify" placeholder="Title">
                     </div>
                     <div id="article-tag" class="col p-0 d-flex align-items-center mb-3">
-                        <input name="Tag" class="form-control" placeholder="Tag">
+                        <input name="Tag" class="form-control input-ify" placeholder="Tag">
                     </div>
                     <div class="col-12 mb-3" >
-                        <textarea name="Content" id="article" class="form-control" placeholder="Tell your story...."></textarea>
+                        <textarea name="Content" id="article-ify" class="form-control" placeholder="Tell your story...."></textarea>
                     </div>
                 </div>
                 @*<div>
@@ -30,7 +30,7 @@
                 </div>*@
             </form>
             <script>
-                var editor = new FroalaEditor("#article", {
+                var editor = new FroalaEditor("#article-ify", {
                     heightMin: 300,
                     heightMax: 500,
                     //toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'fontFamily', 'fontSize', 'color', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '-', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|', 'emoticons', 'specialCharacters', 'insertHR', 'selectAll', 'clearFormatting', '|', 'print', 'help', 'html', '|', 'undo', 'redo', 'trackChanges', 'markdown'],
