@@ -228,27 +228,6 @@
     border-color: var(--grey-300);
 }
 
-.login .frame-9 {
-    display: inline-flex;
-    align-items: center;
-    gap: 100px;
-    position: relative;
-    flex: 0 0 auto;
-    margin-right: -5px;
-}
-
-.login .text-4 {
-    position: relative;
-    width: 285px;
-    font-family: var(--button-normal-14-font-family);
-    font-weight: var(--button-normal-14-font-weight);
-    color: var(--grey-400);
-    font-size: var(--button-normal-14-font-size);
-    letter-spacing: var(--button-normal-14-letter-spacing);
-    line-height: var(--button-normal-14-line-height);
-    font-style: var(--button-normal-14-font-style);
-}
-
 .login .text-5 {
     position: relative;
     width: fit-content;
@@ -322,11 +301,6 @@
     font-size: var(--button-normal-14-font-size);
 }
 
-.login .text-wrapper-2 {
-    font-weight: 600;
-    color: #34a853;
-    text-decoration: underline;
-}
 
 @media screen and (min-width: 768px) {
     .login .frame {
@@ -501,19 +475,6 @@
         height: 24px;
     }
 
-    .sign-up .text-wrapper {
-        position: relative;
-        width: fit-content;
-        font-weight: var(--button-normal-14-font-weight);
-        color: var(--grey-400);
-        font-size: var(--button-normal-14-font-size);
-        line-height: var(--button-normal-14-line-height);
-        white-space: nowrap;
-        font-family: var(--button-normal-14-font-family);
-        letter-spacing: var(--button-normal-14-letter-spacing);
-        font-style: var(--button-normal-14-font-style);
-    }
-
     .sign-up .frame-6 {
         position: relative;
         width: 436px;
@@ -614,48 +575,6 @@
         overflow: hidden;
         border: 1px solid;
         border-color: var(--grey-300);
-    }
-
-    .sign-up .frame-10 {
-        display: inline-flex;
-        align-items: center;
-        gap: 100px;
-        position: relative;
-        flex: 0 0 auto;
-    }
-
-    .sign-up .text-4 {
-        position: relative;
-        width: 285px;
-        margin-top: -1px;
-        font-weight: var(--button-normal-14-font-weight);
-        color: var(--grey-400);
-        font-size: var(--button-normal-14-font-size);
-        line-height: var(--button-normal-14-line-height);
-        font-family: var(--button-normal-14-font-family);
-        letter-spacing: var(--button-normal-14-letter-spacing);
-        font-style: var(--button-normal-14-font-style);
-    }
-
-    .sign-up .frame-11 {
-        display: inline-flex;
-        align-items: center;
-        gap: 100px;
-        position: relative;
-        flex: 0 0 auto;
-        margin-right: -5px;
-    }
-
-    .sign-up .text-5 {
-        position: relative;
-        width: 285px;
-        font-weight: var(--button-normal-14-font-weight);
-        color: var(--grey-400);
-        font-size: var(--button-normal-14-font-size);
-        line-height: var(--button-normal-14-line-height);
-        font-family: var(--button-normal-14-font-family);
-        letter-spacing: var(--button-normal-14-letter-spacing);
-        font-style: var(--button-normal-14-font-style);
     }
 
     .sign-up .frame-12 {
