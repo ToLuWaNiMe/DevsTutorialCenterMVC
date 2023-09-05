@@ -10,11 +10,11 @@
   overflow: hidden;
 }
 .frame-70-covenant {
-  width: 829px;
-  height: 1772px;
-  position: absolute;
-  left: 1px;
-  top: 104px;
+    width: 829px;
+    height: 1772px;
+    position: absolute;
+    left: 100px;
+    top: 104px;
 }
 .frame-63-covenant {
   width: 829px;
@@ -621,14 +621,14 @@
 
 
 .frame-340-covenant {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  position: absolute;
-  left: 998px;
-  top: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    left: 1000px;
+    top: 120px;
 }
 .frame-79-covenant {
   display: flex;
@@ -1165,7 +1165,7 @@
   position: relative;
   overflow: hidden;
 }
-@media (max-width:820px)-covenant {
+@media (max-width:820px) {
    
     .frame-70-covenant {
         width: 644px;
