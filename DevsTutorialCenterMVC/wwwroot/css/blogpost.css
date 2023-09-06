@@ -1,11 +1,4 @@
-﻿body {
-    background: var(--Grey-50, #F9FAFB);
-}
-* {
-    box-sizing: border-box;
-}
-
-.main-container {
+﻿.dtc-11-main-container {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -13,18 +6,18 @@
     gap: 140px;
 }
 
-.left-container {
+.dtc-11-left-container {
     width: 780px;
 }
 
-.trending-container {
+.dtc-11-trending-container {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
 }
 
-.trending-box {
+.dtc-11-trending-box {
     width: 100%;
     height: 100px;
     display: flex;
@@ -33,7 +26,7 @@
     gap: 80px;
 }
 
-.trending-card {
+.dtc-11-trending-card {
     width: 350px;
     height: 100px;
     display: flex;
@@ -41,12 +34,12 @@
     gap: 20px;
 }
 
-.image {
+.dtc-11-image {
     width: 144px;
     height: 100px;
 }
 
-.trend-story h5 {
+.dtc-11-trend-story h5 {
     width: 176px;
     color: #020202;
     font-family: Inter;
@@ -56,7 +49,7 @@
     line-height: 24.577px; /* 141.667% */
 }
 
-.trend-story p {
+.dtc-11-trend-story p {
     width: 176px;
     color: #020202;
     font-family: Inter;
@@ -67,7 +60,7 @@
     letter-spacing: 0.3px;
 }
 
-.card-title {
+.dtc-11-card-title {
     font-family: Inter;
     font-size: 16px;
     font-style: normal;
@@ -78,7 +71,7 @@
 }
 
 
-.latest-post-container {
+.dtc-11-latest-post-container {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
@@ -86,13 +79,13 @@
     margin-top: 50px;
 }
 
-.latest-post-box {
+.dtc-11-latest-post-box {
     display: flex;
     align-items: flex-start;
     gap: 50px;
 }
 
-.frame44 {
+.dtc-11-frame44 {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -100,12 +93,13 @@
     gap: 16px;
 }
 
-.frame46 {
+.dtc-11-frame46 img {
     width: 360px;
     height: 240px;
 }
 
-.frame45 {
+
+.dtc-11-frame45 {
     display: flex;
     padding: 16px;
     flex-direction: column;
@@ -114,20 +108,20 @@
     align-self: stretch;
 }
 
-.frame55 {
+.dtc-11-frame55 {
     display: flex;
     justify-content: space-between;
     align-items: center;
     align-self: stretch;
 }
 
-.frame43 {
+.dtc-11-frame43 {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.frame74 {
+.dtc-11-frame74 {
     display: flex;
     padding: 8px 16px;
     justify-content: center;
@@ -137,7 +131,7 @@
     background: #F2F4F7;
 }
 
-    .frame74 h6 {
+    .dtc-11-frame74 h6 {
         color: #5C6881;
         font-family: Inter;
         font-size: 13px;
@@ -147,7 +141,7 @@
         letter-spacing: 1px;
     }
 
-.courses {
+.dtc-11-courses {
     color: #667085;
     font-family: Inter;
     font-size: 12px;
@@ -157,7 +151,7 @@
     letter-spacing: 0.5px;
 }
 
-.post-title {
+.dtc-11-post-title {
     align-self: stretch;
     color: #101828;
     /* Headline Medium -24 */
@@ -168,7 +162,7 @@
     line-height: 140%; /* 33.6px */
 }
 
-.post-details {
+.dtc-11-post-details {
     align-self: stretch;
     color: #475467;
     /* Body Text Normal -16 */
@@ -180,7 +174,7 @@
     letter-spacing: 0.15px;
 }
 
-.group1170 {
+.dtc-11-group1170 {
     height: 30px;
     align-self: stretch;
     display: flex;
@@ -188,13 +182,13 @@
     align-items: center;
 }
 
-.ellipse-1 {
+.dtc-11-ellipse-1 {
     width: 30.75px;
     height: 30px;
     flex-shrink: 0;
 }
 
-.group1170 h5 {
+.dtc-11-group1170 h5 {
     color: #101828;
     font-family: Inter;
     font-size: 13px;
@@ -204,7 +198,7 @@
     letter-spacing: 0.3px;
 }
 
-.group1170 h6 {
+.dtc-11-group1170 h6 {
     color: #475467;
     font-family: Inter;
     font-size: 12px;
@@ -214,7 +208,7 @@
     letter-spacing: 0.5px;
 }
 
-.right-container {
+.dtc-11-right-container {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
@@ -222,7 +216,7 @@
     width: 390px;
 }
 
-    .right-container h3 {
+    .dtc-11-right-container h3 {
         color: #000;
         font-family: Inter;
         font-size: 16px;
@@ -233,7 +227,7 @@
         text-transform: uppercase;
     }
 
-.Frame343 {
+.dtc-11-Frame343 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -241,26 +235,26 @@
     width: 360px;
 }
 
-.frame342 {
+.dtc-11-frame342 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
 }
 
-.frame341 {
+.dtc-11-frame341 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
 }
 
-    .frame341 img {
+    .dtc-11-frame341 img {
         height: 123px;
         align-self: stretch;
     }
 
-    .frame341 h5 {
+    .dtc-11-frame341 h5 {
         width: 360px;
         color: var(--Main-Text, #101828);
         /* Headline Medium -24 */
@@ -271,7 +265,7 @@
         line-height: 140%; /* 33.6px */
     }
 
-    .frame341 p {
+    .dtc-11-frame341 p {
         width: 360px;
         color: var(--Grey-600, #475467);
         /* Body Text Normal -16 */
@@ -283,19 +277,19 @@
         letter-spacing: 0.15px;
     }
 
-.group1175 {
+.dtc-11-group1175 {
     width: 360px;
     height: 0px;
     margin-top: -25px;
 }
 
-    .group1175 .line3 {
+    .dtc-11-group1175 .line3 {
         width: 360px;
         height: 5px;
         background: #D0D5DD;
     }
 
-    .group1175 .line4 {
+    .dtc-11-group1175 .line4 {
         margin-top: -20px;
         position: absolute;
         width: 274.39px;
@@ -304,7 +298,7 @@
         opacity: 3;
     }
 
-button {
+.continue-btn {
     margin-top: 25px;
     border: none;
     display: flex;
@@ -325,7 +319,7 @@ button {
     line-height: 20px; /* 142.857% */
 }
 
-.author {
+.dtc-11-author {
     display: flex;
     width: 376px;
     flex-direction: column;
@@ -333,7 +327,7 @@ button {
     gap: 8px;
 }
 
-    .author h4 {
+    .dtc-11-author h4 {
         color: #000;
         font-family: Inter;
         font-size: 16px;
@@ -344,7 +338,7 @@ button {
         text-transform: uppercase;
     }
 
-.eachauthor {
+.dtc-11-eachauthor {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -352,13 +346,13 @@ button {
     align-self: stretch;
 }
 
-    .eachauthor img {
+    .dtc-11-eachauthor img {
         width: 36px;
         height: 35.122px;
         border-radius: 36px;
     }
 
-.Frame56 {
+.dtc-11-Frame56 {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -367,20 +361,20 @@ button {
     flex: 1 0 0;
 }
 
-.name_articles {
+.dtc-11-name_articles {
     display: flex;
     justify-content: space-between;
     align-items: center;
     align-self: stretch;
 }
 
-.frame55 {
+.dtc-11-frame55 {
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
-    .frame55 h2 {
+    .dtc-11-frame55 h2 {
         color: var(--Main-Text, #101828);
         font-family: Inter;
         font-size: 16px;
@@ -390,13 +384,13 @@ button {
         letter-spacing: 0.3px;
     }
 
-.eachauthor hr {
+.dtc-11-eachauthor hr {
     width: 376px;
     height: 0.5px;
     background: #D0D5DD;
 }
 
-.Frame56 p {
+.dtc-11-Frame56 p {
     color: var(--Grey-600, #475467);
     font-family: Inter;
     font-size: 12px;
@@ -408,7 +402,7 @@ button {
 }
 
 
-.interesting {
+.dtc-11-interesting {
     display: flex;
     width: 373px;
     flex-direction: column;
@@ -416,7 +410,7 @@ button {
     gap: 12px;
 }
 
-    .interesting h4 {
+    .dtc-11-interesting h4 {
         color: #000;
         font-family: Inter;
         font-size: 16px;
@@ -427,7 +421,7 @@ button {
         text-transform: uppercase;
     }
 
-.topics {
+.dtc-11-topics {
     display: flex;
     align-items: flex-start;
     align-content: flex-start;
@@ -436,7 +430,7 @@ button {
     flex-wrap: wrap;
 }
 
-.frame73 {
+.dtc-11-frame73 {
     display: flex;
     padding: 8px 16px;
     justify-content: center;
@@ -448,7 +442,7 @@ button {
     background: var(--Grey-100, #F2F4F7);
 }
 
-    .frame73 h4 {
+    .dtc-11-frame73 h4 {
         color: var(--Grey-500, #5C6881);
         font-family: Inter;
         font-size: 13px;
@@ -459,7 +453,7 @@ button {
         text-transform: uppercase;
     }
 
-.Frame90 {
+.dtc-11-Frame90 {
     display: flex;
     width: 371px;
     flex-direction: column;
@@ -467,7 +461,7 @@ button {
     gap: 12px;
 }
 
-    .Frame90 h4 {
+    .dtc-11-Frame90 h4 {
         color: #000;
         font-family: Inter;
         font-size: 16px;
@@ -478,7 +472,7 @@ button {
         text-transform: uppercase;
     }
 
-.Frame87 {
+.dtc-11-Frame87 {
     display: flex;
     width: 371px;
     justify-content: space-between;
@@ -486,14 +480,14 @@ button {
     background-color: #FFF;
 }
 
-.Frame86 {
+.dtc-11-Frame86 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
 }
 
-    .Frame86 h2 {
+    .dtc-11-Frame86 h2 {
         width: 328px;
         color: var(--Main-Text, #101828);
         font-family: Inter;
@@ -503,7 +497,7 @@ button {
         line-height: 140%; /* 28px */
     }
 
-    .Frame86 p {
+    .dtc-11-Frame86 p {
         width: 328px;
         color: var(--Grey-400, #98A2B3);
         font-family: Inter;
@@ -515,23 +509,26 @@ button {
 
 
 
-    /***Header Styling**/
-.component {
+/***Header Styling**/
+.dtc-11-component {
     background: #ffffff;
     /*padding: 0px 100px 0px 100px;*/
     display: flex;
     flex-direction: row;
     gap: 546px;
     align-items: center;
+    /*justify-content: flex-start;*/
+    width: 100vw;
     justify-content: flex-start;
     width: 1518px;
     height: 94px;
+    /*position: relative;*/
+    box-shadow: 0px 2px 4px 0px rgba(33, 33, 33, 0.06), 0px 4px 8px 0px rgba(33, 33, 33, 0.08);
     position: sticky;
     /*box-shadow: 0px 2px 4px 0px rgba(33, 33, 33, 0.06), 0px 4px 8px 0px rgba(33, 33, 33, 0.08);*/
 }
 
-
-.frame-253 {
+.dtc-11-frame-253 {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -541,7 +538,7 @@ button {
     position: relative;
 }
 
-.frame-251 {
+.dtc-11-frame-251 {
     display: flex;
     flex-direction: row;
     gap: 64px;
@@ -551,7 +548,7 @@ button {
     position: relative;
 }
 
-.frame-249 {
+.dtc-11-frame-249 {
     display: flex;
     flex-direction: row;
     gap: 40px;
@@ -561,7 +558,7 @@ button {
     position: relative;
 }
 
-.frame-182 {
+.dtc-11-frame-182 {
     display: flex;
     flex-direction: row;
     gap: 8px;
@@ -571,13 +568,13 @@ button {
     position: relative;
 }
 
-.blogger {
+.dtc-11-blogger {
     flex-shrink: 0;
     position: relative;
     overflow: visible;
 }
 
-.devs-tutorial-center {
+.dtc-11-devs-tutorial-center {
     color: #000000;
     text-align: left;
     font: var(--headline-bold-24, 700 24px/140% "Inter", sans-serif);
@@ -587,7 +584,7 @@ button {
     justify-content: flex-start;
 }
 
-.frame-180 {
+.dtc-11-frame-180 {
     display: flex;
     flex-direction: row;
     gap: 16px;
@@ -598,7 +595,7 @@ button {
     position: relative;
 }
 
-.icon-home {
+.dtc-11-icon-home {
     flex-shrink: 0;
     position: relative;
     overflow: visible;
@@ -610,13 +607,13 @@ button {
     overflow: visible;
 }
 
-.publish {
+.dtc-11-publish {
     flex-shrink: 0;
     position: relative;
     overflow: visible;
 }
 
-.frame-250 {
+.dtc-11-frame-250 {
     background: var(--white, #ffffff);
     border-style: solid;
     border-color: var(--grey-300, #d0d5dd);
@@ -631,19 +628,20 @@ button {
     width: 399px;
     position: relative;
 }
-.frame-250 input{
-    width: 100%;
-    border: none;
-    outline:none;
-}
 
-.search {
+    .dtc-11-frame-250 input {
+        width: 100%;
+        border: none;
+        outline: none;
+    }
+
+.dtc-11-search {
     flex-shrink: 0;
     position: relative;
     overflow: visible;
 }
 
-.text {
+.dtc-11-text {
     color: var(--grey-500, #667085);
     text-align: left;
     font: var(--button-normal-14, 400 14px/20px "Inter", sans-serif);
@@ -653,7 +651,7 @@ button {
     justify-content: flex-start;
 }
 
-.right-nest {
+.dtc-11-right-nest {
     display: flex;
     flex-direction: row;
     gap: 24px;
@@ -663,7 +661,7 @@ button {
     position: relative;
 }
 
-.header-cta-block {
+.dtc-11-header-cta-block {
     display: flex;
     flex-direction: row;
     gap: 16px;
@@ -673,7 +671,7 @@ button {
     position: relative;
 }
 
-.avatar-default {
+.dtc-11-avatar-default {
     border-radius: 200px;
     flex-shrink: 0;
     width: 32px;
@@ -681,13 +679,13 @@ button {
     position: relative;
 }
 
-.notification {
+.dtc-11-notification {
     flex-shrink: 0;
     position: relative;
     overflow: visible;
 }
 
-.button-default {
+.dtc-11-button-default {
     background: var(--grey-100, #f2f4f7);
     border-radius: 6px;
     padding: 12px 16px 12px 16px;
@@ -697,13 +695,13 @@ button {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    width: 130px;
+    /*width: 130px;*/
     position: relative;
     overflow: hidden;
     margin-top: -1px;
 }
 
-.text2 {
+.dtc-11-text2 {
     color: var(--main-text, #101828);
     text-align: left;
     font: var(--button-normal-14, 400 14px/20px "Inter", sans-serif);
