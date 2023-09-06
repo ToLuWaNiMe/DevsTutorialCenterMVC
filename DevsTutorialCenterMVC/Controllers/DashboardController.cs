@@ -14,5 +14,16 @@ namespace DevsTutorialCenterMVC.Controllers
         {
             return View();
         }
+
+        public IActionResult DraftArticles()
+        {
+            return View();
+        }
+
+
+        public IActionResult CreateArticle()
+        {
+            return View();
+        }
     }
 }
