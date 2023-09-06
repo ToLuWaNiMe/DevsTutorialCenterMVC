@@ -1,0 +1,71 @@
+﻿<div class="dropdown-content-ify shadow-sm px-4 py-4" id="Dropdown-ify">
+    <div id="notice-header-ify" class="mt-2">Notifications</div>
+    <hr />
+    <div id="notice-content-ify" class="d-flex flex-column gap-4 pb-3">
+        <div class="notice-ify d-flex flex-column gap-2">
+            <div class="menu-item-content-date-ify">2hours ago</div>
+            <div class="menu-item-content-ify">
+                <div class="content-ify">
+                    <div>New activity</div>
+                    <div>
+                        <a class="btn btn-close-dark btn-sm p-0 mx-4" style="height: 24px; width: 24px;" onclick="toggleOption()">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 12H18.01M12 12H12.01M6 12H6.01M13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12ZM19 12C19 12.5523 18.5523 13 18 13C17.4477 13 17 12.5523 17 12C17 11.4477 17.4477 11 18 11C18.5523 11 19 11.4477 19 12ZM7 12C7 12.5523 6.55228 13 6 13C5.44772 13 5 12.5523 5 12C5 11.4477 5.44772 11 6 11C6.55228 11 7 11.4477 7 12Z" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                        <partial name="_NotificationOptionsPartial" />
+                    </div>
+                </div>
+                <div class="detail-ify">You have 2 likes on your stories</div>
+            </div>
+            <div class="menu-item-content-ify">
+                <div class="content-ify">
+                    <div>Comment</div>
+                    <div style="position: relative;">
+                        <a class="btn btn-close-dark btn-sm p-0 mx-4" style="height: 24px; width: 24px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 12H18.01M12 12H12.01M6 12H6.01M13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12ZM19 12C19 12.5523 18.5523 13 18 13C17.4477 13 17 12.5523 17 12C17 11.4477 17.4477 11 18 11C18.5523 11 19 11.4477 19 12ZM7 12C7 12.5523 6.55228 13 6 13C5.44772 13 5 12.5523 5 12C5 11.4477 5.44772 11 6 11C6.55228 11 7 11.4477 7 12Z" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                        @*<partial name="_NotificationOptionsPartial" />*@
+                    </div>
+                </div>
+                <div class="detail-ify">You have 5 new comments on your post</div>
+            </div>
+        </div>
+        <div class="notice-ify">
+            <div class="menu-item-content-date-ify">Yesterday</div>
+            <div class="menu-item-content-ify">
+                <div class="content-ify">
+                    <div>New activity</div>
+                    <div>
+                        <a class="btn btn-close-dark btn-sm p-0 mx-4" style="height: 24px; width: 24px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 12H18.01M12 12H12.01M6 12H6.01M13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12ZM19 12C19 12.5523 18.5523 13 18 13C17.4477 13 17 12.5523 17 12C17 11.4477 17.4477 11 18 11C18.5523 11 19 11.4477 19 12ZM7 12C7 12.5523 6.55228 13 6 13C5.44772 13 5 12.5523 5 12C5 11.4477 5.44772 11 6 11C6.55228 11 7 11.4477 7 12Z" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                        @*<partial name="_NotificationOptionsPartial" />*@
+                    </div>
+                </div>
+                <div class="detail-ify">There is a new post by Aluko Waheed</div>
+            </div>
+        </div>
+        <div class="notice-ify">
+            <div class="menu-item-content-date-ify">2days ago</div>
+            <div class="menu-item-content-ify">
+                <div class="content-ify">
+                    <div>New activity</div>
+                    <div>
+                        <a class="btn btn-close-dark btn-sm p-0 mx-4" style="height: 24px; width: 24px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 12H18.01M12 12H12.01M6 12H6.01M13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12ZM19 12C19 12.5523 18.5523 13 18 13C17.4477 13 17 12.5523 17 12C17 11.4477 17.4477 11 18 11C18.5523 11 19 11.4477 19 12ZM7 12C7 12.5523 6.55228 13 6 13C5.44772 13 5 12.5523 5 12C5 11.4477 5.44772 11 6 11C6.55228 11 7 11.4477 7 12Z" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                        @*<partial name="_NotificationOptionsPartial" />*@
+                    </div>
+                </div>
+                <div class="detail-ify">New updated post by Godswill</div>
+            </div>
+        </div>
+    </div>
+</div>

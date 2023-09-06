@@ -20,5 +20,10 @@ namespace DevsTutorialCenterMVC.Controllers
             return View();
         }
 
+
+        public IActionResult CreateArticle()
+        {
+            return View();
+        }
     }
 }
