@@ -1,6 +1,6 @@
 /*Login*/
 
-.login {
+.chi-login {
     background-color: #f9fafb;
     display: flex;
     flex-direction: row;
@@ -8,180 +8,180 @@
     width: 100%;
 }
 
-.login .frame-wrapper {
-    background-color: var(--grey-50);
-    width: 1440px;
-    height: 1024px;
-}
+    .chi-login .chi-frame-wrapper {
+        background-color: var(--grey-50);
+        width: 1440px;
+        height: 1024px;
+    }
 
-.login .frame {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    position: relative;
-    top: 100px;
-    left: 460px;
-}
+    .chi-login .chi-frame {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        position: relative;
+        top: 100px;
+        left: 460px;
+    }
 
-.login .login-authentication {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-    padding: 32px;
-    position: relative;
-    flex: 0 0 auto;
-    background-color: var(--white);
-    border-radius: 16px;
-    box-shadow: var(--bottom-card-shadow-heavy);
-}
+    .chi-login .chi-login-authentication {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        padding: 32px;
+        position: relative;
+        flex: 0 0 auto;
+        background-color: var(--white);
+        border-radius: 16px;
+        box-shadow: var(--bottom-card-shadow-heavy);
+    }
 
-.login .div {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    position: relative;
-    flex: 0 0 auto;
-}
+    .chi-login .div {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        position: relative;
+        flex: 0 0 auto;
+    }
 
-.login .frame-2 {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    position: relative;
-    flex: 0 0 auto;
-}
+    .chi-login .chi-frame-2 {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+        flex: 0 0 auto;
+    }
 
-.login .blogger {
-    position: relative;
-    width: 64px;
-    height: 64px;
-}
+    .chi-login .blogger {
+        position: relative;
+        width: 64px;
+        height: 64px;
+    }
 
-.login .text {
-    position: relative;
-    width: fit-content;
-    font-family: var(--headline-bold-24-font-family);
-    font-weight: var(--headline-bold-24-font-weight);
-    color: var(--main-text);
-    font-size: var(--headline-bold-24-font-size);
-    letter-spacing: var(--headline-bold-24-letter-spacing);
-    line-height: var(--headline-bold-24-line-height);
-    white-space: nowrap;
-    font-style: var(--headline-bold-24-font-style);
-}
+    .chi-login .text {
+        position: relative;
+        width: fit-content;
+        font-family: var(--headline-bold-24-font-family);
+        font-weight: var(--headline-bold-24-font-weight);
+        color: var(--main-text);
+        font-size: var(--headline-bold-24-font-size);
+        letter-spacing: var(--headline-bold-24-letter-spacing);
+        line-height: var(--headline-bold-24-line-height);
+        white-space: nowrap;
+        font-style: var(--headline-bold-24-font-style);
+    }
 
-.login .frame-3 {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 32px;
-    position: relative;
-    flex: 0 0 auto;
-}
+    .chi-login .chi-frame-3 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+        position: relative;
+        flex: 0 0 auto;
+    }
 
-.login .frame-4 {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    position: relative;
-    flex: 0 0 auto;
-}
+    .chi-login .chi-frame-4 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        position: relative;
+        flex: 0 0 auto;
+    }
 
-.login .button-default {
-    display: flex;
-    width: 436px;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px 16px;
-    position: relative;
-    flex: 0 0 auto;
-    background-color: var(--white);
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid;
-    border-color: var(--grey-300);
-}
+    .chi-login .button-default {
+        display: flex;
+        width: 436px;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 16px;
+        position: relative;
+        flex: 0 0 auto;
+        background-color: var(--white);
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid;
+        border-color: var(--grey-300);
+    }
 
-.login .img {
-    position: relative;
-    width: 24px;
-    height: 24px;
-}
+    .chi-login .img {
+        position: relative;
+        width: 24px;
+        height: 24px;
+    }
 
-.login .text-wrapper {
-    position: relative;
-    width: fit-content;
-    font-family: var(--button-normal-14-font-family);
-    font-weight: var(--button-normal-14-font-weight);
-    color: var(--grey-400);
-    font-size: var(--button-normal-14-font-size);
-    letter-spacing: var(--button-normal-14-letter-spacing);
-    line-height: var(--button-normal-14-line-height);
-    white-space: nowrap;
-    font-style: var(--button-normal-14-font-style);
-}
+    .chi-login .text-wrapper {
+        position: relative;
+        width: fit-content;
+        font-family: var(--button-normal-14-font-family);
+        font-weight: var(--button-normal-14-font-weight);
+        color: var(--grey-400);
+        font-size: var(--button-normal-14-font-size);
+        letter-spacing: var(--button-normal-14-letter-spacing);
+        line-height: var(--button-normal-14-line-height);
+        white-space: nowrap;
+        font-style: var(--button-normal-14-font-style);
+    }
 
-.login .frame-5 {
-    position: relative;
-    width: 436px;
-    height: 20px;
-}
+    .chi-login .frame-5 {
+        position: relative;
+        width: 436px;
+        height: 20px;
+    }
 
-.login .divider {
-    left: 0;
-    position: absolute;
-    width: 191px;
-    height: 1px;
-    top: 10px;
-}
+    .chi-login .divider {
+        left: 0;
+        position: absolute;
+        width: 191px;
+        height: 1px;
+        top: 10px;
+    }
 
-.login .vector {
-    position: absolute;
-    width: 191px;
-    height: 1px;
-    top: -1px;
-    left: 0;
-    object-fit: cover;
-}
+    .chi-login .vector {
+        position: absolute;
+        width: 191px;
+        height: 1px;
+        top: -1px;
+        left: 0;
+        object-fit: cover;
+    }
 
-.login .text-2 {
-    position: absolute;
-    height: 20px;
-    top: -1px;
-    left: 204px;
-    font-family: var(--button-normal-14-font-family);
-    font-weight: var(--button-normal-14-font-weight);
-    color: var(--grey-400);
-    font-size: var(--button-normal-14-font-size);
-    letter-spacing: var(--button-normal-14-letter-spacing);
-    line-height: var(--button-normal-14-line-height);
-    white-space: nowrap;
-    font-style: var(--button-normal-14-font-style);
-}
+    .chi-login .text-2 {
+        position: absolute;
+        height: 20px;
+        top: -1px;
+        left: 204px;
+        font-family: var(--button-normal-14-font-family);
+        font-weight: var(--button-normal-14-font-weight);
+        color: var(--grey-400);
+        font-size: var(--button-normal-14-font-size);
+        letter-spacing: var(--button-normal-14-letter-spacing);
+        line-height: var(--button-normal-14-line-height);
+        white-space: nowrap;
+        font-style: var(--button-normal-14-font-style);
+    }
 
-.login .vector-wrapper {
-    left: 245px;
-    position: absolute;
-    width: 191px;
-    height: 1px;
-    top: 10px;
-}
+    .chi-login .vector-wrapper {
+        left: 245px;
+        position: absolute;
+        width: 191px;
+        height: 1px;
+        top: 10px;
+    }
 
-.login .frame-6 {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    position: relative;
-    flex: 0 0 auto;
-}
+    .chi-login .chi-frame-6 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        position: relative;
+        flex: 0 0 auto;
+    }
 
-.login .frame-7 {
+.chi-login .chi-frame-7 {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
@@ -190,7 +190,7 @@
     flex: 0 0 auto;
 }
 
-.login .frame-8 {
+.chi-login .chi-frame-8 {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
@@ -199,7 +199,7 @@
     flex: 0 0 auto;
 }
 
-.login .text-3 {
+.chi-login .text-3 {
     position: relative;
     width: fit-content;
     margin-top: -1px;
@@ -213,7 +213,7 @@
     font-style: var(--body-text-bold-16-font-style);
 }
 
-.login .button-default-2 {
+.chi-login .button-default-2 {
     display: flex;
     width: 436px;
     align-items: center;
@@ -228,7 +228,7 @@
     border-color: var(--grey-300);
 }
 
-.login .text-5 {
+.chi-login .text-5 {
     position: relative;
     width: fit-content;
     font-family: "Inter", Helvetica;
@@ -241,7 +241,7 @@
     white-space: nowrap;
 }
 
-.login .frame-10 {
+.chi-login .frame-10 {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -250,7 +250,7 @@
     flex: 0 0 auto;
 }
 
-.login .CTA-default {
+.chi-login .CTA-default {
     display: flex;
     width: 436px;
     align-items: center;
@@ -265,7 +265,7 @@
     box-sizing: border-box;
 }
 
-.login .text-6 {
+.chi-login .text-6 {
     position: relative;
     width: fit-content;
     margin-top: -1px;
@@ -279,7 +279,7 @@
     font-style: var(--button-semi-bold-14-font-style);
 }
 
-.login .p {
+.chi-login .p {
     position: relative;
     width: fit-content;
     font-family: "Inter", Helvetica;
@@ -291,7 +291,7 @@
     white-space: nowrap;
 }
 
-.login .span {
+.chi-login .span {
     color: #98a1b2;
     font-family: var(--button-normal-14-font-family);
     font-style: var(--button-normal-14-font-style);
@@ -303,13 +303,13 @@
 
 
 @media screen and (min-width: 768px) {
-    .login .frame {
+    .chi-login .chi-frame {
         flex-direction: row; /* Restore original layout for larger screens */
         max-width: 1440px;
         margin: 0 auto; /* Center the content horizontally */
     }
 
-    .login .login-authentication {
+    .chi-login .chi-login-authentication {
         padding: 32px;
     }
 }
@@ -353,7 +353,7 @@
 
 /*SignUp*/
 
-.sign-up {
+.chi-sign-up {
     background-color: #f9fafb;
     display: flex;
     flex-direction: row;
@@ -361,13 +361,13 @@
     width: 100%;
 }
 
-    .sign-up .frame-wrapper {
+    .chi-sign-up .chi-frame-wrapper {
         background-color: var(--grey-50);
         width: 1440px;
         height: 1192px;
     }
 
-    .sign-up .frame {
+    .chi-sign-up .chi-frame {
         display: inline-flex;
         flex-direction: column;
         align-items: center;
@@ -377,7 +377,7 @@
         left: 442px;
     }
 
-    .sign-up .div-wrapper {
+    .chi-sign-up .div-wrapper {
         display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
@@ -390,7 +390,7 @@
         box-shadow: 0px 0px 8px #00000014;
     }
 
-    .sign-up .div {
+    .chi-sign-up .div {
         display: inline-flex;
         flex-direction: column;
         align-items: center;
@@ -399,7 +399,7 @@
         flex: 0 0 auto;
     }
 
-    .sign-up .frame-2 {
+    .chi-sign-up .chi-frame-2 {
         display: inline-flex;
         flex-direction: column;
         align-items: center;
@@ -408,7 +408,7 @@
         flex: 0 0 auto;
     }
 
-    .sign-up .frame-3 {
+    .chi-sign-up .chi-frame-3 {
         display: inline-flex;
         align-items: center;
         gap: 8px;
@@ -416,13 +416,13 @@
         flex: 0 0 auto;
     }
 
-    .sign-up .blogger {
+    .chi-sign-up .blogger {
         position: relative;
         width: 64px;
         height: 64px;
     }
 
-    .sign-up .text {
+    .chi-sign-up .text {
         position: relative;
         width: fit-content;
         font-weight: var(--headline-bold-24-font-weight);
@@ -435,7 +435,7 @@
         font-style: var(--headline-bold-24-font-style);
     }
 
-    .sign-up .frame-4 {
+    .chi-sign-up .chi-frame-4 {
         display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
@@ -444,7 +444,7 @@
         flex: 0 0 auto;
     }
 
-    .sign-up .frame-5 {
+    .chi-sign-up .chi-frame-5 {
         display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
@@ -453,7 +453,7 @@
         flex: 0 0 auto;
     }
 
-    .sign-up .button-default {
+    .chi-sign-up .button-default {
         display: flex;
         width: 436px;
         align-items: center;
@@ -469,19 +469,19 @@
         border-color: var(--grey-300);
     }
 
-    .sign-up .img {
+    .chi-sign-up .img {
         position: relative;
         width: 24px;
         height: 24px;
     }
 
-    .sign-up .frame-6 {
+    .chi-sign-up .frame-6 {
         position: relative;
         width: 436px;
         height: 20px;
     }
 
-    .sign-up .divider {
+    .chi-sign-up .divider {
         position: absolute;
         width: 191px;
         height: 1px;
@@ -489,7 +489,7 @@
         left: 0;
     }
 
-    .sign-up .vector {
+    .chi-sign-up .vector {
         position: absolute;
         width: 191px;
         height: 1px;
@@ -498,7 +498,7 @@
         object-fit: cover;
     }
 
-    .sign-up .text-2 {
+    .chi-sign-up .text-2 {
         position: absolute;
         height: 20px;
         top: -1px;
@@ -513,7 +513,7 @@
         font-style: var(--button-normal-14-font-style);
     }
 
-    .sign-up .vector-wrapper {
+    .chi-sign-up .vector-wrapper {
         position: absolute;
         width: 191px;
         height: 1px;
@@ -521,7 +521,7 @@
         left: 245px;
     }
 
-    .sign-up .frame-7 {
+    .chi-sign-up .frame-7 {
         display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
@@ -530,7 +530,7 @@
         flex: 0 0 auto;
     }
 
-    .sign-up .frame-8 {
+    .chi-sign-up .frame-8 {
         display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
@@ -539,7 +539,7 @@
         flex: 0 0 auto;
     }
 
-    .sign-up .frame-9 {
+    .chi-sign-up .frame-9 {
         display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
@@ -548,7 +548,7 @@
         flex: 0 0 auto;
     }
 
-    .sign-up .text-3 {
+    .chi-sign-up .text-3 {
         position: relative;
         width: fit-content;
         margin-top: -1px;
@@ -562,7 +562,7 @@
         font-style: var(--body-text-bold-16-font-style);
     }
 
-    .sign-up .button-default-2 {
+    .chi-sign-up .button-default-2 {
         display: flex;
         width: 436px;
         align-items: center;
@@ -577,7 +577,7 @@
         border-color: var(--grey-300);
     }
 
-    .sign-up .frame-12 {
+    .chi-sign-up .frame-12 {
         display: inline-flex;
         flex-direction: column;
         align-items: center;
@@ -586,7 +586,7 @@
         flex: 0 0 auto;
     }
 
-    .sign-up .CTA-default {
+    .chi-sign-up .CTA-default {
         display: flex;
         width: 436px;
         align-items: center;
@@ -601,7 +601,7 @@
         box-sizing: border-box;
     }
 
-    .sign-up .text-6 {
+    .chi-sign-up .text-6 {
         position: relative;
         width: fit-content;
         margin-top: -1px;
@@ -615,7 +615,7 @@
         font-style: var(--button-semi-bold-14-font-style);
     }
 
-    .sign-up .p {
+    .chi-sign-up .p {
         position: relative;
         width: fit-content;
         font-weight: 400;
@@ -627,7 +627,7 @@
         letter-spacing: 0;
     }
 
-    .sign-up .span {
+    .chi-sign-up .span {
         color: #98a1b2;
         font-family: var(--button-normal-14-font-family);
         font-style: var(--button-normal-14-font-style);
@@ -637,7 +637,7 @@
         font-size: var(--button-normal-14-font-size);
     }
 
-    .sign-up .text-wrapper-2 {
+    .chi-sign-up .text-wrapper-2 {
         font-weight: 600;
         color: #34a853;
         text-decoration: underline;
@@ -691,14 +691,14 @@
     position: relative;
     background-color: var(--white);
 }
-
+/*
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-}
+}*/
 
 .choose-account-modal .frame {
     display: flex;
