@@ -692,7 +692,7 @@
     background-color: var(--white);
 }
 
-body {
+.login-signup-body {
     display: flex;
     justify-content: center;
     align-items: center;

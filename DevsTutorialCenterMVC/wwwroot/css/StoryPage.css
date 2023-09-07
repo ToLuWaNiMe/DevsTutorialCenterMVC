@@ -1,55 +1,41 @@
-﻿*,
-*::after,
-*::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    font-size: 62.5%;
-    font-family: 'Inter';
-}
-
-body {
-    font-size: 1.6rem;
-}
-
-h2 {
-    font-size: 2.4rem;
-    font-weight: 500;
-    line-height: 140%;
-}
-
-h3 {
-    font-size: 1.8rem;
-    text-transform: uppercase;
-    font-weight: 400;
-    color: #000;
-}
-
-.author > h3,
-.more-topics > h3,
-.recommendations > h3 {
-    margin-bottom: 1rem;
-}
-
+﻿
 .story-container {
     display: flex;
     flex-direction: column;
     gap: 2rem;
     background-color: #f9fafb;
+    /*font-size: 1.6rem;*/
+    font-family: 'inter';
+}
+
+.story-h2 {
+    /*    font-size: 2.4rem;*/
+    font-weight: 500;
+    line-height: 140%;
+}
+
+.story-h3 {
+    /*    font-size: 1.8rem;*/
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #000;
+}
+
+.author > .story-h3,
+.more-topics > .story-h3,
+.recommendations > .story-h3 {
+    margin-bottom: 1rem;
 }
 
 .story-main {
-    padding: 0 10rem;
+    padding: 0 3rem;
 }
 
 .story-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 10rem;
+    padding: 1rem 1rem;
     box-shadow: 0 0.4rem 0.8rem 0 rgba(33, 33, 33, 0.08);
     background-color: #fff;
     position: relative;
@@ -59,14 +45,14 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 64%;
+    width: 70%;
 }
 
 .story-logo-box {
     font-weight: bold;
     display: flex;
     align-items: center;
-    font-size: 2.4rem;
+    /*    font-size: 2.4rem;*/
 }
 
 .story-nav-icons {
@@ -80,9 +66,9 @@ h3 {
     border: 1px solid #d0d5dd;
 }
 
- .story-search-box label {
-     display: flex;
- }
+    .story-search-box label {
+        display: flex;
+    }
 
 .story-search-icon {
     margin-right: .5rem;
@@ -93,9 +79,9 @@ h3 {
     border: none;
 }
 
-.story-search-box input:focus {
-    outline: none;
-}
+    .story-search-box input:focus {
+        outline: none;
+    }
 
 .story-user-info {
     display: flex;
@@ -103,16 +89,16 @@ h3 {
     gap: 1.7rem;
 }
 
-.story-user-info button {
-    background-color: #f2f4f7;
-    border-radius: .6rem;
-    border: none;
-    padding: 1.2rem 1.6rem;
-    width: 150px;
-    color: black;
-    font-weight: 400;
-    margin-top: 3px;
-}
+    .story-user-info button {
+        background-color: #f2f4f7;
+        border-radius: .6rem;
+        border: none;
+        padding: 1.2rem 1rem;
+        width: 150px;
+        color: black;
+        font-weight: 400;
+        margin-top: 3px;
+    }
 
 .story-article-nav-list {
     list-style: none;
@@ -133,10 +119,10 @@ h3 {
     padding-bottom: 0rem;
 }
 
-.story-nav-item a {
-    color: inherit;
-    text-decoration: none;
-}
+    .story-nav-item a {
+        color: inherit;
+        text-decoration: none;
+    }
 
 
 .story-nav-pills, .story-nav-pills .show > .story-nav-link {
@@ -161,7 +147,6 @@ h3 {
 }
 
 .story-articles {
-   
     width: 65%;
     align-self: flex-start;
 }
@@ -181,7 +166,7 @@ article {
         border-bottom: 1px solid #d0d5dd;
     }
 
-.story-article-text h2 {
+.story-article-text .story-h2 {
     margin-bottom: 1rem;
     color: #101828;
 }
@@ -195,7 +180,7 @@ article {
 }
 
 .story-last-edited {
-    font-size: 1.3rem;
+    /*    font-size: 1.3rem;*/
 }
 
 .story-author, .story-more-topics {
@@ -224,7 +209,7 @@ article {
     flex: 1;
 }
 
-    .story-details h3 {
+    .story-details .story-h3 {
         text-transform: capitalize;
         color: #101828;
     }
@@ -237,7 +222,7 @@ article {
 
     .story-name p,
     .story-profession {
-        font-size: 1.2rem;
+        /*        font-size: 1.2rem;*/
         color: #475467;
     }
 
@@ -251,7 +236,7 @@ article {
 .story-lang {
     background-color: #f2f4f7;
     color: #5c6881;
-    font-size: 1.3rem;
+    /*    font-size: 1.3rem;*/
     font-weight: 400;
     letter-spacing: 1px;
     padding: .8rem 1.2rem;
@@ -267,19 +252,18 @@ article {
     align-items: center;
     gap: 3rem;
     padding: 1rem 0;
- 
 }
 
-.story-recom-article h4 {
-    font-size: 2rem;
-    margin-bottom: .8rem;
-}
+    .story-recom-article h4 {
+        /*    font-size: 2rem;*/
+        margin-bottom: .8rem;
+    }
 
-.story-recom-article p {
-    font-size: 1.4rem;
-    color: #98a2b3;
-}
+    .story-recom-article p {
+        /*    font-size: 1.4rem;*/
+        color: #98a2b3;
+    }
 
-.story-recom-article:not(:last-child) {
-    border-bottom: 1px solid #d0d5dd;
-}
+    .story-recom-article:not(:last-child) {
+        border-bottom: 1px solid #d0d5dd;
+    }
