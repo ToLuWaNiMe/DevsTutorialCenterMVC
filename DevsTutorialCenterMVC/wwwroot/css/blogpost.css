@@ -290,7 +290,7 @@
     }
 
     .dtc-11-group1175 .line4 {
-        margin-top: -20px;
+        margin-top: -15px;
         position: absolute;
         width: 274.39px;
         height: 5px;
@@ -311,12 +311,11 @@
     border-radius: 6px;
     background-color: #34A853;
     color: #FFF;
-    /* Button Semi Bold - 14 */
     font-family: Inter;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
-    line-height: 20px; /* 142.857% */
+    line-height: 20px; 
 }
 
 .dtc-11-author {
@@ -534,7 +533,7 @@
     align-items: center;
     justify-content: space-between;
     flex-shrink: 0;
-    width: 100px;
+    width: 100%;
     position: relative;
 }
 
@@ -699,6 +698,7 @@
     position: relative;
     overflow: hidden;
     margin-top: -1px;
+    border-style: none;
 }
 
 .dtc-11-text2 {
