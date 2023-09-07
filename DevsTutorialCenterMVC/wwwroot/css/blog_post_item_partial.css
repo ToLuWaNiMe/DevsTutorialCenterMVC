@@ -114,10 +114,10 @@
 }
 
 .group1170 {
-    align-self: stretch;
-    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     height: 30px;
-    position: static;
 }
 
 .dtc-8-author-profile {
