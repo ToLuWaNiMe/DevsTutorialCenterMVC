@@ -1,0 +1,593 @@
+﻿.dtc-14-switch {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 11px;
+}
+
+    .dtc-14-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.dtc-14-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .dtc-14-slider:before {
+        position: absolute;
+        content: "";
+        height: 12px;
+        width: 9px;
+        left: 4px;
+        bottom: 3.3px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .dtc-14-slider {
+    background-color: green;
+}
+
+input:focus + .dtc-14-slider {
+    box-shadow: 0 0 1px white;
+}
+
+input:checked + .dtc-14-slider:before {
+    -webkit-transform: translateX(15px);
+    -ms-transform: translateX(15px);
+    transform: translateX(15px);
+}
+
+/* Rounded sliders */
+.dtc-14-slider.round {
+    height: 19px;
+    border-radius: 34px;
+}
+
+    .dtc-14-slider.round:before {
+        border-radius: 40%;
+    }
+
+
+
+
+
+.dtc-14-SETTINGS {
+    background-color: #f9fafb;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+    .dtc-14-SETTINGS .dtc-14-div {
+        background-color: var(--grey-50);
+        /*overflow: hidden;*/
+        width: 1440px;
+        /*height: 100vh;*/
+        /*padding-bottom: 1500px;*/
+        position: relative;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-frame {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        position: absolute;
+        top: 285px;
+        left: 1478px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-more-topics {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: "Inter", Helvetica;
+        font-weight: 400;
+        color: #000000;
+        font-size: 16px;
+        letter-spacing: 0.15px;
+        line-height: 22.4px;
+        white-space: nowrap;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-frame-2 {
+        display: flex;
+        flex-wrap: wrap;
+        width: 334px;
+        align-items: flex-start;
+        gap: 10px 10px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-element-courses-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        width: 68px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px 10px;
+        padding: 8px 16px;
+        position: relative;
+        background-color: var(--grey-100);
+        border-radius: 50px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-element-courses {
+        flex: 1;
+        position: relative;
+        margin-top: -1px;
+        font-family: "Inter", Helvetica;
+        font-weight: 400;
+        color: #5c6881;
+        font-size: 13px;
+        letter-spacing: 1px;
+        line-height: 12px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-div-wrapper {
+        display: inline-flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 10px 10px;
+        padding: 8px 16px;
+        position: relative;
+        flex: 0 0 auto;
+        background-color: var(--grey-100);
+        border-radius: 50px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-text-wrapper {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: "Inter", Helvetica;
+        font-weight: 400;
+        color: #5c6881;
+        font-size: 13px;
+        letter-spacing: 1px;
+        line-height: 12px;
+        white-space: nowrap;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-element-courses-2 {
+        width: fit-content;
+        margin-left: -13px;
+        margin-right: -13px;
+        white-space: nowrap;
+        position: relative;
+        margin-top: -1px;
+        font-family: "Inter", Helvetica;
+        font-weight: 400;
+        color: #5c6881;
+        font-size: 13px;
+        letter-spacing: 1px;
+        line-height: 12px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-frame-3 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 30px;
+        position: absolute;
+        top: 20px;
+        left: 222px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-frame-4 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-frame-5 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-text-wrapper-2 {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: var(--headline-bold-24-font-family);
+        font-weight: var(--headline-bold-24-font-weight);
+        color: var(--main-text);
+        font-size: var(--headline-bold-24-font-size);
+        letter-spacing: var(--headline-bold-24-letter-spacing);
+        line-height: var(--headline-bold-24-line-height);
+        white-space: nowrap;
+        font-style: var(--headline-bold-24-font-style);
+    }
+
+    .dtc-14-SETTINGS .dtc-14-frame-6 {
+        display: flex;
+        width: 997px;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-frame-7 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-text-wrapper-3 {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: var(--body-textmedium-16-font-family);
+        font-weight: var(--body-textmedium-16-font-weight);
+        color: var(--main-text);
+        font-size: var(--body-textmedium-16-font-size);
+        letter-spacing: var(--body-textmedium-16-letter-spacing);
+        line-height: var(--body-textmedium-16-line-height);
+        white-space: nowrap;
+        font-style: var(--body-textmedium-16-font-style);
+    }
+
+    .dtc-14-SETTINGS .dtc-14-p {
+        position: relative;
+        width: fit-content;
+        font-family: var(--body-text-normal-16-font-family);
+        font-weight: var(--body-text-normal-16-font-weight);
+        color: #5c6881;
+        font-size: var(--body-text-normal-16-font-size);
+        letter-spacing: var(--body-text-normal-16-letter-spacing);
+        line-height: var(--body-text-normal-16-line-height);
+        white-space: nowrap;
+        font-style: var(--body-text-normal-16-font-style);
+    }
+
+    .dtc-14-SETTINGS .dtc-14-selection-switch {
+        position: relative;
+        width: 36px;
+        height: 24px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-switch-base {
+        position: relative;
+        height: 24px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-ripple-states {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        top: -5818px;
+        left: -8290px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-overlap-group {
+        position: absolute;
+        width: 36px;
+        height: 20px;
+        top: 2px;
+        left: 0;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-base {
+        background-color: var(--green-1);
+        position: absolute;
+        width: 36px;
+        height: 14px;
+        top: 3px;
+        left: 0;
+        border-radius: 16px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-toggle-head {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: 0;
+        left: 16px;
+        background-color: var(--green-2);
+        border-radius: 10px;
+        box-shadow: var(--shadow-switch);
+    }
+
+    .dtc-14-SETTINGS .dtc-14-img {
+        top: -5939px;
+        left: -8290px;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-ripple-states-2 {
+        top: -5999px;
+        left: -8290px;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-ripple-states-3 {
+        top: -6120px;
+        left: -8290px;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-ripple-states-4 {
+        top: -6180px;
+        left: -8306px;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-base-2 {
+        background-color: var(--gray-500);
+        position: absolute;
+        width: 36px;
+        height: 14px;
+        top: 3px;
+        left: 0;
+        border-radius: 16px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-toggle-head-2 {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: 0;
+        left: 0;
+        background-color: var(--basicwhite);
+        border-radius: 10px;
+        box-shadow: var(--shadow-switch);
+    }
+
+    .dtc-14-SETTINGS .dtc-14-ripple-states-5 {
+        top: -6301px;
+        left: -8290px;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-ripple-states-6 {
+        top: -6361px;
+        left: -8306px;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-ripple-states-7 {
+        top: -6482px;
+        left: -8306px;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-ripple-states-8 {
+        top: -6542px;
+        left: -8290px;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-frame-wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 997px;
+        height: 52px;
+        align-items: center;
+        justify-content: space-around;
+        gap: 8px;
+        position: relative;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-ripple-states-9 {
+        top: -6663px;
+        left: -8306px;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-component {
+        display: flex;
+        width: 1440px;
+        height: 94px;
+        align-items: center;
+        gap: 546px;
+        padding: 0px 100px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #ffffff;
+        box-shadow: 0px 4px 8px #21212114;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-frame-8 {
+        display: flex;
+        width: 1240px;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-frame-9 {
+        display: inline-flex;
+        align-items: center;
+        gap: 64px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-frame-10 {
+        display: inline-flex;
+        align-items: center;
+        gap: 40px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-frame-11 {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-blogger {
+        position: relative;
+        width: 48px;
+        height: 48px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-text-wrapper-4 {
+        position: relative;
+        width: fit-content;
+        font-family: var(--headline-bold-24-font-family);
+        font-weight: var(--headline-bold-24-font-weight);
+        color: #000000;
+        font-size: var(--headline-bold-24-font-size);
+        letter-spacing: var(--headline-bold-24-letter-spacing);
+        line-height: var(--headline-bold-24-line-height);
+        white-space: nowrap;
+        font-style: var(--headline-bold-24-font-style);
+    }
+
+    .dtc-14-SETTINGS .dtc-14-frame-12 {
+        display: flex;
+        width: 64px;
+        align-items: center;
+        gap: 16px;
+        position: relative;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-img-2 {
+        position: relative;
+        width: 24px;
+        height: 24px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-publish {
+        position: relative;
+        width: 24px;
+        height: 24px;
+        margin-right: -40px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-frame-13 {
+        display: flex;
+        width: 399px;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 8px 24px;
+        position: relative;
+        background-color: var(--white);
+        border: 1px solid;
+        border-color: var(--grey-300);
+    }
+
+    .dtc-14-SETTINGS .dtc-14-search {
+        position: relative;
+        width: 20px;
+        height: 20px;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-text {
+        color: var(--grey-500);
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: var(--button-normal-14-font-family);
+        font-weight: var(--button-normal-14-font-weight);
+        font-size: var(--button-normal-14-font-size);
+        letter-spacing: var(--button-normal-14-letter-spacing);
+        line-height: var(--button-normal-14-line-height);
+        white-space: nowrap;
+        font-style: var(--button-normal-14-font-style);
+    }
+
+    .dtc-14-SETTINGS .dtc-14-right-nest {
+        display: inline-flex;
+        align-items: center;
+        gap: 24px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-header-CTA-block {
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-avatar-default {
+        position: relative;
+        width: 32px;
+        height: 32px;
+        border-radius: 200px;
+        background-image: url(./img/size-32-image-true.png);
+        background-size: cover;
+        background-position: 50% 50%;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-button-default {
+        display: flex;
+        width: 130px;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 16px;
+        position: relative;
+        background-color: var(--grey-100);
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    .dtc-14-SETTINGS .dtc-14-text-2 {
+        margin-left: -2px;
+        margin-right: -2px;
+        color: var(--main-text);
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: var(--button-normal-14-font-family);
+        font-weight: var(--button-normal-14-font-weight);
+        font-size: var(--button-normal-14-font-size);
+        letter-spacing: var(--button-normal-14-letter-spacing);
+        line-height: var(--button-normal-14-line-height);
+        white-space: nowrap;
+        font-style: var(--button-normal-14-font-style);
+    }

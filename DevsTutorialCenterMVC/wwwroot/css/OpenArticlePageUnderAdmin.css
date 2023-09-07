@@ -1011,10 +1011,10 @@
 
 
 
-.component {
-    background: #ffffff;
+/*.component {
+    background: #ffffff;*/
     /*padding: 0px 100px 0px 100px;*/
-    display: flex;
+    /*display: flex;
     flex-direction: row;
     gap: 546px;
     align-items: center;
@@ -1023,8 +1023,8 @@
     height: 94px;
     position: relative;
     box-shadow: 0px 2px 4px 0px rgba(33, 33, 33, 0.06), 0px 4px 8px 0px rgba(33, 33, 33, 0.08);
-}
-.component-covenant  {
+}*/
+/*.component-covenant  {
   background: #ffffff;
   padding: 0px 100px 0px 100px;
   display: flex;
@@ -1039,7 +1039,7 @@
   top: 0px;
   box-shadow: 0px 2px 4px 0px rgba(33, 33, 33, 0.06),
     0px 4px 8px 0px rgba(33, 33, 33, 0.08);
-}
+}*/
 .frame-253-covenant  {
   display: flex;
   flex-direction: row;
@@ -1115,7 +1115,7 @@
   position: relative;
   overflow: visible;
 }
-.frame-250-covenant  {
+/*.frame-250-covenant  {
   background: var(--white, #ffffff);
   border-style: solid;
   border-color: var(--grey-300, #d0d5dd);
@@ -1129,7 +1129,7 @@
   flex-shrink: 0;
   width: 399px;
   position: relative;
-}
+}*/
 .search-covenant {
   flex-shrink: 0;
   position: relative;

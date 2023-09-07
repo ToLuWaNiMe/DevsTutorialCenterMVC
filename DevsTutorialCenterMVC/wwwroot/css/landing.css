@@ -367,7 +367,7 @@
     overflow: visible;
 }
 
-.devs-tutorial-center {
+/*.devs-tutorial-center {
     color: #000000;
     text-align: left;
     font: var(--headline-bold-24, 700 24px/140% "Inter", sans-serif);
@@ -375,7 +375,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-}
+}*/
 
 .developer-dream-text {
     color: #000000;
@@ -414,7 +414,7 @@
     overflow: visible;
 }
 
-.devs-tutorial-center {
+/*.devs-tutorial-center {
     color: #000000;
     text-align: left;
     font: var(--headline-bold-24, 700 24px/140% "Inter", sans-serif);
@@ -422,7 +422,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-}
+}*/
 
 .frame-251 {
     display: flex;
@@ -460,7 +460,7 @@
     overflow: visible;
 }
 
-.devs-tutorial-center {
+./*devs-tutorial-center {
     color: #000000;
     text-align: left;
     font: var(--headline-bold-24, 700 24px/140% "Inter", sans-serif);
@@ -468,9 +468,9 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-}
+}*/
 
-.frame-180 {
+/*.frame-180 {
     display: flex;
     flex-direction: row;
     gap: 16px;
@@ -478,7 +478,7 @@
     justify-content: flex-start;
     flex-shrink: 0;
     position: relative;
-}
+}*/
 
 .icon-home {
     flex-shrink: 0;
@@ -492,7 +492,7 @@
     overflow: visible;
 }
 
-.frame-250 {
+/*.frame-250 {
     background: var(--white, #ffffff);
     border-style: solid;
     border-color: var(--grey-300, #d0d5dd);
@@ -506,7 +506,7 @@
     flex-shrink: 0;
     width: 540px;
     position: relative;
-}
+}*/
 
 .search {
     flex-shrink: 0;
