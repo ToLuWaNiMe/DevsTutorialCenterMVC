@@ -1,0 +1,47 @@
+﻿
+
+<link href="~/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="~/js/froala_editor.pkgd.min.js"></script>
+
+
+<partial name="_WriteArticleNavBarPartial" /> 
+
+<section class="position-absolute d-flex flex-column w-100 h-100" style="left: 0;">
+    
+
+    <partial name="_SuccessConfirmationModalPartial" />
+
+    <div class="container">
+        <div class="mt-5">
+            <h3 class="fr-large mb-3" style="font-size: 1.6rem;font-family: 'Inter'; letter-spacing: .1px;">Create Article</h3>
+            <form method="post" asp-area="" asp-controller="Article" asp-action="Create">
+                <div class="d-flex flex-column justify-content-between h-100">
+                    <div id="article-title" class="col p-0 d-flex align-items-center mb-3">
+                        <input name="Title" class="form-control input-ify" placeholder="Title">
+                    </div>
+                    <div id="article-tag" class="col p-0 d-flex align-items-center mb-3">
+                        <input name="Tag" class="form-control input-ify" placeholder="Tag">
+                    </div>
+                    <div class="col-12 mb-3" >
+                        <textarea name="Content" id="article-ify" class="form-control" placeholder="Tell your story...."></textarea>
+                    </div>
+                </div>
+                @*<div>
+                    <button class="btn btn-success">Publish</button>
+                </div>*@
+            </form>
+            <script>
+                var editor = new FroalaEditor("#article-ify", {
+                    heightMin: 300,
+                    heightMax: 500,
+                    //toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'fontFamily', 'fontSize', 'color', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '-', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|', 'emoticons', 'specialCharacters', 'insertHR', 'selectAll', 'clearFormatting', '|', 'print', 'help', 'html', '|', 'undo', 'redo', 'trackChanges', 'markdown'],
+                    //charCounterCount: false
+                })
+
+                //window.addEventListener("load", function() {
+                //    editor.events.focus(true);
+                //})
+            </script>
+        </div>
+    </div>
+</section>
