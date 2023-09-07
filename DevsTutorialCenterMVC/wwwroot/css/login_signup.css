@@ -1,6 +1,6 @@
 /*Login*/
 
-.chi-login {
+.dtc-7-login {
     background-color: #f9fafb;
     display: flex;
     flex-direction: row;
@@ -8,13 +8,13 @@
     width: 100%;
 }
 
-    .chi-login .chi-frame-wrapper {
+    .dtc-7-login .dtc-7-wrapper {
         background-color: var(--grey-50);
         width: 1440px;
         height: 1024px;
     }
 
-    .chi-login .chi-frame {
+    .dtc-7-login .dtc-7-frameframe {
         display: inline-flex;
         flex-direction: column;
         align-items: center;
@@ -24,7 +24,7 @@
         left: 460px;
     }
 
-    .chi-login .chi-login-authentication {
+    .dtc-7-login .dtc-7-login-authentication {
         display: inline-flex;
         flex-direction: column;
         align-items: center;
@@ -37,7 +37,7 @@
         box-shadow: var(--bottom-card-shadow-heavy);
     }
 
-    .chi-login .div {
+    .dtc-7-login .dtc-7-div {
         display: inline-flex;
         flex-direction: column;
         align-items: center;
@@ -46,7 +46,7 @@
         flex: 0 0 auto;
     }
 
-    .chi-login .chi-frame-2 {
+    .dtc-7-login .dtc-7-frame-2 {
         display: inline-flex;
         align-items: center;
         gap: 8px;
@@ -54,13 +54,13 @@
         flex: 0 0 auto;
     }
 
-    .chi-login .blogger {
+    .dtc-7-login .dtc-7-blogger {
         position: relative;
         width: 64px;
         height: 64px;
     }
 
-    .chi-login .text {
+    .dtc-7-login .dtc-7-text {
         position: relative;
         width: fit-content;
         font-family: var(--headline-bold-24-font-family);
@@ -73,7 +73,7 @@
         font-style: var(--headline-bold-24-font-style);
     }
 
-    .chi-login .chi-frame-3 {
+    .dtc-7-login .dtc-7-frame-3 {
         display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
@@ -82,7 +82,7 @@
         flex: 0 0 auto;
     }
 
-    .chi-login .chi-frame-4 {
+    .dtc-7-login .dtc-7-frame-4 {
         display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
@@ -91,7 +91,7 @@
         flex: 0 0 auto;
     }
 
-    .chi-login .button-default {
+    .dtc-7-login .dtc-7-button-default {
         display: flex;
         width: 436px;
         align-items: center;
@@ -107,13 +107,13 @@
         border-color: var(--grey-300);
     }
 
-    .chi-login .img {
+    .dtc-7-login .dtc-7-img {
         position: relative;
         width: 24px;
         height: 24px;
     }
 
-    .chi-login .text-wrapper {
+    .dtc-7-login .dtc-7-text-wrapper {
         position: relative;
         width: fit-content;
         font-family: var(--button-normal-14-font-family);
@@ -126,13 +126,13 @@
         font-style: var(--button-normal-14-font-style);
     }
 
-    .chi-login .frame-5 {
+    .dtc-7-login .dtc-7-frame-5 {
         position: relative;
         width: 436px;
         height: 20px;
     }
 
-    .chi-login .divider {
+    .dtc-7-login .dtc-7-divider {
         left: 0;
         position: absolute;
         width: 191px;
@@ -140,7 +140,7 @@
         top: 10px;
     }
 
-    .chi-login .vector {
+    .dtc-7-login .dtc-7-vector {
         position: absolute;
         width: 191px;
         height: 1px;
@@ -149,7 +149,7 @@
         object-fit: cover;
     }
 
-    .chi-login .text-2 {
+    .dtc-7-login .dtc-7-text-2 {
         position: absolute;
         height: 20px;
         top: -1px;
@@ -164,7 +164,7 @@
         font-style: var(--button-normal-14-font-style);
     }
 
-    .chi-login .vector-wrapper {
+    .dtc-7-login .dtc-7-vector-wrapper {
         left: 245px;
         position: absolute;
         width: 191px;
@@ -172,7 +172,7 @@
         top: 10px;
     }
 
-    .chi-login .chi-frame-6 {
+    .dtc-7-login .dtc-7-frame-6 {
         display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
@@ -181,135 +181,135 @@
         flex: 0 0 auto;
     }
 
-.chi-login .chi-frame-7 {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
-    position: relative;
-    flex: 0 0 auto;
-}
+    .dtc-7-login .dtc-7-frame-7 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        position: relative;
+        flex: 0 0 auto;
+    }
 
-.chi-login .chi-frame-8 {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 7px;
-    position: relative;
-    flex: 0 0 auto;
-}
+    .dtc-7-login .dtc-7-frame-8 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 7px;
+        position: relative;
+        flex: 0 0 auto;
+    }
 
-.chi-login .text-3 {
-    position: relative;
-    width: fit-content;
-    margin-top: -1px;
-    font-family: var(--body-text-bold-16-font-family);
-    font-weight: var(--body-text-bold-16-font-weight);
-    color: var(--main-text);
-    font-size: var(--body-text-bold-16-font-size);
-    letter-spacing: var(--body-text-bold-16-letter-spacing);
-    line-height: var(--body-text-bold-16-line-height);
-    white-space: nowrap;
-    font-style: var(--body-text-bold-16-font-style);
-}
+    .dtc-7-login .dtc-7-text-3 {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: var(--body-text-bold-16-font-family);
+        font-weight: var(--body-text-bold-16-font-weight);
+        color: var(--main-text);
+        font-size: var(--body-text-bold-16-font-size);
+        letter-spacing: var(--body-text-bold-16-letter-spacing);
+        line-height: var(--body-text-bold-16-line-height);
+        white-space: nowrap;
+        font-style: var(--body-text-bold-16-font-style);
+    }
 
-.chi-login .button-default-2 {
-    display: flex;
-    width: 436px;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 16px;
-    position: relative;
-    flex: 0 0 auto;
-    background-color: var(--white);
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid;
-    border-color: var(--grey-300);
-}
+    .dtc-7-login .dtc-7-button-default-2 {
+        display: flex;
+        width: 436px;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 16px;
+        position: relative;
+        flex: 0 0 auto;
+        background-color: var(--white);
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid;
+        border-color: var(--grey-300);
+    }
 
-.chi-login .text-5 {
-    position: relative;
-    width: fit-content;
-    font-family: "Inter", Helvetica;
-    font-weight: 400;
-    color: var(--blue-600);
-    font-size: 16px;
-    letter-spacing: 0.15px;
-    line-height: 22.4px;
-    text-decoration: underline;
-    white-space: nowrap;
-}
+    .dtc-7-login .dtc-7-text-5 {
+        position: relative;
+        width: fit-content;
+        font-family: "Inter", Helvetica;
+        font-weight: 400;
+        color: var(--blue-600);
+        font-size: 16px;
+        letter-spacing: 0.15px;
+        line-height: 22.4px;
+        text-decoration: underline;
+        white-space: nowrap;
+    }
 
-.chi-login .frame-10 {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-    position: relative;
-    flex: 0 0 auto;
-}
+    .dtc-7-login .dtc-7-frame-10 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        position: relative;
+        flex: 0 0 auto;
+    }
 
-.chi-login .CTA-default {
-    display: flex;
-    width: 436px;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px 16px;
-    position: relative;
-    flex: 0 0 auto;
-    background-color: green;
-    border-radius: 8px;
-    overflow: hidden;
-    box-sizing: border-box;
-}
+    .dtc-7-login .dtc-7-CTA-default {
+        display: flex;
+        width: 436px;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 16px;
+        position: relative;
+        flex: 0 0 auto;
+        background-color: green;
+        border-radius: 8px;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
 
-.chi-login .text-6 {
-    position: relative;
-    width: fit-content;
-    margin-top: -1px;
-    font-family: var(--button-semi-bold-14-font-family);
-    font-weight: var(--button-semi-bold-14-font-weight);
-    color: var(--white);
-    font-size: var(--button-semi-bold-14-font-size);
-    letter-spacing: var(--button-semi-bold-14-letter-spacing);
-    line-height: var(--button-semi-bold-14-line-height);
-    white-space: nowrap;
-    font-style: var(--button-semi-bold-14-font-style);
-}
+    .dtc-7-login .dtc-7-text-6 {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: var(--button-semi-bold-14-font-family);
+        font-weight: var(--button-semi-bold-14-font-weight);
+        color: var(--white);
+        font-size: var(--button-semi-bold-14-font-size);
+        letter-spacing: var(--button-semi-bold-14-letter-spacing);
+        line-height: var(--button-semi-bold-14-line-height);
+        white-space: nowrap;
+        font-style: var(--button-semi-bold-14-font-style);
+    }
 
-.chi-login .p {
-    position: relative;
-    width: fit-content;
-    font-family: "Inter", Helvetica;
-    font-weight: 400;
-    color: transparent;
-    font-size: 14px;
-    letter-spacing: 0;
-    line-height: 20px;
-    white-space: nowrap;
-}
+    .dtc-7-login .dtc-7-p {
+        position: relative;
+        width: fit-content;
+        font-family: "Inter", Helvetica;
+        font-weight: 400;
+        color: transparent;
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 20px;
+        white-space: nowrap;
+    }
 
-.chi-login .span {
-    color: #98a1b2;
-    font-family: var(--button-normal-14-font-family);
-    font-style: var(--button-normal-14-font-style);
-    font-weight: var(--button-normal-14-font-weight);
-    letter-spacing: var(--button-normal-14-letter-spacing);
-    line-height: var(--button-normal-14-line-height);
-    font-size: var(--button-normal-14-font-size);
-}
+    .dtc-7-login .dtc-7-span {
+        color: #98a1b2;
+        font-family: var(--button-normal-14-font-family);
+        font-style: var(--button-normal-14-font-style);
+        font-weight: var(--button-normal-14-font-weight);
+        letter-spacing: var(--button-normal-14-letter-spacing);
+        line-height: var(--button-normal-14-line-height);
+        font-size: var(--button-normal-14-font-size);
+    }
 
 
 @media screen and (min-width: 768px) {
-    .chi-login .chi-frame {
+    .dtc-7-login .dtc-7-frame {
         flex-direction: row; /* Restore original layout for larger screens */
         max-width: 1440px;
         margin: 0 auto; /* Center the content horizontally */
     }
 
-    .chi-login .chi-login-authentication {
+    .dtc-7-login .dtc-7-login-authentication {
         padding: 32px;
     }
 }
@@ -353,7 +353,7 @@
 
 /*SignUp*/
 
-.chi-sign-up {
+.dtc-7-sign-up {
     background-color: #f9fafb;
     display: flex;
     flex-direction: row;
@@ -361,13 +361,13 @@
     width: 100%;
 }
 
-    .chi-sign-up .chi-frame-wrapper {
+    .dtc-7-sign-up .dtc-7-frame-wrapper {
         background-color: var(--grey-50);
         width: 1440px;
         height: 1192px;
     }
 
-    .chi-sign-up .chi-frame {
+    .dtc-7-sign-up .dtc-7-frame {
         display: inline-flex;
         flex-direction: column;
         align-items: center;
@@ -377,7 +377,7 @@
         left: 442px;
     }
 
-    .chi-sign-up .div-wrapper {
+    .dtc-7-sign-up .dtc-7-div-wrapper {
         display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
@@ -390,7 +390,7 @@
         box-shadow: 0px 0px 8px #00000014;
     }
 
-    .chi-sign-up .div {
+    .dtc-7-sign-up .dtc-7-div {
         display: inline-flex;
         flex-direction: column;
         align-items: center;
@@ -399,7 +399,7 @@
         flex: 0 0 auto;
     }
 
-    .chi-sign-up .chi-frame-2 {
+    .dtc-7-sign-up .dtc-7-frame-2 {
         display: inline-flex;
         flex-direction: column;
         align-items: center;
@@ -408,7 +408,7 @@
         flex: 0 0 auto;
     }
 
-    .chi-sign-up .chi-frame-3 {
+    .dtc-7-sign-up .dtc-7-frame-3 {
         display: inline-flex;
         align-items: center;
         gap: 8px;
@@ -416,13 +416,13 @@
         flex: 0 0 auto;
     }
 
-    .chi-sign-up .blogger {
+    .dtc-7-sign-up .dtc-7-blogger {
         position: relative;
         width: 64px;
         height: 64px;
     }
 
-    .chi-sign-up .text {
+    .dtc-7-sign-up .dtc-7-text {
         position: relative;
         width: fit-content;
         font-weight: var(--headline-bold-24-font-weight);
@@ -435,7 +435,7 @@
         font-style: var(--headline-bold-24-font-style);
     }
 
-    .chi-sign-up .chi-frame-4 {
+    .dtc-7-sign-up .dtc-7-frame-4 {
         display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
@@ -444,7 +444,7 @@
         flex: 0 0 auto;
     }
 
-    .chi-sign-up .chi-frame-5 {
+    .dtc-7-sign-up .dtc-7-frame-5 {
         display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
@@ -453,7 +453,7 @@
         flex: 0 0 auto;
     }
 
-    .chi-sign-up .button-default {
+    .dtc-7-sign-up .dtc-7-button-default {
         display: flex;
         width: 436px;
         align-items: center;
@@ -469,19 +469,19 @@
         border-color: var(--grey-300);
     }
 
-    .chi-sign-up .img {
+    .dtc-7-sign-up .dtc-7-img {
         position: relative;
         width: 24px;
         height: 24px;
     }
 
-    .chi-sign-up .frame-6 {
+    .dtc-7-sign-up .dtc-7-frame-6 {
         position: relative;
         width: 436px;
         height: 20px;
     }
 
-    .chi-sign-up .divider {
+    .dtc-7-sign-up .dtc-7-divider {
         position: absolute;
         width: 191px;
         height: 1px;
@@ -489,7 +489,7 @@
         left: 0;
     }
 
-    .chi-sign-up .vector {
+    .dtc-7-sign-up .dtc-7-vector {
         position: absolute;
         width: 191px;
         height: 1px;
@@ -498,7 +498,7 @@
         object-fit: cover;
     }
 
-    .chi-sign-up .text-2 {
+    .dtc-7-sign-up .dtc-7-text-2 {
         position: absolute;
         height: 20px;
         top: -1px;
@@ -513,7 +513,7 @@
         font-style: var(--button-normal-14-font-style);
     }
 
-    .chi-sign-up .vector-wrapper {
+    .dtc-7-sign-up .dtc-7-vector-wrapper {
         position: absolute;
         width: 191px;
         height: 1px;
@@ -521,7 +521,7 @@
         left: 245px;
     }
 
-    .chi-sign-up .frame-7 {
+    .dtc-7-sign-up .dtc-7-frame-7 {
         display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
@@ -530,7 +530,7 @@
         flex: 0 0 auto;
     }
 
-    .chi-sign-up .frame-8 {
+    .dtc-7-sign-up .dtc-7-frame-8 {
         display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
@@ -539,7 +539,7 @@
         flex: 0 0 auto;
     }
 
-    .chi-sign-up .frame-9 {
+    .dtc-7-sign-up .dtc-7-frame-9 {
         display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
@@ -548,7 +548,7 @@
         flex: 0 0 auto;
     }
 
-    .chi-sign-up .text-3 {
+    .dtc-7-sign-up .dtc-7-text-3 {
         position: relative;
         width: fit-content;
         margin-top: -1px;
@@ -562,7 +562,7 @@
         font-style: var(--body-text-bold-16-font-style);
     }
 
-    .chi-sign-up .button-default-2 {
+    .dtc-7-sign-up .dtc-7-button-default-2 {
         display: flex;
         width: 436px;
         align-items: center;
@@ -577,7 +577,7 @@
         border-color: var(--grey-300);
     }
 
-    .chi-sign-up .frame-12 {
+    .dtc-7-sign-up .dtc-7-frame-12 {
         display: inline-flex;
         flex-direction: column;
         align-items: center;
@@ -586,7 +586,7 @@
         flex: 0 0 auto;
     }
 
-    .chi-sign-up .CTA-default {
+    .dtc-7-sign-up .dtc-7-CTA-default {
         display: flex;
         width: 436px;
         align-items: center;
@@ -601,7 +601,7 @@
         box-sizing: border-box;
     }
 
-    .chi-sign-up .text-6 {
+    .dtc-7-sign-up .dtc-7-text-6 {
         position: relative;
         width: fit-content;
         margin-top: -1px;
@@ -615,7 +615,7 @@
         font-style: var(--button-semi-bold-14-font-style);
     }
 
-    .chi-sign-up .p {
+    .dtc-7-sign-up .dtc-7-p {
         position: relative;
         width: fit-content;
         font-weight: 400;
@@ -627,7 +627,7 @@
         letter-spacing: 0;
     }
 
-    .chi-sign-up .span {
+    .dtc-7-sign-up .dtc-7-span {
         color: #98a1b2;
         font-family: var(--button-normal-14-font-family);
         font-style: var(--button-normal-14-font-style);
@@ -637,7 +637,7 @@
         font-size: var(--button-normal-14-font-size);
     }
 
-    .chi-sign-up .text-wrapper-2 {
+    .dtc-7-sign-up .dtc-7-text-wrapper-2 {
         font-weight: 600;
         color: #34a853;
         text-decoration: underline;
@@ -691,14 +691,14 @@
     position: relative;
     background-color: var(--white);
 }
-/*
-body {
+
+.login-signup-body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-}*/
+}
 
 .choose-account-modal .frame {
     display: flex;
