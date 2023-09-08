@@ -1,0 +1,84 @@
+﻿<div class="dtc-7-sign-up login-signup-body">
+    <form method="get" asp-action="SignUp" asp-controller="Account">
+        <div class="dtc-7-frame-wrapper">
+            <div class="dtc-7-frame">
+                <div class="dtc-7-div-wrapper">
+                    <div class="dtc-7-div">
+                        <div class="dtc-7-frame-2">
+                            <div class="dtc-7-frame-3"><img class="dtc-7-blogger" src="~/images/blogger.svg" /></div>
+                            <div class="dtc-7-text">Create a new account</div>
+                        </div>
+                        <div class="dtc-7-frame-4">
+                            <div class="dtc-7-frame-5">
+                                <div class="dtc-7-frame-5">
+                                    <div class="dtc-7-button-default">
+                                        <img class="dtc-7-img" src="~/images/google-1.svg" />
+                                        <div>
+                                            <a asp-action="WithAccount" asp-controller="Account">Sign Up with Google</a>
+                                        </div>
+                                    </div>
+                                    <div class="dtc-7-frame-6">
+                                        <div class="dtc-7-divider"><img class="dtc-7-vector" src="~/images/vector-2.svg" /></div>
+                                        <div class="dtc-7-text-2">OR</div>
+                                        <div class="dtc-7-vector-wrapper"><img class="dtc-7-vector" src="~/images/vector-1.svg" /></div>
+                                    </div>
+                                </div>
+                                <div class="dtc-7-frame-7">
+                                    <div class="dtc-7-frame-8">
+                                        <div class="dtc-7-frame-9">
+                                            <div class="dtc-7-text-3">First Name</div>
+                                            <input class="dtc-7-button-default-2" placeholder="Enter your First Name" />
+                                        </div>
+                                        <div class="dtc-7-frame-9">
+                                            <div class="dtc-7-text-3">Last Name</div>
+                                            <input class="dtc-7-button-default-2" placeholder="Enter your Last Name" />
+                                        </div>
+                                        <div class="dtc-7-frame-9">
+                                            <div class="dtc-7-text-3">Email Address</div>
+                                            <input class="dtc-7-button-default-2" placeholder="Enter your email" />
+                                        </div>
+                                        <div class="dtc-7-frame-9">
+                                            <div class="dtc-7-text-3">Squad Number</div>
+                                            <select class="dtc-7-button-default-2" id="squadNumber" name="squadNumber">
+                                                <option value="" selected disabled>Select your Squad number</option>
+                                                <option value="1">Squad 12</option>
+                                                <option value="2">Squad 16</option>
+                                                <option value="3">Squad 18</option>
+                                            </select>
+                                        </div>
+                                        <div class="dtc-7-frame-9">
+                                            <div class="dtc-7-text-3">Stack</div>
+                                            <select class="dtc-7-button-default-2" id="stack" name="stack">
+                                                <option value="" selected disabled>Select your Stack</option>
+                                                <option value="1">Dot Net</option>
+                                                <option value="2">Java</option>
+                                                <option value="3">Node.Js</option>
+                                            </select>
+                                        </div>
+                                        <div class="dtc-7-frame-9">
+                                            <div class="dtc-7-text-3">Password</div>
+                                            <input class="dtc-7-button-default-2" placeholder="****************" />
+                                        </div>
+                                        <div class="dtc-7-frame-9">
+                                            <div class="dtc-7-text-3">Confirm Password</div>
+                                            <input class="dtc-7-button-default-2" placeholder="****************" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dtc-7-frame-12">
+                                <button class="dtc-7-CTA-default">
+                                    <div class="dtc-7-text-6">Register</div>
+                                </button>
+                                <p class="dtc-7-p">
+                                    <span class="dtc-7-span">Already have an account ? </span>
+                                    <a asp-action="Login" asp-controller="Account">Sign In Here</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

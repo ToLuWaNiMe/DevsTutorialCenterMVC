@@ -1,0 +1,269 @@
+﻿
+.story-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: #f9fafb;
+    /*font-size: 1.6rem;*/
+    font-family: 'inter';
+}
+
+.story-h2 {
+    /*    font-size: 2.4rem;*/
+    font-weight: 500;
+    line-height: 140%;
+}
+
+.story-h3 {
+    /*    font-size: 1.8rem;*/
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #000;
+}
+
+.author > .story-h3,
+.more-topics > .story-h3,
+.recommendations > .story-h3 {
+    margin-bottom: 1rem;
+}
+
+.story-main {
+    padding: 0 3rem;
+}
+
+.story-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem;
+    box-shadow: 0 0.4rem 0.8rem 0 rgba(33, 33, 33, 0.08);
+    background-color: #fff;
+    position: relative;
+}
+
+.story-logo-search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.story-logo-box {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    /*    font-size: 2.4rem;*/
+}
+
+.story-nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.story-search-box {
+    padding: .8rem 2.4rem;
+    border: 1px solid #d0d5dd;
+}
+
+    .story-search-box label {
+        display: flex;
+    }
+
+.story-search-icon {
+    margin-right: .5rem;
+}
+
+.story-search-box input {
+    width: 21rem;
+    border: none;
+}
+
+    .story-search-box input:focus {
+        outline: none;
+    }
+
+.story-user-info {
+    display: flex;
+    align-items: center;
+    gap: 1.7rem;
+}
+
+    .story-user-info button {
+        background-color: #f2f4f7;
+        border-radius: .6rem;
+        border: none;
+        padding: 1.2rem 1rem;
+        width: 150px;
+        color: black;
+        font-weight: 400;
+        margin-top: 3px;
+    }
+
+.story-article-nav-list {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    border-bottom: 1px solid #d0d5dd;
+    color: #667085;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+/*
+.active-article {
+    color: #34a853;
+    border-bottom: 2px solid #34a853;
+}*/
+
+.story-nav-item {
+    padding-bottom: 0rem;
+}
+
+    .story-nav-item a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+
+.story-nav-pills, .story-nav-pills .show > .story-nav-link {
+    background: none;
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    border-bottom: 1px solid #d0d5dd;
+    color: #667085;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.story-nav-link.active {
+    color: #34a853;
+    border-bottom: 2px solid #34a853;
+}
+
+.story-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.story-articles {
+    width: 65%;
+    align-self: flex-start;
+}
+
+.story-aside {
+    width: 32%;
+}
+
+article {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    padding: 1.6rem 0 2.5rem 0;
+}
+
+    article:not(:last-child) {
+        border-bottom: 1px solid #d0d5dd;
+    }
+
+.story-article-text .story-h2 {
+    margin-bottom: 1rem;
+    color: #101828;
+}
+
+
+.story-article-text p {
+    line-height: 135%;
+    letter-spacing: 0.015rem;
+    margin-bottom: .8rem;
+    color: #475467;
+}
+
+.story-last-edited {
+    /*    font-size: 1.3rem;*/
+}
+
+.story-author, .story-more-topics {
+    margin-bottom: 2.0rem;
+    /* margin-top: 0rem;*/
+}
+
+.story-more-topics {
+    margin-top: -1rem;
+}
+
+.story-author-details {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    padding: .5rem 0rem 0rem 0rem;
+    /*    border: 1px solid red;*/
+    margin-top: -.5rem;
+}
+
+    .story-author-details:not(:last-child) {
+        border-bottom: 1px solid #d0d5dd;
+    }
+
+.story-details {
+    flex: 1;
+}
+
+    .story-details .story-h3 {
+        text-transform: capitalize;
+        color: #101828;
+    }
+
+.story-name {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -.5rem;
+}
+
+    .story-name p,
+    .story-profession {
+        /*        font-size: 1.2rem;*/
+        color: #475467;
+    }
+
+.story-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 373px;
+}
+
+.story-lang {
+    background-color: #f2f4f7;
+    color: #5c6881;
+    /*    font-size: 1.3rem;*/
+    font-weight: 400;
+    letter-spacing: 1px;
+    padding: .8rem 1.2rem;
+    border-radius: 5rem;
+}
+
+.story-recom-title {
+    margin-bottom: -12px;
+}
+
+.story-recom-article {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 1rem 0;
+}
+
+    .story-recom-article h4 {
+        /*    font-size: 2rem;*/
+        margin-bottom: .8rem;
+    }
+
+    .story-recom-article p {
+        /*    font-size: 1.4rem;*/
+        color: #98a2b3;
+    }
+
+    .story-recom-article:not(:last-child) {
+        border-bottom: 1px solid #d0d5dd;
+    }

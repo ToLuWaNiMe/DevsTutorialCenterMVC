@@ -1,0 +1,907 @@
+/*Login*/
+
+.dtc-7-login {
+    background-color: #f9fafb;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+    .dtc-7-login .dtc-7-wrapper {
+        background-color: var(--grey-50);
+        width: 1440px;
+        height: 1024px;
+    }
+
+    .dtc-7-login .dtc-7-frameframe {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        position: relative;
+        top: 100px;
+        left: 460px;
+    }
+
+    .dtc-7-login .dtc-7-login-authentication {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        padding: 32px;
+        position: relative;
+        flex: 0 0 auto;
+        background-color: var(--white);
+        border-radius: 16px;
+        box-shadow: var(--bottom-card-shadow-heavy);
+    }
+
+    .dtc-7-login .dtc-7-div {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-7-login .dtc-7-frame-2 {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-7-login .dtc-7-blogger {
+        position: relative;
+        width: 64px;
+        height: 64px;
+    }
+
+    .dtc-7-login .dtc-7-text {
+        position: relative;
+        width: fit-content;
+        font-family: var(--headline-bold-24-font-family);
+        font-weight: var(--headline-bold-24-font-weight);
+        color: var(--main-text);
+        font-size: var(--headline-bold-24-font-size);
+        letter-spacing: var(--headline-bold-24-letter-spacing);
+        line-height: var(--headline-bold-24-line-height);
+        white-space: nowrap;
+        font-style: var(--headline-bold-24-font-style);
+    }
+
+    .dtc-7-login .dtc-7-frame-3 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-7-login .dtc-7-frame-4 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-7-login .dtc-7-button-default {
+        display: flex;
+        width: 436px;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 16px;
+        position: relative;
+        flex: 0 0 auto;
+        background-color: var(--white);
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid;
+        border-color: var(--grey-300);
+    }
+
+    .dtc-7-login .dtc-7-img {
+        position: relative;
+        width: 24px;
+        height: 24px;
+    }
+
+    .dtc-7-login .dtc-7-text-wrapper {
+        position: relative;
+        width: fit-content;
+        font-family: var(--button-normal-14-font-family);
+        font-weight: var(--button-normal-14-font-weight);
+        color: var(--grey-400);
+        font-size: var(--button-normal-14-font-size);
+        letter-spacing: var(--button-normal-14-letter-spacing);
+        line-height: var(--button-normal-14-line-height);
+        white-space: nowrap;
+        font-style: var(--button-normal-14-font-style);
+    }
+
+    .dtc-7-login .dtc-7-frame-5 {
+        position: relative;
+        width: 436px;
+        height: 20px;
+    }
+
+    .dtc-7-login .dtc-7-divider {
+        left: 0;
+        position: absolute;
+        width: 191px;
+        height: 1px;
+        top: 10px;
+    }
+
+    .dtc-7-login .dtc-7-vector {
+        position: absolute;
+        width: 191px;
+        height: 1px;
+        top: -1px;
+        left: 0;
+        object-fit: cover;
+    }
+
+    .dtc-7-login .dtc-7-text-2 {
+        position: absolute;
+        height: 20px;
+        top: -1px;
+        left: 204px;
+        font-family: var(--button-normal-14-font-family);
+        font-weight: var(--button-normal-14-font-weight);
+        color: var(--grey-400);
+        font-size: var(--button-normal-14-font-size);
+        letter-spacing: var(--button-normal-14-letter-spacing);
+        line-height: var(--button-normal-14-line-height);
+        white-space: nowrap;
+        font-style: var(--button-normal-14-font-style);
+    }
+
+    .dtc-7-login .dtc-7-vector-wrapper {
+        left: 245px;
+        position: absolute;
+        width: 191px;
+        height: 1px;
+        top: 10px;
+    }
+
+    .dtc-7-login .dtc-7-frame-6 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-7-login .dtc-7-frame-7 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-7-login .dtc-7-frame-8 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 7px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-7-login .dtc-7-text-3 {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: var(--body-text-bold-16-font-family);
+        font-weight: var(--body-text-bold-16-font-weight);
+        color: var(--main-text);
+        font-size: var(--body-text-bold-16-font-size);
+        letter-spacing: var(--body-text-bold-16-letter-spacing);
+        line-height: var(--body-text-bold-16-line-height);
+        white-space: nowrap;
+        font-style: var(--body-text-bold-16-font-style);
+    }
+
+    .dtc-7-login .dtc-7-button-default-2 {
+        display: flex;
+        width: 436px;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 16px;
+        position: relative;
+        flex: 0 0 auto;
+        background-color: var(--white);
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid;
+        border-color: var(--grey-300);
+    }
+
+    .dtc-7-login .dtc-7-text-5 {
+        position: relative;
+        width: fit-content;
+        font-family: "Inter", Helvetica;
+        font-weight: 400;
+        color: var(--blue-600);
+        font-size: 16px;
+        letter-spacing: 0.15px;
+        line-height: 22.4px;
+        text-decoration: underline;
+        white-space: nowrap;
+    }
+
+    .dtc-7-login .dtc-7-frame-10 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-7-login .dtc-7-CTA-default {
+        display: flex;
+        width: 436px;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 16px;
+        position: relative;
+        flex: 0 0 auto;
+        background-color: green;
+        border-radius: 8px;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .dtc-7-login .dtc-7-text-6 {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: var(--button-semi-bold-14-font-family);
+        font-weight: var(--button-semi-bold-14-font-weight);
+        color: var(--white);
+        font-size: var(--button-semi-bold-14-font-size);
+        letter-spacing: var(--button-semi-bold-14-letter-spacing);
+        line-height: var(--button-semi-bold-14-line-height);
+        white-space: nowrap;
+        font-style: var(--button-semi-bold-14-font-style);
+    }
+
+    .dtc-7-login .dtc-7-p {
+        position: relative;
+        width: fit-content;
+        font-family: "Inter", Helvetica;
+        font-weight: 400;
+        color: transparent;
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 20px;
+        white-space: nowrap;
+    }
+
+    .dtc-7-login .dtc-7-span {
+        color: #98a1b2;
+        font-family: var(--button-normal-14-font-family);
+        font-style: var(--button-normal-14-font-style);
+        font-weight: var(--button-normal-14-font-weight);
+        letter-spacing: var(--button-normal-14-letter-spacing);
+        line-height: var(--button-normal-14-line-height);
+        font-size: var(--button-normal-14-font-size);
+    }
+
+
+@media screen and (min-width: 768px) {
+    .dtc-7-login .dtc-7-frame {
+        flex-direction: row; /* Restore original layout for larger screens */
+        max-width: 1440px;
+        margin: 0 auto; /* Center the content horizontally */
+    }
+
+    .dtc-7-login .dtc-7-login-authentication {
+        padding: 32px;
+    }
+}
+
+/*Login Style Guide*/
+
+:root {
+    --grey-50: rgba(249, 250, 251, 1);
+    --main-text: rgba(16, 24, 40, 1);
+    --grey-400: rgba(152, 162, 179, 1);
+    --white: rgba(255, 255, 255, 1);
+    --grey-300: rgba(208, 213, 221, 1);
+    --blue-600: rgba(21, 112, 239, 1);
+    --main-primary-color: rgba(52, 168, 83, 1);
+    --headline-bold-24-font-family: "Inter-Bold", Helvetica;
+    --headline-bold-24-font-weight: 700;
+    --headline-bold-24-font-size: 24px;
+    --headline-bold-24-letter-spacing: 0px;
+    --headline-bold-24-line-height: 139.9999976158142%;
+    --headline-bold-24-font-style: normal;
+    --button-normal-14-font-family: "Inter-Regular", Helvetica;
+    --button-normal-14-font-weight: 400;
+    --button-normal-14-font-size: 14px;
+    --button-normal-14-letter-spacing: 0px;
+    --button-normal-14-line-height: 20px;
+    --button-normal-14-font-style: normal;
+    --body-text-bold-16-font-family: "Inter-SemiBold", Helvetica;
+    --body-text-bold-16-font-weight: 600;
+    --body-text-bold-16-font-size: 16px;
+    --body-text-bold-16-letter-spacing: 0.15000000596046448px;
+    --body-text-bold-16-line-height: 139.9999976158142%;
+    --body-text-bold-16-font-style: normal;
+    --button-semi-bold-14-font-family: "Inter-SemiBold", Helvetica;
+    --button-semi-bold-14-font-weight: 600;
+    --button-semi-bold-14-font-size: 14px;
+    --button-semi-bold-14-letter-spacing: 0px;
+    --button-semi-bold-14-line-height: 20px;
+    --button-semi-bold-14-font-style: normal;
+    --bottom-card-shadow-heavy: 0px 6px 16px 0px rgba(0, 0, 0, 0.16);
+}
+
+/*SignUp*/
+
+.dtc-7-sign-up {
+    background-color: #f9fafb;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+    .dtc-7-sign-up .dtc-7-frame-wrapper {
+        background-color: var(--grey-50);
+        width: 1440px;
+        height: 1192px;
+    }
+
+    .dtc-7-sign-up .dtc-7-frame {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        position: relative;
+        top: 27px;
+        left: 442px;
+    }
+
+    .dtc-7-sign-up .dtc-7-div-wrapper {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 40px;
+        padding: 60px;
+        position: relative;
+        flex: 0 0 auto;
+        background-color: var(--white);
+        box-shadow: 0px 0px 8px #00000014;
+    }
+
+    .dtc-7-sign-up .dtc-7-div {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-7-sign-up .dtc-7-frame-2 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-7-sign-up .dtc-7-frame-3 {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-7-sign-up .dtc-7-blogger {
+        position: relative;
+        width: 64px;
+        height: 64px;
+    }
+
+    .dtc-7-sign-up .dtc-7-text {
+        position: relative;
+        width: fit-content;
+        font-weight: var(--headline-bold-24-font-weight);
+        color: var(--main-text);
+        font-size: var(--headline-bold-24-font-size);
+        line-height: var(--headline-bold-24-line-height);
+        white-space: nowrap;
+        font-family: var(--headline-bold-24-font-family);
+        letter-spacing: var(--headline-bold-24-letter-spacing);
+        font-style: var(--headline-bold-24-font-style);
+    }
+
+    .dtc-7-sign-up .dtc-7-frame-4 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-7-sign-up .dtc-7-frame-5 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-7-sign-up .dtc-7-button-default {
+        display: flex;
+        width: 436px;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 16px;
+        position: relative;
+        flex: 0 0 auto;
+        background-color: var(--white);
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid;
+        border-color: var(--grey-300);
+    }
+
+    .dtc-7-sign-up .dtc-7-img {
+        position: relative;
+        width: 24px;
+        height: 24px;
+    }
+
+    .dtc-7-sign-up .dtc-7-frame-6 {
+        position: relative;
+        width: 436px;
+        height: 20px;
+    }
+
+    .dtc-7-sign-up .dtc-7-divider {
+        position: absolute;
+        width: 191px;
+        height: 1px;
+        top: 10px;
+        left: 0;
+    }
+
+    .dtc-7-sign-up .dtc-7-vector {
+        position: absolute;
+        width: 191px;
+        height: 1px;
+        top: -1px;
+        left: 0;
+        object-fit: cover;
+    }
+
+    .dtc-7-sign-up .dtc-7-text-2 {
+        position: absolute;
+        height: 20px;
+        top: -1px;
+        left: 204px;
+        font-weight: var(--button-normal-14-font-weight);
+        color: var(--grey-400);
+        font-size: var(--button-normal-14-font-size);
+        line-height: var(--button-normal-14-line-height);
+        white-space: nowrap;
+        font-family: var(--button-normal-14-font-family);
+        letter-spacing: var(--button-normal-14-letter-spacing);
+        font-style: var(--button-normal-14-font-style);
+    }
+
+    .dtc-7-sign-up .dtc-7-vector-wrapper {
+        position: absolute;
+        width: 191px;
+        height: 1px;
+        top: 10px;
+        left: 245px;
+    }
+
+    .dtc-7-sign-up .dtc-7-frame-7 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-7-sign-up .dtc-7-frame-8 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-7-sign-up .dtc-7-frame-9 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 7px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-7-sign-up .dtc-7-text-3 {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: var(--body-text-bold-16-font-family);
+        font-weight: var(--body-text-bold-16-font-weight);
+        color: var(--main-text);
+        font-size: var(--body-text-bold-16-font-size);
+        letter-spacing: var(--body-text-bold-16-letter-spacing);
+        line-height: var(--body-text-bold-16-line-height);
+        white-space: nowrap;
+        font-style: var(--body-text-bold-16-font-style);
+    }
+
+    .dtc-7-sign-up .dtc-7-button-default-2 {
+        display: flex;
+        width: 436px;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 16px;
+        position: relative;
+        flex: 0 0 auto;
+        background-color: var(--white);
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid;
+        border-color: var(--grey-300);
+    }
+
+    .dtc-7-sign-up .dtc-7-frame-12 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .dtc-7-sign-up .dtc-7-CTA-default {
+        display: flex;
+        width: 436px;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 16px;
+        position: relative;
+        flex: 0 0 auto;
+        background-color: var(--main-primary-color);
+        border-radius: 8px;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .dtc-7-sign-up .dtc-7-text-6 {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-weight: var(--button-semi-bold-14-font-weight);
+        color: var(--white);
+        font-size: var(--button-semi-bold-14-font-size);
+        line-height: var(--button-semi-bold-14-line-height);
+        white-space: nowrap;
+        font-family: var(--button-semi-bold-14-font-family);
+        letter-spacing: var(--button-semi-bold-14-letter-spacing);
+        font-style: var(--button-semi-bold-14-font-style);
+    }
+
+    .dtc-7-sign-up .dtc-7-p {
+        position: relative;
+        width: fit-content;
+        font-weight: 400;
+        color: transparent;
+        font-size: 14px;
+        line-height: 20px;
+        white-space: nowrap;
+        font-family: "Inter", Helvetica;
+        letter-spacing: 0;
+    }
+
+    .dtc-7-sign-up .dtc-7-span {
+        color: #98a1b2;
+        font-family: var(--button-normal-14-font-family);
+        font-style: var(--button-normal-14-font-style);
+        font-weight: var(--button-normal-14-font-weight);
+        letter-spacing: var(--button-normal-14-letter-spacing);
+        line-height: var(--button-normal-14-line-height);
+        font-size: var(--button-normal-14-font-size);
+    }
+
+    .dtc-7-sign-up .dtc-7-text-wrapper-2 {
+        font-weight: 600;
+        color: #34a853;
+        text-decoration: underline;
+    }
+
+/*Sign Up styleguide*/
+
+:root {
+    --grey-50: rgba(249, 250, 251, 1);
+    --main-text: rgba(16, 24, 40, 1);
+    --grey-400: rgba(152, 162, 179, 1);
+    --white: rgba(255, 255, 255, 1);
+    --grey-300: rgba(208, 213, 221, 1);
+    --main-primary-color: rgba(52, 168, 83, 1);
+    --headline-bold-24-font-family: "Inter-Bold", Helvetica;
+    --headline-bold-24-font-weight: 700;
+    --headline-bold-24-font-size: 24px;
+    --headline-bold-24-letter-spacing: 0px;
+    --headline-bold-24-line-height: 139.9999976158142%;
+    --headline-bold-24-font-style: normal;
+    --button-normal-14-font-family: "Inter-Regular", Helvetica;
+    --button-normal-14-font-weight: 400;
+    --button-normal-14-font-size: 14px;
+    --button-normal-14-letter-spacing: 0px;
+    --button-normal-14-line-height: 20px;
+    --button-normal-14-font-style: normal;
+    --body-text-bold-16-font-family: "Inter-SemiBold", Helvetica;
+    --body-text-bold-16-font-weight: 600;
+    --body-text-bold-16-font-size: 16px;
+    --body-text-bold-16-letter-spacing: 0.15000000596046448px;
+    --body-text-bold-16-line-height: 139.9999976158142%;
+    --body-text-bold-16-font-style: normal;
+    --button-semi-bold-14-font-family: "Inter-SemiBold", Helvetica;
+    --button-semi-bold-14-font-weight: 600;
+    --button-semi-bold-14-font-size: 14px;
+    --button-semi-bold-14-letter-spacing: 0px;
+    --button-semi-bold-14-line-height: 20px;
+    --button-semi-bold-14-font-style: normal;
+}
+
+
+/*Login with Account*/
+
+.choose-account-modal {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px;
+    position: relative;
+    background-color: var(--white);
+}
+
+.login-signup-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.choose-account-modal .frame {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    align-self: stretch;
+    width: 100%;
+    gap: 8px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.choose-account-modal .text {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: var(--headline-bold-24-font-family);
+    font-weight: var(--headline-bold-24-font-weight);
+    color: var(--main-text);
+    font-size: var(--headline-bold-24-font-size);
+    letter-spacing: var(--headline-bold-24-letter-spacing);
+    line-height: var(--headline-bold-24-line-height);
+    white-space: nowrap;
+    font-style: var(--headline-bold-24-font-style);
+}
+
+.choose-account-modal .div {
+    position: relative;
+    align-self: stretch;
+    font-family: "Inter", Helvetica;
+    font-weight: 400;
+    color: transparent;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+}
+
+.choose-account-modal .text-wrapper {
+    color: #101828;
+    font-family: var(--button-normal-14-font-family);
+    font-style: var(--button-normal-14-font-style);
+    font-weight: var(--button-normal-14-font-weight);
+    letter-spacing: var(--button-normal-14-letter-spacing);
+    line-height: var(--button-normal-14-line-height);
+    font-size: var(--button-normal-14-font-size);
+}
+
+.choose-account-modal .span {
+    font-weight: var(--button-semi-bold-14-font-weight);
+    color: #1570ef;
+    font-family: var(--button-semi-bold-14-font-family);
+    font-style: var(--button-semi-bold-14-font-style);
+    letter-spacing: var(--button-semi-bold-14-letter-spacing);
+    line-height: var(--button-semi-bold-14-line-height);
+    font-size: var(--button-semi-bold-14-font-size);
+}
+
+.choose-account-modal .frame-2 {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.choose-account-modal .button-default {
+    display: flex;
+    width: 400px;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    position: relative;
+    flex: 0 0 auto;
+    background-color: var(--white);
+    border-radius: 6px;
+    overflow: hidden;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-color: var(--main-text);
+}
+
+.choose-account-modal .frame-3 {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.choose-account-modal .avatar-default {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 200px;
+    background-image: url(./img/size-24-image-true.png);
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.choose-account-modal .text-2 {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: var(--button-normal-14-font-family);
+    font-weight: var(--button-normal-14-font-weight);
+    color: var(--main-text);
+    font-size: var(--button-normal-14-font-size);
+    letter-spacing: var(--button-normal-14-letter-spacing);
+    line-height: var(--button-normal-14-line-height);
+    font-style: var(--button-normal-14-font-style);
+}
+
+.choose-account-modal .avatar-default-2 {
+    background-image: url(./img/avatar-default.png);
+    background-size: cover;
+    background-position: 50% 50%;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 200px;
+}
+
+.choose-account-modal .div-wrapper {
+    background-color: var(--grey-300);
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 200px;
+}
+
+.choose-account-modal .text-3 {
+    position: absolute;
+    width: 24px;
+    height: 18px;
+    top: 3px;
+    left: 0;
+    font-family: var(--assistive-2-medium-font-family);
+    font-weight: var(--assistive-2-medium-font-weight);
+    color: var(--basicwhite);
+    font-size: var(--assistive-2-medium-font-size);
+    text-align: center;
+    letter-spacing: var(--assistive-2-medium-letter-spacing);
+    line-height: var(--assistive-2-medium-line-height);
+    font-style: var(--assistive-2-medium-font-style);
+}
+
+.choose-account-modal .text-4 {
+    position: relative;
+    width: fit-content;
+    font-family: var(--button-normal-14-font-family);
+    font-weight: var(--button-normal-14-font-weight);
+    color: var(--main-text);
+    font-size: var(--button-normal-14-font-size);
+    letter-spacing: var(--button-normal-14-letter-spacing);
+    line-height: var(--button-normal-14-line-height);
+    white-space: nowrap;
+    font-style: var(--button-normal-14-font-style);
+}
+
+/*Login with account styleguide*/
+
+:root {
+    --white: rgba(255, 255, 255, 1);
+    --main-text: rgba(16, 24, 40, 1);
+    --basicwhite: rgba(255, 255, 255, 1);
+    --grey-300: rgba(208, 213, 221, 1);
+    --primary-500: rgba(0, 79, 255, 1);
+    --headline-bold-24-font-family: "Inter-Bold", Helvetica;
+    --headline-bold-24-font-weight: 700;
+    --headline-bold-24-font-size: 24px;
+    --headline-bold-24-letter-spacing: 0px;
+    --headline-bold-24-line-height: 139.9999976158142%;
+    --headline-bold-24-font-style: normal;
+    --button-normal-14-font-family: "Inter-Regular", Helvetica;
+    --button-normal-14-font-weight: 400;
+    --button-normal-14-font-size: 14px;
+    --button-normal-14-letter-spacing: 0px;
+    --button-normal-14-line-height: 20px;
+    --button-normal-14-font-style: normal;
+    --button-semi-bold-14-font-family: "Inter-SemiBold", Helvetica;
+    --button-semi-bold-14-font-weight: 600;
+    --button-semi-bold-14-font-size: 14px;
+    --button-semi-bold-14-letter-spacing: 0px;
+    --button-semi-bold-14-line-height: 20px;
+    --button-semi-bold-14-font-style: normal;
+    --assistive-2-medium-font-family: "Heebo-Medium", Helvetica;
+    --assistive-2-medium-font-weight: 500;
+    --assistive-2-medium-font-size: 10px;
+    --assistive-2-medium-letter-spacing: 0px;
+    --assistive-2-medium-line-height: 14px;
+    --assistive-2-medium-font-style: normal;
+    --body-1-medium-font-family: "Heebo-Medium", Helvetica;
+    --body-1-medium-font-weight: 500;
+    --body-1-medium-font-size: 16px;
+    --body-1-medium-letter-spacing: 0px;
+    --body-1-medium-line-height: 150%;
+    --body-1-medium-font-style: normal;
+    --body-2-medium-font-family: "Heebo-Medium", Helvetica;
+    --body-2-medium-font-weight: 500;
+    --body-2-medium-font-size: 14px;
+    --body-2-medium-letter-spacing: 0px;
+    --body-2-medium-line-height: 20px;
+    --body-2-medium-font-style: normal;
+}
