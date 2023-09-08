@@ -8,5 +8,10 @@ namespace DevsTutorialCenterMVC.Controllers
         {
             return View();
         }
+
+        public IActionResult AuthorsUnderAdmin()
+        {
+            return View();
+        }
     }
 }
