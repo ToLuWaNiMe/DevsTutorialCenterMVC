@@ -1,7 +1,20 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using DevsTutorialCenterAPI.Data;
+using DevsTutorialCenterMVC.Data.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<DevsTutorialCenterMVCContext>(
+    option => option.UseSqlite(builder.Configuration.GetConnectionString("default"))
+);
+builder.Services.AddIdentity<AppUser, IdentityRole>()
+    .AddEntityFrameworkStores<DevsTutorialCenterMVCContext>()
+    .AddDefaultTokenProviders();
+
+
 
 var app = builder.Build();
 
@@ -19,6 +32,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+Seeder.SeedeMe(app);
 
 app.MapControllerRoute(
     name: "default",
