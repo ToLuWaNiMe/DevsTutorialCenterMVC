@@ -1,6 +1,6 @@
 ﻿using DevsTutorialCenterMVC.Data.Entities;
 
-namespace DevsTutorialCenterAPI.Data
+namespace DevsTutorialCenterMVC.Data
 {
     public static class SeedData
 	{

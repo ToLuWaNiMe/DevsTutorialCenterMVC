@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace DevsTutorialCenterAPI.Data
+namespace DevsTutorialCenterMVC.Data
 {
     public class DevsTutorialCenterMVCContext: IdentityDbContext<AppUser>
 	{

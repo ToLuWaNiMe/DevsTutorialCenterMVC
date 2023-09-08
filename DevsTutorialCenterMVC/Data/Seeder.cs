@@ -3,7 +3,7 @@ using DevsTutorialCenterMVC.Data.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace DevsTutorialCenterAPI.Data
+namespace DevsTutorialCenterMVC.Data
 {
 	public static class Seeder
 	{

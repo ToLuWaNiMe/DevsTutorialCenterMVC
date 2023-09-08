@@ -1,5 +1,6 @@
-﻿using DevsTutorialCenterAPI.Data;
+﻿using DevsTutorialCenterMVC.Data;
 using DevsTutorialCenterMVC.Data.Entities;
+using DevsTutorialCenterMVC.Data.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +14,7 @@ builder.Services.AddDbContext<DevsTutorialCenterMVCContext>(
 builder.Services.AddIdentity<AppUser, IdentityRole>()
     .AddEntityFrameworkStores<DevsTutorialCenterMVCContext>()
     .AddDefaultTokenProviders();
+builder.Services.AddScoped<IRepository, Repository>();
 
 
 
