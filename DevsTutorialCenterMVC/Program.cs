@@ -1,6 +1,7 @@
 ﻿using DevsTutorialCenterMVC.Data;
 using DevsTutorialCenterMVC.Data.Entities;
 using DevsTutorialCenterMVC.Data.Repositories;
+using DevsTutorialCenterMVC.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,7 +16,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>()
     .AddEntityFrameworkStores<DevsTutorialCenterMVCContext>()
     .AddDefaultTokenProviders();
 builder.Services.AddScoped<IRepository, Repository>();
-
+builder.Services.AddTransient<IMessengerService, MessengerService>();
 
 
 var app = builder.Build();
