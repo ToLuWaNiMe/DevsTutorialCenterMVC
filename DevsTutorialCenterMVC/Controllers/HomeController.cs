@@ -6,6 +6,7 @@ using DevsTutorialCenterMVC.Data.Repositories;
 using DevsTutorialCenterMVC.Services;
 using Microsoft.AspNetCore.Identity;
 using DevsTutorialCenterMVC.Data.MethodExtensions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DevsTutorialCenterMVC.Controllers;
 
@@ -54,14 +55,14 @@ public class HomeController : Controller
     }
 
     [HttpGet]
-    //[Authorize]
+    [Authorize]
     public PartialViewResult SendDecadevInvite()
     {
         return PartialView("_SendDecadevInvitePartial");
     }
 
     [HttpPost]
-    //[Authorize]
+    [Authorize]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> SendDecadevInvite([FromBody] DecadevInviteViewModel model)
     {
@@ -72,10 +73,10 @@ public class HomeController : Controller
             
         }
 
-        //var user = await _userManager.GetUserAsync(User);
+        var user = await _userManager.GetUserAsync(User);
 
         // this user is for initial testing
-        var user = await _repository.GetByIdAsync<AppUser>("148d2f6f-af7a-423a-baa2-f01d434d9b3a");
+        //var user = await _repository.GetByIdAsync<AppUser>("148d2f6f-af7a-423a-baa2-f01d434d9b3a");
 
         var inviteToken = await _userManager.GenerateUserTokenAsync(user, TokenOptions.DefaultEmailProvider, "Invite Decadev");
 
