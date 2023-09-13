@@ -59,7 +59,7 @@
     word-wrap: break-word
 }
 
-#successModal-ify {
+#successModal-ify, #inviteModal-ify {
     background-color: rgba(0,0, 0, .7) !important;
 }
 
