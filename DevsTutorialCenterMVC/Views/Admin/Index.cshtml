@@ -1,1 +1,66 @@
-﻿
+﻿@model PaginatorResponseViewModel<IEnumerable<GetAllAccountViewModel>>;
+
+@{
+    ViewData["Title"] = "GetAllAccounts";
+    
+}
+
+<partial name="_StoryPagesNavPartial" />
+
+<div class="container col-7 py-4">
+    <table id="tblData" class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+               
+                <th class="col-sm-3">Name</th>
+                <th>Email</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var account in Model.PageItems)
+            {    
+                <tr>
+                   
+                    <td>@account.FirstName @account.LastName</td>
+                    <td>@account.Email</td>
+                    <td>
+                        <a asp-action="AccountDetails"
+                           asp-route-id="@account.Id"
+                           class="btn btn-primary bg-gradient border-0">
+                            Details
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+    <div class="container text-center">
+      
+        <ul class="pagination">
+            <li class="page-item @(Model.PreviousPage > 0 ? "" : "disabled")">
+                <a class="page-link" href="@Url.Action("Index", new { page = Model.PreviousPage })">
+                    <span aria-hidden="true">&laquo;</span> 
+                </a>
+            </li>
+            <li class="page-item">
+                <span class="page-link">@Model.CurrentPage</span>
+            </li>
+            <li class="page-item @(Model.NextPage > 0 ? "" : "disabled")">
+                <a class="page-link" href="@Url.Action("Index", new { page = Model.NextPage })">
+                    <span aria-hidden="true">&raquo;</span> 
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+
+
+
+
+
