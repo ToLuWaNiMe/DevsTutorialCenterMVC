@@ -17,6 +17,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>()
     .AddDefaultTokenProviders();
 builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddTransient<IMessengerService, MessengerService>();
+builder.Services.AddTransient<IAccountService, AccountService>();
 
 
 var app = builder.Build();
@@ -35,6 +36,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseAuthentication();
 Seeder.SeedeMe(app);
 
 app.MapControllerRoute(
