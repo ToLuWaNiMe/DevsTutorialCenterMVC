@@ -23,6 +23,40 @@ namespace DevsTutorialCenterMVC.Controllers
 
         [HttpGet]
         [AllowAnonymous]
+        public async Task<IActionResult> ConfirmEmail(string email, string token)
+        {
+            // if id or token is null, end the process
+            if (email == null || token == null)
+            {
+                ViewBag.ErrorTitle = "Invalid Id or token";
+                ViewBag.ErrorMessage = $"User or token cannot be null";
+                return View("Error");
+            }
+
+            // ensure that user exist
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                ViewBag.ErrorMessage = $"User with id {email} cannot be found!";
+                return View("NotFound");
+            }
+
+            // confirm email
+            var result = await _userManager.ConfirmEmailAsync(user, token);
+            if (result.Succeeded)
+            {
+                return View();
+            }
+
+            // on failure
+            ViewBag.ErrorTitle = "Conirmation Failed";
+            ViewBag.ErrorMessage = $"Could not confirm email.";
+            return View("Error");
+
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
         public IActionResult Login(string? returnUrl)
         {
             if (_signInManager.IsSignedIn(User))

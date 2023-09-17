@@ -12,7 +12,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DevsTutorialCenterMVCContext>(
     option => option.UseSqlite(builder.Configuration.GetConnectionString("default"))
 );
-builder.Services.AddIdentity<AppUser, IdentityRole>()
+builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
+{
+    options.SignIn.RequireConfirmedEmail = true;
+})
     .AddEntityFrameworkStores<DevsTutorialCenterMVCContext>()
     .AddDefaultTokenProviders();
 builder.Services.AddScoped<IRepository, Repository>();
