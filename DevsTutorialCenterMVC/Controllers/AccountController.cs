@@ -22,10 +22,10 @@ namespace DevsTutorialCenterMVC.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> ConfirmEmail(string id, string token)
+        public async Task<IActionResult> ConfirmEmail(string email, string token)
         {
             // if id or token is null, end the process
-            if (id == null || token == null)
+            if (email == null || token == null)
             {
                 ViewBag.ErrorTitle = "Invalid Id or token";
                 ViewBag.ErrorMessage = $"User or token cannot be null";
@@ -33,10 +33,10 @@ namespace DevsTutorialCenterMVC.Controllers
             }
 
             // ensure that user exist
-            var user = await _userManager.FindByIdAsync(id);
+            var user = await _userManager.FindByEmailAsync(email);
             if (user == null)
             {
-                ViewBag.ErrorMessage = $"User with id {id} cannot be found!";
+                ViewBag.ErrorMessage = $"User with id {email} cannot be found!";
                 return View("NotFound");
             }
 
