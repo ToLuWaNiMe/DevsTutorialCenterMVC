@@ -4,7 +4,7 @@ namespace DevsTutorialCenterMVC.Utilities
 {
     public static class Helper
     {
-        public static PaginatorResponseViewModel<IEnumerable<T>> Paginate<T>(List<T> items, int pageNum, int pageSize)
+        public static PaginatorResponseViewModel<IEnumerable<T>> Paginate<T>(IEnumerable<T> items, int pageNum, int pageSize)
         {
             var totalCount = items.Count();
             var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
@@ -34,5 +34,7 @@ namespace DevsTutorialCenterMVC.Utilities
                 NextPage = totalPages == pageNum ? null : pageNum + 1
             };
         }
+
+      
     }
 }

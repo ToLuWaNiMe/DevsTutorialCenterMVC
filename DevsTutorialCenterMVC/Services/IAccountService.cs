@@ -6,7 +6,7 @@ namespace DevsTutorialCenterMVC.Services
 {
     public interface IAccountService
     {
-      Task<PaginatorResponseViewModel<IEnumerable<GetAllAccountViewModel>>> GetAllAccountsAsync(AccountDetailsViewModel account);
+        Task<IEnumerable<GetAllAccountViewModel>> GetAllAccountsAsync();
         Task<AccountDetailsViewModel> AccountsDetailsAsync(string id);
     }
 }

@@ -17,32 +17,20 @@ namespace DevsTutorialCenterMVC.Services
             _repository = repository;
         }
 
-        public async Task<PaginatorResponseViewModel<IEnumerable<GetAllAccountViewModel>>> GetAllAccountsAsync(AccountDetailsViewModel account)
+        public async Task<IEnumerable<GetAllAccountViewModel>> GetAllAccountsAsync()
         {
             var appUsers = await _repository.GetAllAsync<AppUser>();
-            var viewModelList = new List<GetAllAccountViewModel>();
-
-            foreach (var appUser in appUsers)
+            var viewModelList = appUsers.Select(appUser => new GetAllAccountViewModel
             {
-                var viewModel = new GetAllAccountViewModel
-                {
-                    Id = appUser.Id,
-                    FirstName = appUser.FirstName,
-                    LastName = appUser.LastName,
-                    Email = appUser.Email,
-                    ImageUrl = appUser.ImageUrl
-                   
-                };
+                Id = appUser.Id,
+                FirstName = appUser.FirstName,
+                LastName = appUser.LastName,
+                Email = appUser.Email,
+                ImageUrl = appUser.ImageUrl
+                
+            }).ToList();
 
-                viewModelList.Add(viewModel);
-            }
-
-            int pageNum = account.Page ?? 1;
-            int pageSize = account.Size ?? 3;
-            var skipAmount = (pageNum - 1) * pageSize;
-
-            var paginatorResponse = Helper.Paginate(viewModelList, pageNum, pageSize);
-            return paginatorResponse;
+            return viewModelList;
         }
 
         public async Task<AccountDetailsViewModel> AccountsDetailsAsync(string id)

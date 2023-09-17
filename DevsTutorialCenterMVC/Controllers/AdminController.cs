@@ -1,5 +1,6 @@
 ﻿using DevsTutorialCenterMVC.Models;
 using DevsTutorialCenterMVC.Services;
+using DevsTutorialCenterMVC.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Principal;
 
@@ -14,17 +15,21 @@ namespace DevsTutorialCenterMVC.Controllers
         {
             _accountService = accountService;
         }
-        public async Task<IActionResult> Index(AccountDetailsViewModel account)
+        public async Task<IActionResult> Index(int? page, int? size)
         {
-            var viewModelList = await _accountService.GetAllAccountsAsync(account);
-          
-            return View(viewModelList);
+            int pageNum = page ?? 1;
+            int pageSize = size ?? 3;
+
+            var viewModelList = await _accountService.GetAllAccountsAsync();
+            var paginatedViewModel = Helper.Paginate(viewModelList, pageNum, pageSize);
+
+            return View(paginatedViewModel);
         }
 
 
 
-     
-    public async Task<IActionResult> AccountDetails(string id)
+
+        public async Task<IActionResult> AccountDetails(string id)
         {
 
             var account = await _accountService.AccountsDetailsAsync(id);
