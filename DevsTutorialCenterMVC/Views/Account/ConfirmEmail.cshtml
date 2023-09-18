@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Email Confirmed";
+    Layout = "_Layout";
+}
+
+
+<div class="register-box mt-3">
+    <div class="card">
+        <div class="card-body register-card-body">
+            <div class="frame">
+                <div class="div"><img class="blogger" src="images/blogger.svg" /></div>
+                <div class="text">Welcome</div>
+            </div>
+
+            <center>
+                <h4 class="text-teal">@ViewBag.Title Successfully!</h4>
+                <hr />
+                <i class="fa fa-check-circle text-teal m-3" style="font-size:70px;"></i>
+                <div class="login-box-msg text-teal">Thank you for confirming your email</div>
+                <div><a asp-action="Login" asp-controller="Account">Login</a> <i class="fa fa-arrow-right text-primary"></i></div>
+            </center>
+        </div>
+    </div><!-- /.card -->
+    <div class="text-muted text-center">
+        <small>Copyright &copy; @DateTime.Now.Year <a href="#">DevsTutorialCenter</a>. All rights reserved.</small>
+    </div>
+</div>

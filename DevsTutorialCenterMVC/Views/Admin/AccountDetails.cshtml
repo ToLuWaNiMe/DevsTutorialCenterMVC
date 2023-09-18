@@ -1,0 +1,78 @@
+﻿@model DevsTutorialCenterMVC.Models.AccountDetailsViewModel
+
+@{
+    ViewData["Title"] = "AccountDetails";
+}
+
+<partial name="_BlogPostNavPartial" />
+<h1></h1>
+<div class="container mt-4">
+
+    <div class="row d-flex h-100">
+        <div class="col">
+            <div class="card mb-3" style="border-radius: .5rem;">
+                <div class="row g-0">
+                    <div class="col-md-4 gradient-custom text-center text-black"
+                         style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem; background-color: lightgreen;">
+
+                        <div>
+                            @if (Model.ImageUrl != null)
+                            {
+                                <img src="@Model.ImageUrl" alt="User Profile Image" class="img-fluid my-5" style="width: 120px;" />
+                            }
+                            else
+                            {
+                                <img src="https://res.cloudinary.com/dj8irij6m/image/upload/v1694802853/bslcoo863bujmxb4qyao.jpg" alt="Default User Profile Image" class="img-fluid my-5" style="width: 120px;" />
+                            }
+                            <h5 style="color: darkgreen;">@Html.DisplayFor(model => model.FirstName)</h5>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-8">
+                        <div class="card-body p-4">
+                            <h6>User Profile</h6>
+                            <hr class="mt-0 mb-4">
+                            <div class="row pt-1">
+                                <div class="col-6 mb-3">
+                                    <h6>Full Name</h6>
+                                    <p class="text-muted">@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</p>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <h6>Email</h6>
+                                    <p class="text-muted">@Html.DisplayFor(model => model.Email)</p>
+                                </div>
+                                <h6>More information</h6>
+                                <hr class="mt-0 mb-4">
+                                <div class="row pt-1">
+                                    <div class="col-6 mb-3">
+                                        <h6>Created on</h6>
+                                        <p class="text-muted">@Html.DisplayFor(model => model.CreatedOn)</p>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <h6>Updated on</h6>
+                                        <p class="text-muted">@Html.DisplayFor(model => model.UpdatedOn)</p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-start">
+                                    <h6>Is Reported </h6>
+                                    @Html.DisplayFor(model => model.IsReported)
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a class="btn btn-outline-primary border  " asp-action="Index"> Go Back </a>
+        </div>
+    </div>
+     
+
+</div>
+
+    

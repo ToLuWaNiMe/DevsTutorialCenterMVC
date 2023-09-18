@@ -1,7 +1,28 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using DevsTutorialCenterMVC.Data;
+using DevsTutorialCenterMVC.Data.Entities;
+using DevsTutorialCenterMVC.Data.Repositories;
+using DevsTutorialCenterMVC.Services;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<DevsTutorialCenterMVCContext>(
+    option => option.UseSqlite(builder.Configuration.GetConnectionString("default"))
+);
+builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
+{
+    options.SignIn.RequireConfirmedEmail = true;
+})
+    .AddEntityFrameworkStores<DevsTutorialCenterMVCContext>()
+    .AddDefaultTokenProviders();
+builder.Services.AddScoped<IRepository, Repository>();
+builder.Services.AddTransient<IMessengerService, MessengerService>();
+
+builder.Services.AddScoped<IAccountService, AccountService>();
+
 
 var app = builder.Build();
 
@@ -18,11 +39,14 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
+Seeder.SeedeMe(app);
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 app.Run();
 
