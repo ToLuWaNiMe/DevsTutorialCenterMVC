@@ -2,6 +2,7 @@
 using DevsTutorialCenterMVC.Models;
 using DevsTutorialCenterMVC.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DevsTutorialCenterMVC.Controllers
@@ -9,24 +10,104 @@ namespace DevsTutorialCenterMVC.Controllers
     public class AccountController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
+        private readonly ILogger<AccountController> _logger;
         private readonly IAccountService _accountService;
         private readonly IMessengerService _messengerService;
         private readonly IConfiguration _config;
 
-        public AccountController(UserManager<AppUser> userManager, IAccountService accountService,
+        public AccountController(UserManager<AppUser> userManager,
+                                 SignInManager<AppUser> signInManager,
+                                 ILogger<AccountController> logger, IAccountService accountService,
             IMessengerService messengerService, IConfiguration config)
         {
             _userManager = userManager;
+            _signInManager = signInManager;
+            _logger = logger;
             _accountService = accountService;
             _messengerService = messengerService;
             _config = config;
         }
 
-
-        public IActionResult Login()
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> ConfirmEmail(string email, string token)
         {
+            // if id or token is null, end the process
+            if (email == null || token == null)
+            {
+                ViewBag.ErrorTitle = "Invalid Id or token";
+                ViewBag.ErrorMessage = $"User or token cannot be null";
+                return View("Error");
+            }
+
+            // ensure that user exist
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                ViewBag.ErrorMessage = $"User with id {email} cannot be found!";
+                return View("NotFound");
+            }
+
+            // confirm email
+            var result = await _userManager.ConfirmEmailAsync(user, token);
+            if (result.Succeeded)
+            {
+                return View();
+            }
+
+            // on failure
+            ViewBag.ErrorTitle = "Conirmation Failed";
+            ViewBag.ErrorMessage = $"Could not confirm email.";
+            return View("Error");
+
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Login(string? returnUrl)
+        {
+            if (_signInManager.IsSignedIn(User))
+                return RedirectToAction("Index", "Home");
+
+            ViewBag.ReturnUrl = returnUrl;
+
             return View();
         }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _signInManager.PasswordSignInAsync(model.Email,
+                    model.Password, model.RememberMe, false);
+
+                if (result.Succeeded)
+                {
+                    if (!string.IsNullOrEmpty(returnUrl))
+                    {
+                        return LocalRedirect(returnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("index", "home");
+                    }
+                }
+
+                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
+            }
+
+            return View(model);
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
 
         public IActionResult SignUp()
         {

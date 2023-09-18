@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using DevsTutorialCenterMVC.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DevsTutorialCenterMVC.Controllers;
 
@@ -17,16 +18,20 @@ public class HomeController : Controller
     {
         return View();
     }
+    
+    [Authorize]
     public IActionResult OpenArticle()
     {
         return View();
     }
-
+    
+    [Authorize]    
     public IActionResult Privacy()
     {
         return View();
     }
 
+    [Authorize]
     public IActionResult BlogPost()
     {
         return View();
