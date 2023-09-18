@@ -36,59 +36,53 @@ function toggleOption() {
 //    }
 //}
     
-async function SendInviteForm() {
-    const form = document.getElementById('invite-form');
+//async function SendInviteForm() {
+//    const form = document.getElementById('invite-form');
 
-    const formData = new FormData(form);
+//    const formData = new FormData(form);
 
-    const plainFormData = Object.fromEntries(formData.entries());
-    const formDataJsonString = JSON.stringify(plainFormData);
+//    const plainFormData = Object.fromEntries(formData.entries());
+//    const formDataJsonString = JSON.stringify(plainFormData);
 
-    const fetchOptions = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-            "RequestVerificationToken": document.getElementsByName("__RequestVerificationToken")[0].value
-        },
-        body: formDataJsonString,
-    };
+//    const fetchOptions = {
+//        method: "POST",
+//        headers: {
+//            "Content-Type": "application/json",
+//            "Accept": "application/json",
+//            "RequestVerificationToken": document.getElementsByName("__RequestVerificationToken")[0].value
+//        },
+//        body: formDataJsonString,
+//    };
         
-    // send the form values to your action
-    try {
-        var response = await fetch("https://localhost:7290/Home/SendDecadevInvite", fetchOptions)
+//    // send the form values to your action
+//    try {
+//        var response = await fetch('https://localhost:7290/Home/SendDecadevInvite', fetchOptions)
 
-        const data = await response.json();
+//        const data = await response.json();
 
-        if (data.code == 200) {
-            //hide the invite modal form
-            location.reload();
+//        if (data.code == 400) {
+            
+//            displayErrors(data.error);
+//        }
 
-            // Show success modal
-            $('#successModal-ify').modal('show');
-        } else {
+//    } catch (error) {
+//        console.error("Error:", error);
+//    }
+//}
 
-            // Display validation errors
-            displayErrors(data.error);
-        }
-    } catch (error) {
-        console.error("Error:", error);
-    }
-}
+//function displayErrors(errors) {
+//    for (let error of errors) {
 
-function displayErrors(errors) {
-    for (let error of errors) {
+//        let errorArray = Object.entries(error);
 
-        let errorArray = Object.entries(error);
+//        let holder = errorArray[0][1];
+//        console.log(holder);
+//        let errorSpan = $(`span[data-valmsg-for=${holder}]`);
+//        console.log(errorSpan);
+//        if (errorSpan) {
 
-        let holder = errorArray[0][1];
-        console.log(holder);
-        let errorSpan = $(`span[data-valmsg-for=${holder}]`);
-        console.log(errorSpan);
-        if (errorSpan) {
-
-            // Display the error message
-            errorSpan.text(errorArray[1][1]); 
-            }
-    }
-}
+//            // Display the error message
+//            errorSpan.text(errorArray[1][1]); 
+//            }
+//    }
+//}

@@ -1,11 +1,22 @@
-﻿<partial name="_BlogPostNavPartial" /> 
+﻿<partial name="_BlogPostNavPartial" />
+
+@{
+    var inviteMsg = ViewBag.InviteSuccess == "200" ? true: false;
+}
+
+
 
 <div class="container">
+    
     <div class="dtc-11-main-container">
         <div class="dtc-11-left-container">
             <div class="dtc-11-trending-container">
                 <div class="">
                     <h5 class="dtc-11-card-title">TRENDING</h5>
+                    @if (inviteMsg)
+                    {
+                        <h3>Success Modal</h3>
+                    }
                 </div>
                 <div class="dtc-11-trending-box">
                     <div class="dtc-11-trending-card">

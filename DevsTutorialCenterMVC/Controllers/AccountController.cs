@@ -42,6 +42,7 @@ namespace DevsTutorialCenterMVC.Controllers
 
             return View(model);
         }
+
         [HttpPost]
         public async Task<IActionResult> SignUp(SignUpViewModel model)
         {
@@ -56,8 +57,6 @@ namespace DevsTutorialCenterMVC.Controllers
 
                 return View(model);
             }
-
-
 
             await _repository.AddAsync(new AppUser
             {

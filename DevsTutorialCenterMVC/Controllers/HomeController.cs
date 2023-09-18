@@ -55,14 +55,14 @@ public class HomeController : Controller
     }
 
     [HttpGet]
-    [Authorize]
-    public PartialViewResult SendDecadevInvite()
+    //[Authorize]
+    public IActionResult SendDecadevInvite()
     {
-        return PartialView("_SendDecadevInvitePartial");
+        return View();
     }
 
     [HttpPost]
-    [Authorize]
+    //[Authorize]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> SendDecadevInvite([FromBody] DecadevInviteViewModel model)
     {
@@ -70,13 +70,11 @@ public class HomeController : Controller
         {
             var errors = ModelState.AllErrors();
             return BadRequest(new ResObj{ Code = 400, Error = errors });
-            
         }
 
-        var user = await _userManager.GetUserAsync(User);
-
         // this user is for initial testing
-        //var user = await _repository.GetByIdAsync<AppUser>("148d2f6f-af7a-423a-baa2-f01d434d9b3a");
+        var user = await _repository.GetByIdAsync<AppUser>("148d2f6f-af7a-423a-baa2-f01d434d9b3a");
+        //var user = await _userManager.GetUserAsync(User);
 
         var inviteToken = await _userManager.GenerateUserTokenAsync(user, TokenOptions.DefaultEmailProvider, "Invite Decadev");
 
@@ -101,8 +99,10 @@ public class HomeController : Controller
         if (_messengerService.Send(message) == "")
         {
             // Display a success message modal and return the response
+            ViewBag.InviteSuccess = "200";
+            return RedirectToAction("BlogPost");
 
-            return Ok(new { Code = 200, Error = new List<string>() });
+            //return Ok(new ResObj{ Code = 200, Error = new List<object>() });
         }
         
         ModelState.AddModelError("email", "Failure sending message");
