@@ -1,7 +1,8 @@
 ﻿using DevsTutorialCenterMVC.Data.Entities;
 using DevsTutorialCenterMVC.Models;
-using Microsoft.AspNetCore.Authorization;
+using DevsTutorialCenterMVC.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using DevsTutorialCenterMVC.Services;
 
@@ -12,14 +13,21 @@ namespace DevsTutorialCenterMVC.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly ILogger<AccountController> _logger;
+        private readonly IAccountService _accountService;
+        private readonly IMessengerService _messengerService;
+        private readonly IConfiguration _config;
 
         public AccountController(UserManager<AppUser> userManager,
                                  SignInManager<AppUser> signInManager,
-                                 ILogger<AccountController> logger)
+                                 ILogger<AccountController> logger, IAccountService accountService,
+            IMessengerService messengerService, IConfiguration config)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _accountService = accountService;
+            _messengerService = messengerService;
+            _config = config;
         }
 
         [HttpGet]
@@ -114,6 +122,52 @@ namespace DevsTutorialCenterMVC.Controllers
 
 
         [HttpGet]
+        public IActionResult ForgotPassword()
+        {
+            if (_accountService.IsLoggedInAsync(User))
+                return RedirectToAction("Index", "Home");
+            return View();
+        }
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        {
+            if (_accountService.IsLoggedInAsync(User))
+                return RedirectToAction("Index", "Home");
+
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.SelectMany(x => x.Value.Errors.Select(xx => xx.ErrorMessage));
+                var error = string.Join(" ", errors);
+                ViewBag.Err = error;
+                return View(model);
+            }
+
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                ViewBag.Err = "Email does not exist";
+                return View(model);
+            }
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var link = Url.Action("ResetPassword", "Account", new { token, model.Email }, Request.Scheme);
+            var sender = _config.GetSection("EmailSettings")["SenderEmail"];
+            var message = new Message("Reset Password link", new List<string>() { model.Email }, $"<a href=\"{link}\">Reset password</a>");
+
+            var messageStatus = _messengerService.Send(message);
+
+            ViewBag.Err = messageStatus == ""
+                ? "A reset password link has been sent to the email provided. Please go to your inbox and click on the link t reset your password"
+                : "Failed to send a reset password link. Please try again";
+
+            return View(model);
+        }
+
+
+        [HttpGet]
         public IActionResult ResetPassword(string Email, string token)
         {
             var viewModel = new ResetPasswordViewModel();
@@ -132,7 +186,6 @@ namespace DevsTutorialCenterMVC.Controllers
 
             return View(viewModel);
         }
-
 
 
         [HttpPost]

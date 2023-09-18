@@ -7,6 +7,7 @@ public class Message
         Subject = subject;
         To = to;
         Body = body;
+        
     }
     public string Subject { get; set; }
     public IList<string> To { get; set; } = new List<string>();
