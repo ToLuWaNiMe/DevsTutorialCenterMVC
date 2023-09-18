@@ -21,7 +21,7 @@
 
 .dtc-13-authors {
     background: var(--grey-50, #f9fafb);
-    width: 1440px;
+    width: 100vw;
     height: 1293px;
     overflow: hidden;
 }
@@ -684,7 +684,7 @@
     gap: 546px;
     align-items: center;
     justify-content: flex-start;
-    width: 1440px;
+    width: 100vw;
     height: 94px;
     position: relative;
     left: 0px;
@@ -763,6 +763,7 @@
     flex-shrink: 0;
     width: 399px;
     position: relative;
+    margin: 73px;
 }
 
 .dtc-13-search {
@@ -805,6 +806,7 @@
     flex-shrink: 0;
     position: relative;
     overflow: visible;
+    margin: -1px;
 }
 
 
