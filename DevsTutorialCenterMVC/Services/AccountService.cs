@@ -5,16 +5,29 @@ using DevsTutorialCenterMVC.Utilities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace DevsTutorialCenterMVC.Services
 {
     public class AccountService : IAccountService
     {
+        private readonly SignInManager<AppUser> _signInManager;
+        private readonly UserManager<AppUser> _userManager;
         private readonly IRepository _repository;
 
-        public AccountService(IRepository repository)
+        public AccountService(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, IRepository repository)
         {
+            _signInManager = signInManager;
+            _userManager = userManager;
             _repository = repository;
+        }
+
+        public bool IsLoggedInAsync(ClaimsPrincipal user)
+        {
+            if (_signInManager.IsSignedIn(user))
+                return true;
+            return false;
         }
 
         public async Task<IEnumerable<GetAllAccountViewModel>> GetAllAccountsAsync()
@@ -27,7 +40,7 @@ namespace DevsTutorialCenterMVC.Services
                 LastName = appUser.LastName,
                 Email = appUser.Email,
                 ImageUrl = appUser.ImageUrl
-                
+
             }).ToList();
 
             return viewModelList;
@@ -59,5 +72,8 @@ namespace DevsTutorialCenterMVC.Services
                 return viewModel;
             }
         }
+
+
+
     }
 }

@@ -28,7 +28,7 @@ public class MessengerService : IMessengerService
             {
                 appMail.To.Add(toEmail);
             }
-
+            appMail.From = new MailAddress(GmailAccount);
             appMail.Sender = new MailAddress(GmailAccount);
             appMail.Subject = message.Subject;
             appMail.Body = message.Body;
