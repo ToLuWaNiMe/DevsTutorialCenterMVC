@@ -1,11 +1,11 @@
-﻿namespace DevsTutorialCenterMVC.Data.Entities
+﻿namespace DevsTutorialCenterMVC.Models
 {
     public static class MessageBody
     {
         public static string Content(string link)
         {
 
-            return $@"""
+            return $@"
             <div style='padding: 10px;'>
                 <h1>Decadev Blog Invite</h1> 
                 <p>Congrats! You have been invited to join the Decagon community. Click on the button below to register</p>
@@ -14,7 +14,7 @@
                     Accept Invite
                 </a>
             </div>
-            """;
+            ";
         }
     }
 }

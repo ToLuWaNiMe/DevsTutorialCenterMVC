@@ -1,6 +1,4 @@
-﻿<partial name="_SendDecadevInvitePartial" />
-
-
+﻿
 <div class="dtc-11-component">
     <div class="container">
         <div class="dtc-11-frame-253">
@@ -85,9 +83,14 @@
                     <input type="text" placeholder="Search" />
                 </div>
                 
-                <button class="dtc-11-button-default"  style="background-color: #34A853 !important; margin-right: 10px;" data-bs-toggle="modal" data-bs-target="#inviteModal-ify">
-                    <div class="text-light">Invite User</div>
-                </button>
+                <a
+                    class="dtc-11-button-default text-light text-decoration-none"
+                    style="background-color: #34A853 !important; margin-right: 10px;"
+                    asp-action="SendDecadevInvite"
+                    asp-controller="Home"
+                >
+                    Invite User
+                </a>
 
             </div>
             <div class="dtc-11-right-nest">

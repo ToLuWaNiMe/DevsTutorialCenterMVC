@@ -1,4 +1,4 @@
-﻿namespace DevsTutorialCenterMVC.Data.Entities;
+﻿namespace DevsTutorialCenterMVC.Models;
 
 public class Message
 {

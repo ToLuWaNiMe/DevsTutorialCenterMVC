@@ -22,13 +22,17 @@ namespace DevsTutorialCenterMVC.Controllers
 
         [HttpGet]
         public IActionResult SignUp(
-            string token,
-            string Firstname,
-            string Lastname,
-            string email,
-            string Userstack,
-            string Squadnumber)
+            string token = "",
+            string Firstname = "",
+            string Lastname = "",
+            string email = "",
+            string Userstack = "",
+            string Squadnumber = "0")
         {
+            if (token == "")
+            {
+                return BadRequest("Access Denied");
+            }
 
             var model = new SignUpViewModel
             {

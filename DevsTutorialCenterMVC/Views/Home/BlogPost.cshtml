@@ -1,10 +1,12 @@
 ﻿<partial name="_BlogPostNavPartial" />
 
 @{
-    var inviteMsg = ViewBag.InviteSuccess == "200" ? true: false;
+    var title = TempData["isSent"]?.ToString() == "Email was sent successfully" ? "Invite Sent" : "Failed";
+
+    var content = title == "Invite Sent" ? "Email was sent successfully" : "Unable to send email invite to recipient";
+
+    var IsSent = title == "Invite Sent" ? true : false;
 }
-
-
 
 <div class="container">
     
@@ -13,9 +15,11 @@
             <div class="dtc-11-trending-container">
                 <div class="">
                     <h5 class="dtc-11-card-title">TRENDING</h5>
-                    @if (inviteMsg)
+                    @if (TempData["isSent"] != null)
                     {
-                        <h3>Success Modal</h3>
+                        <partial
+                            name="_SuccessConfirmationModalPartial"
+                            model="@new ModalContent{ Title = title, Content = content, IsSuccess = IsSent }"/>
                     }
                 </div>
                 <div class="dtc-11-trending-box">
@@ -419,3 +423,16 @@
     </div>
 
 </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#successModal-ify').modal('show')
+        });
+
+        var myModalEl = document.getElementById('successModal-ify')
+        myModalEl.addEventListener('hidden.bs.modal', function (event) {
+            location.reload();
+        })
+    </script>
+}

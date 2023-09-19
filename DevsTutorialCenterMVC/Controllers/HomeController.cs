@@ -5,8 +5,6 @@ using DevsTutorialCenterMVC.Data.Entities;
 using DevsTutorialCenterMVC.Data.Repositories;
 using DevsTutorialCenterMVC.Services;
 using Microsoft.AspNetCore.Identity;
-using DevsTutorialCenterMVC.Data.MethodExtensions;
-using Microsoft.AspNetCore.Authorization;
 
 namespace DevsTutorialCenterMVC.Controllers;
 
@@ -64,13 +62,10 @@ public class HomeController : Controller
     [HttpPost]
     //[Authorize]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> SendDecadevInvite([FromBody] DecadevInviteViewModel model)
+    public async Task<IActionResult> SendDecadevInvite(DecadevInviteViewModel model)
     {
         if (!ModelState.IsValid)
-        {
-            var errors = ModelState.AllErrors();
-            return BadRequest(new ResObj{ Code = 400, Error = errors });
-        }
+            return View(model);
 
         // this user is for initial testing
         var user = await _repository.GetByIdAsync<AppUser>("148d2f6f-af7a-423a-baa2-f01d434d9b3a");
@@ -98,16 +93,12 @@ public class HomeController : Controller
 
         if (_messengerService.Send(message) == "")
         {
-            // Display a success message modal and return the response
-            ViewBag.InviteSuccess = "200";
-            return RedirectToAction("BlogPost");
-
-            //return Ok(new ResObj{ Code = 200, Error = new List<object>() });
+            TempData["isSent"] = "Email was sent successfully";
+            return RedirectToAction("BlogPost", "Home");
         }
-        
-        ModelState.AddModelError("email", "Failure sending message");
-        var allErrors = ModelState.AllErrors();
-        return BadRequest(new ResObj { Code = 400, Error = allErrors });
+
+        TempData["isSent"] = "Failed";
+        return RedirectToAction("BlogPost", "Home");
     }
 
     
