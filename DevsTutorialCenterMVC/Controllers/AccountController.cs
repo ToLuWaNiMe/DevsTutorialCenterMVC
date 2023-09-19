@@ -112,7 +112,7 @@ namespace DevsTutorialCenterMVC.Controllers
             return View(model);
         }
 
-            [HttpPost]
+        [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
         {

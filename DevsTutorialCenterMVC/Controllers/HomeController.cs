@@ -44,30 +44,28 @@ public class HomeController : Controller
         return View();
     }
 
-    //[Authorize]
+    [Authorize]
     public IActionResult BlogPost()
     {
         return View();
     }
 
     [HttpGet]
-    //[Authorize]
+    [Authorize]
     public IActionResult SendDecadevInvite()
     {
         return View();
     }
 
     [HttpPost]
-    //[Authorize]
+    [Authorize]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> SendDecadevInvite(DecadevInviteViewModel model)
     {
         if (!ModelState.IsValid)
             return View(model);
 
-        // this user is for initial testing
-        var user = await _repository.GetByIdAsync<AppUser>("148d2f6f-af7a-423a-baa2-f01d434d9b3a");
-        //var user = await _userManager.GetUserAsync(User);
+        var user = await _userManager.GetUserAsync(User);
 
         var inviteToken = await _userManager.GenerateUserTokenAsync(user, TokenOptions.DefaultEmailProvider, "Invite Decadev");
 
