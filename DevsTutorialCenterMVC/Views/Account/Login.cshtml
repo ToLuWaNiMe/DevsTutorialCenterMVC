@@ -1,5 +1,15 @@
-﻿<div class="dtc-7-login login-signup-body ">
-    <form method="post" asp-action="Login" asp-controller="Account">
+﻿@model LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+
+    var errMsg = ViewBag.ErrorMessage;
+    var returnUrl = ViewBag.returnUrl ?? "/";
+}
+
+<div class="dtc-7-login login-signup-body ">
+    <form method="post" asp-action="Login" asp-controller="Account" asp-route-ReturnUrl="@returnUrl">
+        <div asp-validation-summary="All" class="text-danger"></div>
         <div class="dtc-7-frame-wrapper">
             <div class="dtc-7-frame">
                 <div class="dtc-7-login-authentication">
@@ -22,18 +32,32 @@
                                     <div class="dtc-7-vector-wrapper"><img class="dtc-7-vector" src="~/images/vector-2.svg" /></div>
                                 </div>
                             </div>
+
+                            <div style="color:#200000">
+                                @if (!string.IsNullOrEmpty(errMsg))
+                                {
+                                    @errMsg
+                                }
+                            </div>
+
                             <div class="dtc-7-frame-6">
                                 <div class="dtc-7-frame-7">
                                     <div class="dtc-7-frame-8">
                                         <div class="dtc-7-text-3">Email Address</div>
-                                        <input class="dtc-7-button-default-2" placeholder="Enter your email" />
+                                        <input asp-for="Email" class="dtc-7-button-default-2" placeholder="Enter your email" />
+                                        <span asp-validation-for="Email" class="text-danger" style="color:#200000"></span>
                                     </div>
                                     <div class="dtc-7-frame-8">
                                         <div class="dtc-7-text-3">Password</div>
-                                        <input class="dtc-7-button-default-2" placeholder="****************" />
+                                        <input asp-for="Password" class="dtc-7-button-default-2" placeholder="****************" />
+                                        <span asp-validation-for="Password" class="text-danger" style="color:#200000"></span>
                                     </div>
+                                    <label asp-for="RememberMe">
+                                        <input asp-for="RememberMe" />
+                                        @Html.DisplayNameFor(m => m.RememberMe)
+                                    </label>
                                 </div>
-                                <div class="dtc-7-text-5">Forgot password</div>
+                                <div class="dtc-7-text-5"><a asp-action="ForgotPassword" asp-controller="Account">Forgot password</a></div>
                             </div>
                         </div>
                         <div class="dtc-7-frame-10">

@@ -12,11 +12,16 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DevsTutorialCenterMVCContext>(
     option => option.UseSqlite(builder.Configuration.GetConnectionString("default"))
 );
-builder.Services.AddIdentity<AppUser, IdentityRole>()
+builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
+{
+    options.SignIn.RequireConfirmedEmail = true;
+})
     .AddEntityFrameworkStores<DevsTutorialCenterMVCContext>()
     .AddDefaultTokenProviders();
 builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddTransient<IMessengerService, MessengerService>();
+
+builder.Services.AddScoped<IAccountService, AccountService>();
 
 
 var app = builder.Build();
@@ -34,12 +39,14 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 Seeder.SeedeMe(app);
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 app.Run();
 
