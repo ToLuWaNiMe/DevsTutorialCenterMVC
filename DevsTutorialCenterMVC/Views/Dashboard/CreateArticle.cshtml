@@ -19,9 +19,12 @@
                     <div id="article-title" class="col p-0 d-flex align-items-center mb-3">
                         <input name="Title" class="form-control input-ify" placeholder="Title">
                     </div>
-                    <div id="article-tag" class="col p-0 d-flex align-items-center mb-3">
-                        <input name="Tag" class="form-control input-ify" placeholder="Tag">
-                    </div>
+                    <select class="col form-control form-select input-ify mb-3">
+                        <option class="small text-secondary" selected disabled>--- Select Tag Option ---</option>
+                        <option value="DotNet">DotNet</option>
+                        <option value="Java">Java</option>
+                        <option value="Node">Node</option>
+                    </select>
                     <div class="col-12 mb-3" >
                         <textarea name="Content" id="article-ify" class="form-control" placeholder="Tell your story...."></textarea>
                     </div>

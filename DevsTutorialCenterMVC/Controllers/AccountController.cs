@@ -19,11 +19,16 @@ namespace DevsTutorialCenterMVC.Controllers
         private readonly IAccountService _accountService;
         private readonly IMessengerService _messengerService;
         private readonly IConfiguration _config;
+        private readonly IRepository _repository;
 
-        public AccountController(UserManager<AppUser> userManager,
-                                 SignInManager<AppUser> signInManager,
-                                 ILogger<AccountController> logger, IAccountService accountService,
-            IMessengerService messengerService, IConfiguration config)
+        public AccountController(
+            UserManager<AppUser> userManager,
+            SignInManager<AppUser> signInManager,
+            ILogger<AccountController> logger,
+            IAccountService accountService,
+            IMessengerService messengerService,
+            IConfiguration config,
+            IRepository repository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -31,6 +36,7 @@ namespace DevsTutorialCenterMVC.Controllers
             _accountService = accountService;
             _messengerService = messengerService;
             _config = config;
+            _repository = repository;
         }
 
         [HttpGet]
@@ -70,14 +76,6 @@ namespace DevsTutorialCenterMVC.Controllers
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Login(string? returnUrl)
-        private readonly IRepository _repository;
-
-        public AccountController(IRepository repository)
-        {
-            _repository = repository;
-        }
-
-        public IActionResult Login()
         {
             if (_signInManager.IsSignedIn(User))
                 return RedirectToAction("Index", "Home");
@@ -101,7 +99,20 @@ namespace DevsTutorialCenterMVC.Controllers
                 return BadRequest("Access Denied");
             }
 
-        [HttpPost]
+            var model = new SignUpViewModel
+            {
+                Token = token,
+                FirstName = Firstname,
+                LastName = Lastname,
+                Email = email,
+                SquadNumber = int.Parse(Squadnumber),
+                Stack = Userstack
+            };
+
+            return View(model);
+        }
+
+            [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
         {
@@ -132,23 +143,6 @@ namespace DevsTutorialCenterMVC.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
-        }
-
-
-        public IActionResult SignUp()
-        {
-            return View();
-            var model = new SignUpViewModel
-            {
-                Token = token,
-                FirstName = Firstname,
-                LastName = Lastname,
-                Email = email,
-                SquadNumber = int.Parse(Squadnumber),
-                Stack = Userstack
-            };
-
-            return View(model);
         }
 
         [HttpPost]

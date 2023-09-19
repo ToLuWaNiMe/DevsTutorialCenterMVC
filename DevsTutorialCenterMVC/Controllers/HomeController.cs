@@ -38,23 +38,16 @@ public class HomeController : Controller
     {
         return View();
     }
-    
-    [Authorize]    
+      
     public IActionResult Privacy()
     {
         return View();
     }
 
-    [Authorize]
+    //[Authorize]
     public IActionResult BlogPost()
     {
         return View();
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
     [HttpGet]
