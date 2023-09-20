@@ -1,4 +1,4 @@
-﻿using DevsTutorialCenterMVC.Data.Entities;
+﻿using DevsTutorialCenterMVC.Models;
 
 namespace DevsTutorialCenterMVC.Services
 {

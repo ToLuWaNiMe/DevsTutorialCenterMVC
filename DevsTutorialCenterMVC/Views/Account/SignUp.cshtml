@@ -1,5 +1,9 @@
-﻿<div class="dtc-7-sign-up login-signup-body">
-    <form method="get" asp-action="SignUp" asp-controller="Account">
+﻿@model SignUpViewModel
+
+
+<div class="dtc-7-sign-up login-signup-body">
+    <form method="post" asp-action="SignUp" asp-controller="Account">
+        <input asp-for="Token" hidden/>
         <div class="dtc-7-frame-wrapper">
             <div class="dtc-7-frame">
                 <div class="dtc-7-div-wrapper">
@@ -27,41 +31,48 @@
                                     <div class="dtc-7-frame-8">
                                         <div class="dtc-7-frame-9">
                                             <div class="dtc-7-text-3">First Name</div>
-                                            <input class="dtc-7-button-default-2" placeholder="Enter your First Name" />
+                                            <input class="dtc-7-button-default-2" asp-for="FirstName" placeholder="Enter your First Name" />
+                                            <span asp-validation-for="FirstName" class="text-danger small text-small"></span>
                                         </div>
                                         <div class="dtc-7-frame-9">
                                             <div class="dtc-7-text-3">Last Name</div>
-                                            <input class="dtc-7-button-default-2" placeholder="Enter your Last Name" />
+                                            <input class="dtc-7-button-default-2" asp-for="LastName" placeholder="Enter your Last Name" />
+                                            <span asp-validation-for="LastName" class="text-danger small text-small"></span>
                                         </div>
                                         <div class="dtc-7-frame-9">
                                             <div class="dtc-7-text-3">Email Address</div>
-                                            <input class="dtc-7-button-default-2" placeholder="Enter your email" />
+                                            <input class="dtc-7-button-default-2" asp-for="Email" placeholder="Enter your email" />
+                                            <span asp-validation-for="Email" class="text-danger small text-small"></span>
                                         </div>
                                         <div class="dtc-7-frame-9">
                                             <div class="dtc-7-text-3">Squad Number</div>
-                                            <select class="dtc-7-button-default-2" id="squadNumber" name="squadNumber">
-                                                <option value="" selected disabled>Select your Squad number</option>
-                                                <option value="1">Squad 12</option>
-                                                <option value="2">Squad 16</option>
-                                                <option value="3">Squad 18</option>
+                                            <select class="dtc-7-button-default-2" asp-for="Stack" id="stack" name="stack">
+                                                <option selected disabled>Select your Stack</option>
+                                                <option value="DotNet">DotNet</option>
+                                                <option value="Java">Java</option>
+                                                <option value="Node">Node</option>
                                             </select>
+                                            <span asp-validation-for="Stack" class="text-danger small text-small"></span>
                                         </div>
                                         <div class="dtc-7-frame-9">
                                             <div class="dtc-7-text-3">Stack</div>
-                                            <select class="dtc-7-button-default-2" id="stack" name="stack">
-                                                <option value="" selected disabled>Select your Stack</option>
-                                                <option value="1">Dot Net</option>
-                                                <option value="2">Java</option>
-                                                <option value="3">Node.Js</option>
+                                            <select class="dtc-7-button-default-2" asp-for="SquadNumber" id="squadNumber" name="squadNumber">
+                                                <option selected disabled>Select your Squad number</option>
+                                                <option value="12">Squad 12</option>
+                                                <option value="16">Squad 16</option>
+                                                <option value="18">Squad 18</option>
                                             </select>
+                                            <span asp-validation-for="SquadNumber" class="text-danger small text-small"></span>
                                         </div>
                                         <div class="dtc-7-frame-9">
                                             <div class="dtc-7-text-3">Password</div>
-                                            <input class="dtc-7-button-default-2" placeholder="****************" />
+                                            <input type="password" asp-for="Password" class="dtc-7-button-default-2" placeholder="****************" />
+                                            <span asp-validation-for="Password" class="text-danger small text-small"></span>
                                         </div>
                                         <div class="dtc-7-frame-9">
                                             <div class="dtc-7-text-3">Confirm Password</div>
-                                            <input class="dtc-7-button-default-2" placeholder="****************" />
+                                            <input type="password" asp-for="ConfirmPassword" class="dtc-7-button-default-2" placeholder="****************" />
+                                            <span asp-validation-for="ConfirmPassword" class="text-danger small text-small"></span>
                                         </div>
                                     </div>
                                 </div>
