@@ -3,12 +3,8 @@ using DevsTutorialCenterMVC.Models;
 using DevsTutorialCenterMVC.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
-using DevsTutorialCenterMVC.Data.Entities;
 using DevsTutorialCenterMVC.Data.Repositories;
-using DevsTutorialCenterMVC.Models;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using DevsTutorialCenterMVC.Services;
 
 namespace DevsTutorialCenterMVC.Controllers
 {
