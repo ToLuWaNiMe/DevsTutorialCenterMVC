@@ -3,6 +3,10 @@ using DevsTutorialCenterMVC.Models;
 using DevsTutorialCenterMVC.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
+using DevsTutorialCenterMVC.Data.Entities;
+using DevsTutorialCenterMVC.Data.Repositories;
+using DevsTutorialCenterMVC.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using DevsTutorialCenterMVC.Services;
 
@@ -16,11 +20,16 @@ namespace DevsTutorialCenterMVC.Controllers
         private readonly IAccountService _accountService;
         private readonly IMessengerService _messengerService;
         private readonly IConfiguration _config;
+        private readonly IRepository _repository;
 
-        public AccountController(UserManager<AppUser> userManager,
-                                 SignInManager<AppUser> signInManager,
-                                 ILogger<AccountController> logger, IAccountService accountService,
-            IMessengerService messengerService, IConfiguration config)
+        public AccountController(
+            UserManager<AppUser> userManager,
+            SignInManager<AppUser> signInManager,
+            ILogger<AccountController> logger,
+            IAccountService accountService,
+            IMessengerService messengerService,
+            IConfiguration config,
+            IRepository repository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -28,6 +37,7 @@ namespace DevsTutorialCenterMVC.Controllers
             _accountService = accountService;
             _messengerService = messengerService;
             _config = config;
+            _repository = repository;
         }
 
         [HttpGet]
@@ -76,6 +86,33 @@ namespace DevsTutorialCenterMVC.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult SignUp(
+            string token = "",
+            string Firstname = "",
+            string Lastname = "",
+            string email = "",
+            string Userstack = "",
+            string Squadnumber = "0")
+        {
+            if (token == "")
+            {
+                return BadRequest("Access Denied");
+            }
+
+            var model = new SignUpViewModel
+            {
+                Token = token,
+                FirstName = Firstname,
+                LastName = Lastname,
+                Email = email,
+                SquadNumber = int.Parse(Squadnumber),
+                Stack = Userstack
+            };
+
+            return View(model);
+        }
+
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
@@ -109,10 +146,38 @@ namespace DevsTutorialCenterMVC.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-
-        public IActionResult SignUp()
+        [HttpPost]
+        public async Task<IActionResult> SignUp(SignUpViewModel model)
         {
-            return View();
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var users = (await _repository.GetAllAsync<AppUser>()).ToList();
+
+            if (users.Any(user => user.Email == model.Email))
+            {
+                ModelState.AddModelError("User Exist", "This account already exist");
+
+                return View(model);
+            }
+
+            await _repository.AddAsync(new AppUser
+            {
+                FirstName = model.FirstName,
+                LastName= model.LastName,
+                Email = model.Email,
+                UserName = model.Email
+            });
+
+            users = (await _repository.GetAllAsync<AppUser>()).ToList();
+
+            if (users.Any(user => user.Email == model.Email))
+            {
+                TempData["isSaved"] = true;
+                return RedirectToAction("Login");
+            }
+            return BadRequest();
+            
         }
 
         public IActionResult WithAccount()

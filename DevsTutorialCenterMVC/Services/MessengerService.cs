@@ -1,7 +1,7 @@
-﻿using DevsTutorialCenterMVC.Data.Entities;
-using System.Net.Mail;
+﻿using System.Net.Mail;
 using System.Net;
 using Microsoft.Extensions.Configuration;
+using DevsTutorialCenterMVC.Models;
 
 namespace DevsTutorialCenterMVC.Services;
 

@@ -1,0 +1,52 @@
+﻿@model ModalContent
+
+<div class="modal fade" tabindex="-1" aria-hidden="true" id="successModal-ify" >
+    <div class="modal-dialog modal-dialog-centered" >
+        <div class="modal-body d-flex flex-column justify-content-center align-items-center gap-5">
+           <div id="modal-box-ify">
+                <div id="modal-icon-ify">
+                    @if (Model.IsSuccess)
+                    {
+                        <svg width="65" height="64" viewBox="0 0 65 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0px auto;">
+                            <path d="M32.5 8C27.7533 8 23.1131 9.40758 19.1663 12.0447C15.2195 14.6819 12.1434 18.4302 10.3269 22.8156C8.5104 27.201 8.03512 32.0266 8.96116 36.6822C9.88721 41.3377 12.173 45.6141 15.5294 48.9706C18.8859 52.327 23.1623 54.6128 27.8178 55.5388C32.4734 56.4649 37.299 55.9896 41.6844 54.1731C46.0698 52.3566 49.8181 49.2805 52.4553 45.3337C55.0924 41.3869 56.5 36.7468 56.5 32C56.5 25.6348 53.9714 19.5303 49.4706 15.0294C44.9697 10.5286 38.8652 8 32.5 8ZM43.82 27.18L32.5 38.48C31.375 39.6036 29.85 40.2347 28.26 40.2347C26.67 40.2347 25.145 39.6036 24.02 38.48L21.18 35.66C20.9935 35.4735 20.8456 35.2521 20.7447 35.0085C20.6438 34.7649 20.5918 34.5037 20.5918 34.24C20.5918 33.9763 20.6438 33.7151 20.7447 33.4715C20.8456 33.2279 20.9935 33.0065 21.18 32.82C21.3665 32.6335 21.5879 32.4856 21.8315 32.3847C22.0752 32.2838 22.3363 32.2318 22.6 32.2318C22.8637 32.2318 23.1249 32.2838 23.3685 32.3847C23.6122 32.4856 23.8335 32.6335 24.02 32.82L26.84 35.66C27.0259 35.8475 27.2471 35.9962 27.4909 36.0978C27.7346 36.1993 27.996 36.2516 28.26 36.2516C28.524 36.2516 28.7854 36.1993 29.0292 36.0978C29.2729 35.9962 29.4941 35.8475 29.68 35.66L40.98 24.34C41.1665 24.1535 41.3879 24.0056 41.6315 23.9047C41.8752 23.8038 42.1363 23.7518 42.4 23.7518C42.6637 23.7518 42.9249 23.8038 43.1685 23.9047C43.4122 24.0056 43.6335 24.1535 43.82 24.34C44.0065 24.5265 44.1544 24.7479 44.2553 24.9915C44.3563 25.2351 44.4082 25.4963 44.4082 25.76C44.4082 26.0237 44.3563 26.2849 44.2553 26.5285C44.1544 26.7721 44.0065 26.9935 43.82 27.18Z" fill="#34A853" />
+                        </svg>
+                    }
+                    else
+                    {
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="60" height="60" viewBox="0,0,256,256" style="margin: 0px auto;">
+                            <g fill="#fa5252" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M25,2c-12.681,0 -23,10.319 -23,23c0,12.681 10.319,23 23,23c12.681,0 23,-10.319 23,-23c0,-12.681 -10.319,-23 -23,-23zM33.71,32.29c0.39,0.39 0.39,1.03 0,1.42c-0.2,0.19 -0.45,0.29 -0.71,0.29c-0.26,0 -0.51,-0.1 -0.71,-0.29l-7.29,-7.29l-7.29,7.29c-0.2,0.19 -0.45,0.29 -0.71,0.29c-0.26,0 -0.51,-0.1 -0.71,-0.29c-0.39,-0.39 -0.39,-1.03 0,-1.42l7.29,-7.29l-7.29,-7.29c-0.39,-0.39 -0.39,-1.03 0,-1.42c0.39,-0.39 1.03,-0.39 1.42,0l7.29,7.29l7.29,-7.29c0.39,-0.39 1.03,-0.39 1.42,0c0.39,0.39 0.39,1.03 0,1.42l-7.29,7.29z"></path></g></g>
+                        </svg>
+                    }
+                </div>
+                <div class="d-flex flex-column justify-content-center align-items-center gap-3">
+                   
+                        @if (Model.Title != "")
+                        {
+                             <div id="main-message-ify">
+                                 @Model.Title
+                             </div>
+                        }
+                        else
+                        {
+                           <div id="main-message-ify">
+                               Successfully Created
+                           </div>
+                        }
+                    
+                        @if (Model.Content != "")
+                        {
+                            <div id="detailed-message-ify">
+                                @Model.Content
+                        </div>
+                    }
+                    else
+                    {
+                        <div id="detailed-message-ify">
+                            Your initial article has been submitted successfully and is now awaiting review. Once the review process is complete, your article will be published.
+                        </div>
+                    }
+                </div>
+           </div>
+        </div>
+    </div>
+</div>
