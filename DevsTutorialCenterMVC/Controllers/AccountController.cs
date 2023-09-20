@@ -1,7 +1,9 @@
 ﻿using DevsTutorialCenterMVC.Data.Entities;
 using DevsTutorialCenterMVC.Models;
-using Microsoft.AspNetCore.Authorization;
+using DevsTutorialCenterMVC.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using DevsTutorialCenterMVC.Data.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DevsTutorialCenterMVC.Controllers
@@ -11,14 +13,27 @@ namespace DevsTutorialCenterMVC.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly ILogger<AccountController> _logger;
+        private readonly IAccountService _accountService;
+        private readonly IMessengerService _messengerService;
+        private readonly IConfiguration _config;
+        private readonly IRepository _repository;
 
-        public AccountController(UserManager<AppUser> userManager,
-                                 SignInManager<AppUser> signInManager,
-                                 ILogger<AccountController> logger)
+        public AccountController(
+            UserManager<AppUser> userManager,
+            SignInManager<AppUser> signInManager,
+            ILogger<AccountController> logger,
+            IAccountService accountService,
+            IMessengerService messengerService,
+            IConfiguration config,
+            IRepository repository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _accountService = accountService;
+            _messengerService = messengerService;
+            _config = config;
+            _repository = repository;
         }
 
         [HttpGet]
@@ -67,6 +82,33 @@ namespace DevsTutorialCenterMVC.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult SignUp(
+            string token = "",
+            string Firstname = "",
+            string Lastname = "",
+            string email = "",
+            string Userstack = "",
+            string Squadnumber = "0")
+        {
+            if (token == "")
+            {
+                return BadRequest("Access Denied");
+            }
+
+            var model = new SignUpViewModel
+            {
+                Token = token,
+                FirstName = Firstname,
+                LastName = Lastname,
+                Email = email,
+                SquadNumber = int.Parse(Squadnumber),
+                Stack = Userstack
+            };
+
+            return View(model);
+        }
+
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
@@ -100,10 +142,38 @@ namespace DevsTutorialCenterMVC.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-
-        public IActionResult SignUp()
+        [HttpPost]
+        public async Task<IActionResult> SignUp(SignUpViewModel model)
         {
-            return View();
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var users = (await _repository.GetAllAsync<AppUser>()).ToList();
+
+            if (users.Any(user => user.Email == model.Email))
+            {
+                ModelState.AddModelError("User Exist", "This account already exist");
+
+                return View(model);
+            }
+
+            await _repository.AddAsync(new AppUser
+            {
+                FirstName = model.FirstName,
+                LastName= model.LastName,
+                Email = model.Email,
+                UserName = model.Email
+            });
+
+            users = (await _repository.GetAllAsync<AppUser>()).ToList();
+
+            if (users.Any(user => user.Email == model.Email))
+            {
+                TempData["isSaved"] = true;
+                return RedirectToAction("Login");
+            }
+            return BadRequest();
+            
         }
 
         public IActionResult WithAccount()
@@ -112,7 +182,48 @@ namespace DevsTutorialCenterMVC.Controllers
         }
 
 
+        [HttpGet]
+        public IActionResult ForgotPassword()
+        {
+            if (_accountService.IsLoggedInAsync(User))
+                return RedirectToAction("Index", "Home");
+            return View();
+        }
 
 
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        {
+            if (_accountService.IsLoggedInAsync(User))
+                return RedirectToAction("Index", "Home");
+
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.SelectMany(x => x.Value.Errors.Select(xx => xx.ErrorMessage));
+                var error = string.Join(" ", errors);
+                ViewBag.Err = error;
+                return View(model);
+            }
+
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                ViewBag.Err = "Email does not exist";
+                return View(model);
+            }
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var link = Url.Action("ResetPassword", "Account", new { token, model.Email }, Request.Scheme);
+            var sender = _config.GetSection("EmailSettings")["SenderEmail"];
+            var message = new Message("Reset Password link", new List<string>() { model.Email }, $"<a href=\"{link}\">Reset password</a>");
+
+            var messageStatus = _messengerService.Send(message);
+
+            ViewBag.Err = messageStatus == ""
+                ? "A reset password link has been sent to the email provided. Please go to your inbox and click on the link t reset your password"
+                : "Failed to send a reset password link. Please try again";
+
+            return View(model);
+        }
     }
 }

@@ -1,7 +1,7 @@
-﻿using DevsTutorialCenterMVC.Data.Entities;
-using System.Net.Mail;
+﻿using System.Net.Mail;
 using System.Net;
 using Microsoft.Extensions.Configuration;
+using DevsTutorialCenterMVC.Models;
 
 namespace DevsTutorialCenterMVC.Services;
 
@@ -28,7 +28,7 @@ public class MessengerService : IMessengerService
             {
                 appMail.To.Add(toEmail);
             }
-
+            appMail.From = new MailAddress(GmailAccount);
             appMail.Sender = new MailAddress(GmailAccount);
             appMail.Subject = message.Subject;
             appMail.Body = message.Body;
