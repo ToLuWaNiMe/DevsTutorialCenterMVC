@@ -41,5 +41,9 @@ namespace DevsTutorialCenterMVC.Controllers
             return View(account);
         }
 
+        public IActionResult AuthorsUnderAdmin()
+        {
+            return View();
+        }
     }
 }
