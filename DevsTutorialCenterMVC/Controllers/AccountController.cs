@@ -3,10 +3,7 @@ using DevsTutorialCenterMVC.Models;
 using DevsTutorialCenterMVC.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
-using DevsTutorialCenterMVC.Data.Entities;
 using DevsTutorialCenterMVC.Data.Repositories;
-using DevsTutorialCenterMVC.Models;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DevsTutorialCenterMVC.Controllers
@@ -194,6 +191,7 @@ namespace DevsTutorialCenterMVC.Controllers
         }
 
 
+
         [HttpPost]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
@@ -228,5 +226,57 @@ namespace DevsTutorialCenterMVC.Controllers
 
             return View(model);
         }
+
+
+        [HttpGet]
+        public IActionResult ResetPassword(string Email, string token)
+        {
+            var viewModel = new ResetPasswordViewModel();
+            if (string.IsNullOrEmpty(token))
+            {
+                ViewBag.ErrToken = "";
+            }
+
+            if (string.IsNullOrEmpty(Email))
+            {
+                ViewBag.ErrEmail = "Email is required";
+            }
+
+            viewModel.Token = token;
+            viewModel.Email = Email;
+
+            return View(viewModel);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                if (user != null)
+                {
+                    var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+
+                    foreach (var err in result.Errors)
+                    {
+                        ModelState.AddModelError(err.Code, err.Description);
+                    }
+                }
+                else
+                {
+                    ViewBag.ErrEmail = "Email not found";
+                }
+            }
+
+            return View(model);
+        }
+
     }
 }
+
