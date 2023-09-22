@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DevsTutorialCenterMVCContext>(
-    option => option.UseSqlite(builder.Configuration.GetConnectionString("default"))
+    option => option.UseNpgsql(builder.Configuration.GetConnectionString("ProdDb"))
 );
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 {
