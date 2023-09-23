@@ -10,13 +10,15 @@ using System.Security.Claims;
 
 namespace DevsTutorialCenterMVC.Services
 {
-    public class AccountService : IAccountService
+    public class AccountService : BaseService, IAccountService
     {
         private readonly SignInManager<AppUser> _signInManager;
         private readonly UserManager<AppUser> _userManager;
         private readonly IRepository _repository;
 
-        public AccountService(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, IRepository repository)
+        public AccountService(HttpClient client, IConfiguration config,
+            SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, IRepository repository)
+            :base(client, config)
         {
             _signInManager = signInManager;
             _userManager = userManager;
@@ -65,9 +67,6 @@ namespace DevsTutorialCenterMVC.Services
                     CreatedOn = DateTime.Now,
                     UpdatedOn = DateTime.Now
                 };
-
-
-
 
                 return viewModel;
             }
