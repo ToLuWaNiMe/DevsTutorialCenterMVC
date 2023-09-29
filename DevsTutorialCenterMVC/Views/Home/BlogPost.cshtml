@@ -1,7 +1,4 @@
-﻿@model BlogPostViewModel;
-
-
-<partial name="_BlogPostNavPartial" />
+﻿<partial name="_BlogPostNavPartial" />
 
 @{
     var title = TempData["isSent"]?.ToString() == "Email was sent successfully" ? "Invite Sent" : "Failed";
