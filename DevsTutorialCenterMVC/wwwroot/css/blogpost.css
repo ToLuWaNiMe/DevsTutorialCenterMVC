@@ -18,7 +18,7 @@
 }
 
 .dtc-11-trending-box {
-    width: 100%;
+    width: 780px;
     height: 100px;
     display: flex;
     justify-content: center;
@@ -28,6 +28,7 @@
 
 .dtc-11-trending-card {
     width: 350px;
+    min-width: 350px;
     height: 100px;
     display: flex;
     align-items: center;
@@ -38,16 +39,19 @@
     width: 144px;
     height: 100px;
 }
-
-.dtc-11-trend-story h5 {
-    width: 176px;
-    color: #020202;
-    font-family: Inter;
-    font-size: 17.348px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 24.577px; /* 141.667% */
-}
+    .dtc-11-image img {
+        width: 144px;
+        height: 100px;
+    }
+    .dtc-11-trend-story h5 {
+        width: 176px;
+        color: #020202;
+        font-family: Inter;
+        font-size: 17.348px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24.577px;
+    }
 
 .dtc-11-trend-story p {
     width: 176px;
@@ -56,7 +60,7 @@
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 20px; /* 166.667% */
+    line-height: 20px;
     letter-spacing: 0.3px;
 }
 
@@ -65,7 +69,7 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 140%; /* 22.4px */
+    line-height: 140%;
     letter-spacing: 0.15px;
     text-transform: uppercase;
 }
@@ -80,9 +84,16 @@
 }
 
 .dtc-11-latest-post-box {
-    display: flex;
+    width: 50%;
+    min-width: 50%;
     align-items: flex-start;
+    overflow: hidden;
     gap: 50px;
+}
+.dtc-11-latest-post-box-container{
+    width: 780px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .dtc-11-frame44 {
@@ -147,30 +158,27 @@
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 12px; /* 100% */
+    line-height: 12px;
     letter-spacing: 0.5px;
 }
 
 .dtc-11-post-title {
     align-self: stretch;
     color: #101828;
-    /* Headline Medium -24 */
     font-family: Inter;
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
-    line-height: 140%; /* 33.6px */
+    line-height: 140%;
 }
 
 .dtc-11-post-details {
     align-self: stretch;
     color: #475467;
-    /* Body Text Normal -16 */
     font-family: Inter;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 140%; /* 22.4px */
     letter-spacing: 0.15px;
 }
 
@@ -194,7 +202,7 @@
     font-size: 13px;
     font-style: normal;
     font-weight: 400;
-    line-height: 13px; /* 100% */
+    line-height: 13px; 
     letter-spacing: 0.3px;
 }
 
@@ -204,7 +212,7 @@
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 12px; /* 100% */
+    line-height: 12px;
     letter-spacing: 0.5px;
 }
 
@@ -222,7 +230,7 @@
         font-size: 16px;
         font-style: normal;
         font-weight: 400;
-        line-height: 140%; /* 22.4px */
+        line-height: 140%;
         letter-spacing: 0.15px;
         text-transform: uppercase;
     }
@@ -257,23 +265,21 @@
     .dtc-11-frame341 h5 {
         width: 360px;
         color: var(--Main-Text, #101828);
-        /* Headline Medium -24 */
         font-family: Inter;
         font-size: 24px;
         font-style: normal;
         font-weight: 500;
-        line-height: 140%; /* 33.6px */
+        line-height: 140%;
     }
 
     .dtc-11-frame341 p {
         width: 360px;
         color: var(--Grey-600, #475467);
-        /* Body Text Normal -16 */
         font-family: Inter;
         font-size: 16px;
         font-style: normal;
         font-weight: 400;
-        line-height: 140%; /* 22.4px */
+        line-height: 140%; 
         letter-spacing: 0.15px;
     }
 
@@ -290,7 +296,7 @@
     }
 
     .dtc-11-group1175 .line4 {
-        margin-top: -15px;
+        margin-top: -21px;
         position: absolute;
         width: 274.39px;
         height: 5px;
@@ -332,7 +338,7 @@
         font-size: 16px;
         font-style: normal;
         font-weight: 400;
-        line-height: 140%; /* 22.4px */
+        line-height: 140%; 
         letter-spacing: 0.15px;
         text-transform: uppercase;
     }
@@ -379,7 +385,7 @@
         font-size: 16px;
         font-style: normal;
         font-weight: 400;
-        line-height: 13px; /* 81.25% */
+        line-height: 13px;
         letter-spacing: 0.3px;
     }
 
@@ -395,7 +401,7 @@
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 12px; /* 100% */
+    line-height: 12px; 
     letter-spacing: 0.5px;
     opacity: 0.5;
 }
@@ -415,7 +421,7 @@
         font-size: 16px;
         font-style: normal;
         font-weight: 400;
-        line-height: 140%; /* 22.4px */
+        line-height: 140%;
         letter-spacing: 0.15px;
         text-transform: uppercase;
     }
@@ -447,7 +453,7 @@
         font-size: 13px;
         font-style: normal;
         font-weight: 400;
-        line-height: 12px; /* 92.308% */
+        line-height: 12px;
         letter-spacing: 1px;
         text-transform: uppercase;
     }
@@ -466,7 +472,7 @@
         font-size: 16px;
         font-style: normal;
         font-weight: 400;
-        line-height: 140%; /* 22.4px */
+        line-height: 140%;
         letter-spacing: 0.15px;
         text-transform: uppercase;
     }
@@ -493,7 +499,7 @@
         font-size: 20px;
         font-style: normal;
         font-weight: 500;
-        line-height: 140%; /* 28px */
+        line-height: 140%;
     }
 
     .dtc-11-Frame86 p {
@@ -511,20 +517,16 @@
 /***Header Styling**/
 .dtc-11-component {
     background: #ffffff;
-    /*padding: 0px 100px 0px 100px;*/
     display: flex;
     flex-direction: row;
     gap: 546px;
     align-items: center;
-    /*justify-content: flex-start;*/
     width: 100vw;
     justify-content: flex-start;
     width: 1518px;
     height: 94px;
-    /*position: relative;*/
     box-shadow: 0px 2px 4px 0px rgba(33, 33, 33, 0.06), 0px 4px 8px 0px rgba(33, 33, 33, 0.08);
     position: sticky;
-    /*box-shadow: 0px 2px 4px 0px rgba(33, 33, 33, 0.06), 0px 4px 8px 0px rgba(33, 33, 33, 0.08);*/
 }
 
 .dtc-11-frame-253 {
@@ -694,7 +696,6 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    /*width: 130px;*/
     position: relative;
     overflow: hidden;
     margin-top: -1px;

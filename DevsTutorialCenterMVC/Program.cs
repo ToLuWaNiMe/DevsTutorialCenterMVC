@@ -22,6 +22,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddTransient<IMessengerService, MessengerService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IBlogPostService, BlogPostService>();
 
 
 var app = builder.Build();
@@ -42,7 +43,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-Seeder.SeedeMe(app);
+//Seeder.SeedeMe(app);
 
 app.MapControllerRoute(
     name: "default",
