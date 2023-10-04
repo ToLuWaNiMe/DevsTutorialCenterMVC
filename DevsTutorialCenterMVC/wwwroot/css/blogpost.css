@@ -24,6 +24,7 @@
     justify-content: center;
     align-items: flex-end;
     gap: 80px;
+    text-decoration:none;
 }
 
 .dtc-11-trending-card {
@@ -102,6 +103,7 @@
     justify-content: center;
     align-items: center;
     gap: 16px;
+    text-decoration: none;
 }
 
 .dtc-11-frame46 img {
@@ -710,4 +712,6 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    text-decoration: none;
+   
 }

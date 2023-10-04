@@ -9,6 +9,29 @@ namespace DevsTutorialCenterMVC.Services
         {
         }
 
+        public async Task<IEnumerable<GetAllTagsViewModel>> InterestingTopics()
+        {
+            var address = "/api/tags/get-all-tag";
+            var methodType = "GET";
+
+            var result = await MakeRequest<ResponseObject<IEnumerable<GetAllTagsViewModel>>, string>(address, methodType, "", "");
+            if (result != null)
+            {
+
+                var mappedResult = result.Data.Select(x => new GetAllTagsViewModel
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+
+                });
+
+                return mappedResult;
+
+
+            }
+            return null;
+        }
+
         public async Task<IEnumerable<GetAllArticlesViewModel>> LatestPosts()
         {
             var address = "/api/articles/get-all-articles?Page=1&Size=6";

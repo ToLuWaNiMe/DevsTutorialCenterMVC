@@ -1,4 +1,6 @@
-﻿<partial name="_BlogPostNavPartial" />
+﻿@model BlogPostViewModel
+
+<partial name="_BlogPostNavPartial" />
 
 @{
     var title = TempData["isSent"]?.ToString() == "Email was sent successfully" ? "Invite Sent" : "Failed";
@@ -25,17 +27,19 @@
                 <div class="dtc-11-trending-box">
                     @foreach(var articles in Model.TrendingPostsViewModels)
                     {
+                         <a href="@Url.Action("OpenArticle", "Home", new { articleId = articles.Id })" class="dtc-11-trending-box">
                         <div class="dtc-11-trending-card">
                             <div class="dtc-11-image">
-                                <img src="@articles.ImageUrl" />
+                                <img src="@articles.ImageUrl" asp-append-version=true/>
                             </div>
                             <div class="dtc-11-trend-story">
                                 <h5>@articles.Title</h5>
                                 <p>@articles.Text</p>
                             </div>
                         </div>
+                        </a>
                     }
-                
+               
                 </div>
             </div>
 
@@ -44,51 +48,48 @@
                     <h5 class="dtc-11-card-title">LATEST POSTS</h5>
                 </div>
                 <div class="dtc-11-latest-post-box-container">
-                @foreach(var article in Model.GetAllArticlesViewModels)
-                {
-    
-                <div class="dtc-11-latest-post-box">
-                    <div class="dtc-11-frame44">
-                        <div class="dtc-11-frame46">
-                            <img src="@article.ImageUrl" />
-                        </div>
-                        <div class="dtc-11-frame45">
-                            <div class="dtc-11-frame55">
-                                <div class="dtc-11-frame43">
-                                    <div class="dtc-11-frame74">
-                                        <h6 class="dtc-11-125courses">@article.Tag</h6>
+                    @foreach (var article in Model.GetAllArticlesViewModels)
+                    {
+                        <div class="dtc-11-latest-post-box">
+                            <a href="@Url.Action("OpenArticle", "Home", new { articleId = article.Id })" class="dtc-11-frame44">
+                                <div class="dtc-11-frame46">
+                                    <img src="@article.ImageUrl" />
+                                </div>
+                                <div class="dtc-11-frame45">
+                                    <div class="dtc-11-frame55">
+                                        <div class="dtc-11-frame43">
+                                            <div class="dtc-11-frame74">
+                                                <h6 class="dtc-11-125courses">@article.Tag</h6>
+                                            </div>
+                                            <hr style="width: 15px; height: 1px; background: 2px solid #DEDEDE " />
+                                            <h6 class="dtc-11-courses">5 mins read</h6>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M18 2H6C5.73478 2 5.48043 2.10536 5.29289 2.29289C5.10536 2.48043 5 2.73478 5 3V21C4.99999 21.1912 5.05477 21.3783 5.15785 21.5393C5.26094 21.7003 5.40801 21.8284 5.58164 21.9083C5.75527 21.9883 5.94819 22.0169 6.13754 21.9906C6.32688 21.9643 6.50473 21.8843 6.65 21.76L12 17.27L17.29 21.71C17.3834 21.8027 17.4943 21.876 17.6161 21.9258C17.7379 21.9755 17.8684 22.0008 18 22C18.1312 22.0034 18.2613 21.976 18.38 21.92C18.5626 21.845 18.7189 21.7176 18.8293 21.5539C18.9396 21.3901 18.999 21.1974 19 21V3C19 2.73478 18.8946 2.48043 18.7071 2.29289C18.5196 2.10536 18.2652 2 18 2ZM17 18.86L12.64 15.2C12.4603 15.0503 12.2339 14.9684 12 14.9684C11.7661 14.9684 11.5397 15.0503 11.36 15.2L7 18.86V4H17V18.86Z" fill="black" fill-opacity="0.5" />
+                                        </svg>
                                     </div>
-                                    <hr style="width: 15px; height: 1px; background: 2px solid #DEDEDE " />
-                                    <h6 class="dtc-11-courses">5 mins read</h6>
-                                </div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M18 2H6C5.73478 2 5.48043 2.10536 5.29289 2.29289C5.10536 2.48043 5 2.73478 5 3V21C4.99999 21.1912 5.05477 21.3783 5.15785 21.5393C5.26094 21.7003 5.40801 21.8284 5.58164 21.9083C5.75527 21.9883 5.94819 22.0169 6.13754 21.9906C6.32688 21.9643 6.50473 21.8843 6.65 21.76L12 17.27L17.29 21.71C17.3834 21.8027 17.4943 21.876 17.6161 21.9258C17.7379 21.9755 17.8684 22.0008 18 22C18.1312 22.0034 18.2613 21.976 18.38 21.92C18.5626 21.845 18.7189 21.7176 18.8293 21.5539C18.9396 21.3901 18.999 21.1974 19 21V3C19 2.73478 18.8946 2.48043 18.7071 2.29289C18.5196 2.10536 18.2652 2 18 2ZM17 18.86L12.64 15.2C12.4603 15.0503 12.2339 14.9684 12 14.9684C11.7661 14.9684 11.5397 15.0503 11.36 15.2L7 18.86V4H17V18.86Z" fill="black" fill-opacity="0.5" />
-                                </svg>
-                            </div>
 
-                            <h4 class="dtc-11-post-title">@article.Title</h4>
-                            <h5 class="dtc-11-post-details">
-                                @article.Text
-                            </h5>
-                            <hr style="width: 328px; height: 0.5px; background:2px solid #D0D5DD;" />
-                            <div class="dtc-11-group1170">
-                                <div class="dtc-11-ellipse-1">
-                                    <img src="~/images/Ellipse 1.png" />
+                                    <h4 class="dtc-11-post-title">@article.Title</h4>
+                                    <h5 class="dtc-11-post-details">
+                                        @article.Text
+                                    </h5>
+                                    <hr style="width: 328px; height: 0.5px; background:2px solid #D0D5DD;" />
+                                    <div class="dtc-11-group1170">
+                                        <div class="dtc-11-ellipse-1">
+                                            <img src="~/images/Ellipse 1.png" asp-append-version=true />
+                                        </div>
+                                        <h5>Ayomide Akin</h5>
+                                        <h6>@article.CreatedOn</h6>
+                                    </div>
                                 </div>
-                                <h5>Ayomide Akin</h5>
-                                <h6>@article.CreatedOn</h6>
-                            </div>
+                            </a>
                         </div>
-
-
-                    </div>
-
-                </div>
-                
-}
+                        
+                    }
 
                 </div>
-          
+
+             
             </div>
         </div>
         <div class="dtc-11-right-container">
@@ -112,99 +113,38 @@
 
 
             <div class="dtc-11-author">
+               
                 <h4>Authors</h4>
-                <div class="dtc-11-eachauthor">
-                    <img src="~/images/Ellipse 1.png">
-                    <div class="dtc-11-Frame56">
-                        <div class="dtc-11-name_articles">
-                            <div class="dtc-11-frame55">
-                                <h2>Ayomide Akin</h2>
+                @foreach(var author in Model.GetAllAuthors.PageItems)
+                {
+                    <div class="dtc-11-eachauthor">
+                        <img src="@author.ImageUrl">
+                        <div class="dtc-11-Frame56">
+                            <div class="dtc-11-name_articles">
+                                <div class="dtc-11-frame55">
+                                    <h2>@author.FirstName  @author.LastName</h2>
+                                </div>
+                                <div>
+                                    <p>53 articles</p>
+                                </div>
                             </div>
-                            <div>
-                                <p>53 articles</p>
-                            </div>
+                            <p>UI/UX Design Intern</p>
                         </div>
-                        <p>UI/UX Design Intern</p>
                     </div>
-                </div>
-                <hr style="width: 376px; height: 0.5px; background: 2px solid #D0D5DD;" />
+                    <hr style="width: 376px; height: 0.5px; background: 2px solid #D0D5DD;" />
+                }
+               
 
-                <div class="dtc-11-eachauthor">
-                    <img src="~/images/Ellipse 1 (1).png">
-                    <div class="dtc-11-Frame56">
-                        <div class="dtc-11-name_articles">
-                            <div class="dtc-11-frame55">
-                                <h2>Ayomide Akin</h2>
-                            </div>
-                            <div>
-                                <p>53 articles</p>
-                            </div>
-                        </div>
-                        <p>UI/UX Design Intern</p>
-                    </div>
-                </div>
-                <hr style="width: 376px; height: 0.5px; background: 2px solid #D0D5DD;" />
-
-
-                <div class="dtc-11-eachauthor">
-                    <img src="~/images/Ellipse 1 (2).png">
-                    <div class="dtc-11-Frame56">
-                        <div class="dtc-11-name_articles">
-                            <div class="dtc-11-frame55">
-                                <h2>Ayomide Akin</h2>
-                            </div>
-                            <div>
-                                <p>53 articles</p>
-                            </div>
-                        </div>
-                        <p>UI/UX Design Intern</p>
-                    </div>
-                </div>
-            </div>
 
             <div class="dtc-11-interesting">
                 <h4>INTERESING TOPICS</h4>
                 <div class="dtc-11-topics">
-                    <div class="dtc-11-frame73">
-                        <h4>JAVA</h4>
-                    </div>
-                    <div class="dtc-11-frame73">
-                        <h4>PYTHON</h4>
-                    </div>
-                    <div class="dtc-11-frame73">
-                        <h4>C++</h4>
-                    </div>
-                    <div class="dtc-11-frame73">
-                        <h4>C#</h4>
-                    </div>
-                    <div class="dtc-11-frame73">
-                        <h4>NODE.JS</h4>
-                    </div>
-                    <div class="dtc-11-frame73">
-                        <h4>IOS</h4>
-                    </div>
-                    <div class="dtc-11-frame73">
-                        <h4>MYSQL</h4>
-                    </div>
-                    <div class="dtc-11-frame73">
-                        <h4>MONGODB</h4>
-                    </div>
-                    <div class="dtc-11-frame73">
-                        <h4>SWIFT</h4>
-                    </div>
-                    <div class="dtc-11-frame73">
-                        <h4>ANDROID</h4>
-                    </div>
-                    <div class="dtc-11-frame73">
-                        <h4>ANGULAR</h4>
-                    </div>
-                    <div class="dtc-11-frame73">
-                        <h4>PHP</h4>
-                    </div>
-                    <div class="dtc-11-frame73">
-                        <h4>REACT NATIVE</h4>
-                    </div>
-
+                    @foreach(var tag in Model.InterestingTopicsViewModels)
+                    {
+                        <div class="dtc-11-frame73">
+                            <h4>@tag.Name</h4>
+                        </div>
+                    }
                 </div>
             </div>
 
@@ -231,7 +171,7 @@
 
             </div>
 
-
+</div>
         </div>
     </div>
 

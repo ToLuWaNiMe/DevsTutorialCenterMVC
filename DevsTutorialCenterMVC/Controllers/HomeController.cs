@@ -6,6 +6,8 @@ using DevsTutorialCenterMVC.Data.Entities;
 using DevsTutorialCenterMVC.Data.Repositories;
 using DevsTutorialCenterMVC.Services;
 using Microsoft.AspNetCore.Identity;
+using DevsTutorialCenterMVC.Utilities;
+using System.Drawing.Printing;
 
 namespace DevsTutorialCenterMVC.Controllers;
 
@@ -16,13 +18,16 @@ public class HomeController : Controller
     private readonly IMessengerService _messengerService;
     private readonly IRepository _repository;
     private readonly IBlogPostService _blogPostService;
-        
+    private readonly IAccountService _accountService;
+
     public HomeController(
         ILogger<HomeController> logger,
         UserManager<AppUser> userManager,
         IMessengerService messengerService,
         IRepository repository, 
-        IBlogPostService blogPostService
+        IBlogPostService blogPostService,
+        IAccountService accountService
+
         )
     {
         _logger = logger;
@@ -30,6 +35,7 @@ public class HomeController : Controller
         _messengerService = messengerService;
         _repository = repository;
         _blogPostService = blogPostService;
+        _accountService = accountService;
     }
 
     public IActionResult Index()
@@ -53,11 +59,16 @@ public class HomeController : Controller
     {
 
         
+
         var latestPostResult = await _blogPostService.LatestPosts();
         var trendingResult = await _blogPostService.TrendingPosts();
         var popularResult = await _blogPostService.Popular();
-       
-          if(latestPostResult == null)
+        var interestingTopicsResult = await _blogPostService.InterestingTopics();
+
+        var allAuthors = await _accountService.GetAllAccountsAsync();
+        var topThreeAuthors = Helper.Paginate(allAuthors, 1, 3);
+
+        if (latestPostResult == null)
         {
             
             return NotFound("Article not found.");
@@ -66,12 +77,20 @@ public class HomeController : Controller
         {
             GetAllArticlesViewModels = latestPostResult,
            TrendingPostsViewModels = trendingResult,
-           PopularViewModels = popularResult
+           PopularViewModels = popularResult,
+           InterestingTopicsViewModels = interestingTopicsResult,
+            GetAllAuthors = topThreeAuthors
         };
 
         return View(pageModel);
         
     }
+
+
+
+  
+
+
 
     [HttpGet]
     [Authorize]
