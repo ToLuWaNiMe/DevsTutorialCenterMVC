@@ -27,6 +27,9 @@ namespace DevsTutorialCenterMVC.Controllers
         }
 
 
-       
+       public IActionResult Comments()
+        {
+            return View();
+        }
     }
 }
