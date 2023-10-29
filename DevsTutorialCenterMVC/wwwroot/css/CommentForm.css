@@ -1,0 +1,53 @@
+﻿.frame-235,
+.frame-235 * {
+    box-sizing: border-box;
+}
+
+.frame-235 {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.text {
+    color: var(--main-text, #101828);
+    text-align: left;
+    font: var(--button-normal-14, 400 14px/20px "Inter", sans-serif);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.button-default {
+    background: var(--white, #ffffff);
+    border-radius: 6px;
+    border-style: solid;
+    border-color: var(--grey-300, #d0d5dd);
+    border-width: 1px;
+    padding: 12px 16px 12px 16px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    width: 661px;
+    height: 136px;
+    position: relative;
+    overflow: hidden;
+}
+
+.text2 {
+    color: var(--grey-400, #98a2b3);
+    text-align: left;
+    font: var(--button-normal-14, 400 14px/20px "Inter", sans-serif);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
