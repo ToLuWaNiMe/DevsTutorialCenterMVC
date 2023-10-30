@@ -7,7 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\css\CommentForm.css" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap - Copy.css.map" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap - Copy.min.css" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap - Copy.min.css.map" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap - Copy.rtl.css" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap - Copy.rtl.css.map" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap - Copy.rtl.min.css" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap - Copy.rtl.min.css.map" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\CommentForm-bootstrap.css" />
   </ItemGroup>
 
   <ItemGroup>
@@ -62,7 +69,6 @@
     <None Include="wwwroot\css\plugins\video.css" />
     <None Include="wwwroot\css\plugins\video.min.css" />
     <None Include="wwwroot\css\settings.css" />
-    <None Include="wwwroot\css\CommentForm.css" />
     <None Include="wwwroot\css\site.css" />
     <None Include="wwwroot\css\StoryPage.css" />
     <None Include="wwwroot\css\themes\dark.css" />
@@ -207,6 +213,14 @@
     <None Include="wwwroot\js\third_party\image_tui.min.js" />
     <None Include="wwwroot\js\third_party\showdown.min.js" />
     <None Include="wwwroot\js\third_party\spell_checker.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\CommentForm-bootstrap.css" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\CommentForm-bootstrap.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\CommentForm-bootstrap.min.css" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\CommentForm-bootstrap.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\CommentForm-bootstrap.rtl.css" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\CommentForm-bootstrap.rtl.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\CommentForm-bootstrap.rtl.min.css" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\CommentForm-bootstrap.rtl.min.css.map" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
