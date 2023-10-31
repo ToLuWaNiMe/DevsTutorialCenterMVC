@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\css\Comments.css" />
     <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap - Copy.css.map" />
     <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap - Copy.min.css" />
     <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap - Copy.min.css.map" />
@@ -70,7 +69,6 @@
     <None Include="wwwroot\css\plugins\video.css" />
     <None Include="wwwroot\css\plugins\video.min.css" />
     <None Include="wwwroot\css\settings.css" />
-    <None Include="wwwroot\css\Comments.css" />
     <None Include="wwwroot\css\site.css" />
     <None Include="wwwroot\css\StoryPage.css" />
     <None Include="wwwroot\css\themes\dark.css" />
