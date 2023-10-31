@@ -27,9 +27,6 @@ namespace DevsTutorialCenterMVC.Controllers
         }
 
 
-       public IActionResult CommentForm()
-        {
-            return View();
-        }
+      
     }
 }
