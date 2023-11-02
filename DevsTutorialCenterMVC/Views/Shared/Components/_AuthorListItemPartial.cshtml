@@ -1,4 +1,6 @@
-﻿<style>
+﻿@model AuthorListViewModel;
+
+<style>
     .dtc99{
         display: flex;
         flex-direction: row;
@@ -31,15 +33,15 @@
 
 <div class="dtc99">
     <div class="dtc99__author-img-box">
-        <img class="dtc99__img" src="~/images/storyPageImg//MicrosoftTeams-image (12).png" alt="Ayomide">
+        <img class="dtc99__img" src="@Model.Image" alt="Ayomide">
     </div>
     <div class="dtc99__details">
         <div class="dtc99__name">
-            <h3 class="dtc99--h3">Ayomide Akin</h3>
-            <p class="dtc99--ash"><span class="dtc99--num-of-article dtc99--ash">53</span> articles</p>
+            <h3 class="dtc99--h3">@Model.Name</h3>
+            <p class="dtc99--ash"><span class="dtc99--num-of-article dtc99--ash">@Model.NumberOfArticles</span> articles</p>
         </div>
         <p class="dtc99--profession dtc99--ash">
-            UIUX Design Intern
+            @Model.Stack
         </p>
     </div>
 </div>
