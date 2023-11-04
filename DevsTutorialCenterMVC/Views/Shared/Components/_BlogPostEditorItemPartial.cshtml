@@ -1,35 +1,29 @@
-﻿<link rel="stylesheet" href="~/css/blog_post_editor_item_partial.css" asp-append-version="true" />
+﻿@model DevsTutorialCenterMVC.Models.Components.BlogPostEditorItemViewModel
+
+<link rel="stylesheet" href="~/css/blog_post_editor_item_partial.css" asp-append-version="true" />
 
 
-<div class="dtc-3-frame-60">
-    <div class="dtc-3-frame-602">
-        <div class="dtc-3-graphic-design">
-            Exploring the Evolution of Java: From Past to Present
-        </div>
-        <div class="dtc-3-graphic-design2">
-            Torem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-            vulputate libero et velit interdum, ac aliquet odio mattis.
-        </div>
-        <div class="dtc-3-frame-58">
-            <div class="dtc-3-frame-43">
-                <div class="_dtc-3-125-courses3">Submitted</div>
-                <div class="dtc-3-line-2"></div>
-                <div class="_dtc-3-125-courses3">Jun 12, 2023</div>
-            </div>
+<div class="editor-blogpost-component">
+    <div class="text-box">
+        <h3 class="text-1">
+            @Model.Title
+        </h3>
+        <p class="text-2">
+            @Model.Text
+        </p>
+        <div class="submit-date">
+            <h6 class="submitted">Submitted</h6>
+            <div class="line-submit-date"></div>
+            <div class="sub-date">@Model.CreatedOn</div>
         </div>
     </div>
-    <img class="dtc-3-frame-59" src="" />
-    <div class="dtc-3-frame-38813469">
-        <div class="dtc-3-right-nest">
-            <div class="dtc-3-header-cta-block">
-                <button class="dtc-3-button-default">
-                    <div class="dtc-3-text">Approve</div>
-                </button>
-            </div>
-        </div>
-        <button class="dtc-3-button-default2">
-            <div class="dtc-3-text2">Decline</div>
-        </button>
+
+    <div class="image-box">
+        @Model.ImageUrl
+    </div>
+    <div class="btn-box">
+        <button class="approve-btn">Approve</button>
+        <button class="decline-btn">Decline</button>
     </div>
 </div>
 <div class="dtc-3-line-4"></div>
