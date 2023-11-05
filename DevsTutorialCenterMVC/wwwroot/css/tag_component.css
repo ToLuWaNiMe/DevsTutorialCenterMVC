@@ -1,11 +1,11 @@
-﻿.dtc-11-frame73 {
+﻿.tag-component {
     display: flex;
-    padding: 8px 16px;
     justify-content: center;
     align-items: center;
-    align-content: center;
+    width: 5rem;
+    padding: 0.5rem 1rem;
     gap: 10px;
-    flex-wrap: wrap;
-    border-radius: 50px;
-    background: var(--Grey-100, #F2F4F7);
+    border-radius: 3.125rem;
+    background: #f2f4f7;
+    color: #5c6881;
 }
