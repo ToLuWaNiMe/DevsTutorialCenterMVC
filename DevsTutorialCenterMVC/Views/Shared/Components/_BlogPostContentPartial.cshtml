@@ -1,0 +1,67 @@
+﻿@model BlogPostContentViewModel;
+
+<style>
+    .dtc100{
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 32px;
+        gap: 8px;
+        font-family:'Inter';
+        letter-spacing: 0.15px;
+        color: #101828
+    }
+
+    .dtc100--post-title{
+        letter-spacing: 0.25px;
+        font-weight:600;
+    }
+
+    .dtc100__post-info{
+        color: var(--Grey-500, #5C6881);
+        font-size: 13px;
+    }
+
+    .dtc100--post-text{
+        font-size:16px;
+        font-weight:500;
+    }
+
+    .dtc100--post-text p {
+        margin-bottom: 20px;
+    }
+
+    .dtc100--post-text::first-letter {
+        font-size: 24px;
+        font-weight: 500;
+        color: #121212;
+    }
+
+    .dtc100--post-date{
+        color: #121212;
+    }
+
+    .dtc100--tag{
+        background-color: var(--Grey-100, #F2F4F7);
+        border-radius:50px;
+        text-transform:uppercase;
+        padding: 8px 16px;
+    }
+
+    .dtc100--in-text-img{
+        width:100%;
+        margin-bottom: 20px;
+    }
+
+</style>
+
+<div class="dtc100">
+    <div class="dtc100__post-info">
+        <span class="dtc100--tag">@Model.Tag</span>  &mdash;  <span class="dtc100--post-date">@Model.PublishedOn</span>
+    </div>
+    <h1 class="dtc100--post-title">@Model.Title</h1>
+    <div class="dtc100--post-text">
+        <p>@Model.Text</p>    
+    </div>
+</div>
