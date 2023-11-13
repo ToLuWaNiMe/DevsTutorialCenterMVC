@@ -1,32 +1,26 @@
-﻿<link rel="stylesheet" href="~/css/blog_post_item_partial.css" asp-append-version="true"/>
+﻿@model BlogPostItemVM;
 
-<div class="card-1">
-    <img class="img-frame" src="~/images/Frame 46.png"/>
-
-    <div class="story-desc-div">
-        <div class="frame-55">
-            <div class="frame-43">
-                <div class="frame-74">
-                    <div class="_125-courses">JAVA</div>
+<div class="">
+    <img class="aspect-[16/10] w-full object-cover object-center" src="@Model.ImageUrl"/>
+    <div class="p-4">
+        <div class="">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="rounded-full bg-gray-100 px-3 py-1 text-sm uppercase text-slate-500">@Model.Tag.Name</div>
+                    <div class="w-4 border-t border-gray-300"></div>
+                    <div class="text-gray-700">@Model.ReadTime read</div>
                 </div>
-                <div class="line-2"></div>
-                <div class="_125-courses2">5 mins read</div>
             </div>
         </div>
-        <div class="graphic-design">
-            Exploring the Evolution of Java: From Past to Present
-        </div>
-        <div class="graphic">
-            Dorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero
-            et velit interdum, ac aliquet odio mattis.
-        </div>
-        <hr class="line"/>
-        <div class="group1170">
-            <div class="dtc-8-author-profile">
-                <img src="~/images/Ellipse 1.png"/>
-                <h5>Ayomide Akin</h5>
+        <div class="mt-2 text-xl font-semibold">@Model.Title</div>
+        <div class="mt-2">@Model.Text</div>
+        <div class="my-3 border-t border-gray-100"></div>
+        <div class="flex items-center justify-between">
+            <div class="flex items-center">
+                <img class="mr-2 aspect-square h-10 rounded-full text-gray-900" src="@Model.Author.Image"/>
+                <h5>@Model.Author.Name</h5>
             </div>
-            <h4>2 days ago</h4>
+            <p class="text-gray-400">@Model.CreatedOn</p>
         </div>
     </div>
 </div>
