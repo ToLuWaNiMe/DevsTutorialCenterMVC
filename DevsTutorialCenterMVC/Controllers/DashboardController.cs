@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DevsTutorialCenterMVC.Controllers
 {
@@ -25,7 +25,5 @@ namespace DevsTutorialCenterMVC.Controllers
         {
             return View();
         }
-
-
     }
 }

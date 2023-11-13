@@ -42,7 +42,7 @@ public class HomeController : Controller
     {
         return View();
     }
-    
+
     [Authorize]
     public IActionResult OpenArticle()
     {

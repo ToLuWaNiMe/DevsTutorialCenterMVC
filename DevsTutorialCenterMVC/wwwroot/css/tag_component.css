@@ -1,0 +1,11 @@
+﻿.tag-component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    padding: 0.5rem 1rem;
+    gap: 10px;
+    border-radius: 3.125rem;
+    background: #f2f4f7;
+    color: #5c6881;
+}
