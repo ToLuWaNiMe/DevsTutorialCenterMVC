@@ -5,18 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap - Copy.css.map" />
-    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap - Copy.min.css" />
-    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap - Copy.min.css.map" />
-    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap - Copy.rtl.css" />
-    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap - Copy.rtl.css.map" />
-    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap - Copy.rtl.min.css" />
-    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap - Copy.rtl.min.css.map" />
-    <Content Remove="wwwroot\lib\bootstrap\dist\css\Comments-bootstrap.css" />
-  </ItemGroup>
-
+  
   <ItemGroup>
     <None Include="wwwroot\css\blogpost.css" />
     <None Include="wwwroot\css\blog_post_item_partial.css" />
@@ -213,14 +202,6 @@
     <None Include="wwwroot\js\third_party\image_tui.min.js" />
     <None Include="wwwroot\js\third_party\showdown.min.js" />
     <None Include="wwwroot\js\third_party\spell_checker.min.js" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\Comments-bootstrap.css" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\Comments-bootstrap.css.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\Comments-bootstrap.min.css" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\Comments-bootstrap.min.css.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\Comments-bootstrap.rtl.css" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\Comments-bootstrap.rtl.css.map" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\Comments-bootstrap.rtl.min.css" />
-    <None Include="wwwroot\lib\bootstrap\dist\css\Comments-bootstrap.rtl.min.css.map" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
