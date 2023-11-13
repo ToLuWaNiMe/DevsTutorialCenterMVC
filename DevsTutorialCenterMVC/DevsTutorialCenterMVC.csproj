@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
+  
   <ItemGroup>
     <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap - Copy.css.map" />
     <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap - Copy.min.css" />
