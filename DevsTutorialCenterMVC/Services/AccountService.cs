@@ -15,15 +15,19 @@ namespace DevsTutorialCenterMVC.Services
         private readonly SignInManager<AppUser> _signInManager;
         private readonly UserManager<AppUser> _userManager;
         private readonly IRepository _repository;
-
-        public AccountService(HttpClient client, IConfiguration config,
-            SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, IRepository repository)
-            :base(client, config)
+        
+        public AccountService(HttpClient client, IConfiguration config) : base(client, config)
         {
-            _signInManager = signInManager;
-            _userManager = userManager;
-            _repository = repository;
         }
+
+        // public AccountService(HttpClient client, IConfiguration config,
+        //     SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, IRepository repository)
+        //     :base(client, config)
+        // {
+        //     _signInManager = signInManager;
+        //     _userManager = userManager;
+        //     _repository = repository;
+        // }
 
         public bool IsLoggedInAsync(ClaimsPrincipal user)
         {
@@ -71,7 +75,6 @@ namespace DevsTutorialCenterMVC.Services
                 return viewModel;
             }
         }
-
 
 
     }

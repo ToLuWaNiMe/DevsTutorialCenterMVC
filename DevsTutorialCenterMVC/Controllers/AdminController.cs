@@ -11,10 +11,10 @@ namespace DevsTutorialCenterMVC.Controllers
 
         private readonly IAccountService _accountService;
 
-        public AdminController(IAccountService accountService)
-        {
-            _accountService = accountService;
-        }
+        // public AdminController(IAccountService accountService)
+        // {
+        //     _accountService = accountService;
+        // }
         public async Task<IActionResult> Index(int? page, int? size)
         {
             int pageNum = page ?? 1;

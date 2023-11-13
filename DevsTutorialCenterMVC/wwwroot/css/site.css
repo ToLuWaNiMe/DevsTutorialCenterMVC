@@ -1,18 +1,22 @@
-﻿html {
-  font-size: 14px;
-}
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
+/*html {*/
+/*  font-size: 14px;*/
+/*}*/
 
-html {
-  position: relative;
-  min-height: 100%;
-}
+/*@media (min-width: 768px) {*/
+/*  html {*/
+/*    font-size: 16px;*/
+/*  }*/
+/*}*/
 
-body {
-  margin-bottom: 60px;
-}
+/*html {*/
+/*  position: relative;*/
+/*  min-height: 100%;*/
+/*}*/
+
+/*body {*/
+/*  margin-bottom: 60px;*/
+/*}*/

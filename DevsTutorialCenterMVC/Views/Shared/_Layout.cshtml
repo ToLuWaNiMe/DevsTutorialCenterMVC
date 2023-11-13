@@ -1,42 +1,26 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - DevsTutorialCenterMVC</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/landing.css">
-    <link rel="stylesheet" href="~/css/blogpost.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/writeArticle.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/DevsTutorialCenterMVC.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/openarticlepageunderadmin.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/login_signup.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/StoryPage.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/header.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/StoryPage.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/settings.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/AuthorsUnderAdmin.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/forgot_password.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/reset-password.css" asp-append-version="true" />
-
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - DevsTutorialCenterMVC</title><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true"/>
 </head>
-<body>
-    <div>
-        <main>
-            @RenderBody()
-        </main>
-    </div>
+
+<body class="font-sans antialiased">
+<div>
+    <main>
+        @RenderBody()
+    </main>
+</div>
 
 @*    <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - DevsTutorialCenterMVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>*@
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-

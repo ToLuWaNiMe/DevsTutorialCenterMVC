@@ -3,10 +3,10 @@
     public class Repository : IRepository
     {
         protected readonly DevsTutorialCenterMVCContext _context;
-        public Repository(DevsTutorialCenterMVCContext context)
-        {
-            _context = context;
-        }
+        // public Repository(DevsTutorialCenterMVCContext context)
+        // {
+        //     _context = context;
+        // }
         public async Task AddAsync<T>(T entity) where T : class
         {
             if (entity == null)

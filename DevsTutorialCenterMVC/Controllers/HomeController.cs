@@ -20,23 +20,23 @@ public class HomeController : Controller
     private readonly IBlogPostService _blogPostService;
     private readonly IAccountService _accountService;
 
-    public HomeController(
-        ILogger<HomeController> logger,
-        UserManager<AppUser> userManager,
-        IMessengerService messengerService,
-        IRepository repository, 
-        IBlogPostService blogPostService,
-        IAccountService accountService
-
-        )
-    {
-        _logger = logger;
-        _userManager = userManager;
-        _messengerService = messengerService;
-        _repository = repository;
-        _blogPostService = blogPostService;
-        _accountService = accountService;
-    }
+    // public HomeController(
+    //     ILogger<HomeController> logger,
+    //     UserManager<AppUser> userManager,
+    //     IMessengerService messengerService,
+    //     IRepository repository, 
+    //     IBlogPostService blogPostService,
+    //     IAccountService accountService
+    //
+    //     )
+    // {
+    //     _logger = logger;
+    //     _userManager = userManager;
+    //     _messengerService = messengerService;
+    //     _repository = repository;
+    //     _blogPostService = blogPostService;
+    //     _accountService = accountService;
+    // }
 
     public IActionResult Index()
     {
