@@ -1,6 +1,6 @@
 ﻿namespace DevsTutorialCenterMVC.Models.Components
 {
-    public class TagComponentViewModel
+    public class TagViewModel
     {
         public string Id { get; set; }
         public string Name { get; set; }
