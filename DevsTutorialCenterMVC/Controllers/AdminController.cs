@@ -2,7 +2,7 @@
 using DevsTutorialCenterMVC.Services;
 using DevsTutorialCenterMVC.Utilities;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Principal;
+using DevsTutorialCenterMVC.Services.Interfaces;
 
 namespace DevsTutorialCenterMVC.Controllers
 {
@@ -22,7 +22,7 @@ namespace DevsTutorialCenterMVC.Controllers
 
             var viewModelList = await _accountService.GetAllAccountsAsync();
             var paginatedViewModel = Helper.Paginate(viewModelList, pageNum, pageSize);
-
+            
             return View(paginatedViewModel);
         }
 

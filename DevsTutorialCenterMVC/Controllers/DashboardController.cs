@@ -1,12 +1,22 @@
+using DevsTutorialCenterMVC.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DevsTutorialCenterMVC.Controllers
 {
     public class DashboardController : Controller
     {
-        public IActionResult Index()
+        private readonly BlogPostService _blogPostService;
+
+        public DashboardController(BlogPostService blogPostService)
         {
-            return View();
+            _blogPostService = blogPostService;
+        }
+        
+        public async Task<IActionResult> Index()
+        {
+            var articles = await _blogPostService.LatestPosts();
+            
+            return View(articles);
         }
 
         [HttpGet]

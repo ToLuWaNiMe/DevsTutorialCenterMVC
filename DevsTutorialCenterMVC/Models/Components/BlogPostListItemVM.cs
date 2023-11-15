@@ -10,4 +10,5 @@ public class BlogPostListItemVM
     public string Text { get; set; }
     public AuthorListItemViewModel Author { get; set; }
     public string CreatedOn { get; set; }
+    public bool ShowBookmark { get; set; } = false;
 }

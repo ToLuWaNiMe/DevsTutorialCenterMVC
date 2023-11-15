@@ -1,12 +1,45 @@
 ﻿using DevsTutorialCenterMVC.Models;
 using System.Collections.Generic;
+using DevsTutorialCenterMVC.Models.Api;
+using DevsTutorialCenterMVC.Services.Interfaces;
 
 namespace DevsTutorialCenterMVC.Services
 {
-    public class BlogPostService : BaseService, IBlogPostService
+    public class BlogPostService : BaseService
     {
         public BlogPostService(HttpClient client, IConfiguration config) : base(client, config)
         {
+        }
+
+        public async Task<IEnumerable<BlogPostVM>> GetAllArticles(FilterArticleDto? filterArticleDto = null)
+        {
+            var address = "/api/articles/get-all-article";
+            const string methodType = "GET";
+
+            if (filterArticleDto?.Page is not null)
+                address = $"{address}?page={filterArticleDto.Page}";
+            
+            if (filterArticleDto?.Size is not null)
+                address = $"{address}?size={filterArticleDto.Size}";
+            
+            if (!string.IsNullOrEmpty(filterArticleDto?.AuthorId))
+                address = $"{address}?authorId={filterArticleDto.AuthorId}";
+
+            if (!string.IsNullOrEmpty(filterArticleDto?.TagId))
+                address = $"{address}?tagId={filterArticleDto.TagId}";
+            
+            if (filterArticleDto.IsRecentlyAdded.GetValueOrDefault())
+                address = $"{address}?isRecentlyAdded={filterArticleDto.IsRecentlyAdded}";
+                
+            if (filterArticleDto.IsTopRead.GetValueOrDefault())
+                address = $"{address}?isTopRead={filterArticleDto.IsTopRead}";
+
+            var result = await MakeRequest<ResponseObject<IEnumerable<BlogPostVM>>, string>(address, methodType, "");
+            
+            if (result is null)
+                return new List<BlogPostVM>();
+            
+            return result.Data;
         }
 
         public async Task<IEnumerable<GetAllTagsViewModel>> InterestingTopics()

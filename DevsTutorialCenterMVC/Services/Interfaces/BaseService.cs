@@ -1,8 +1,7 @@
 ﻿using static System.GC;
 
-namespace DevsTutorialCenterMVC.Services
+namespace DevsTutorialCenterMVC.Services.Interfaces
 {
-
     public class BaseService : IDisposable
     {
         private readonly HttpClient _client;
@@ -17,7 +16,8 @@ namespace DevsTutorialCenterMVC.Services
         public void Dispose() => SuppressFinalize(true);
 
 
-        public async Task<TResult?> MakeRequest<TResult, TData>(string address, string methodType, TData data, string token)
+        public async Task<TResult?> MakeRequest<TResult, TData>(string address, string methodType, TData data,
+            string token = "")
         {
             if (string.IsNullOrEmpty(address)) throw new ArgumentNullException("address");
             if (string.IsNullOrEmpty(methodType)) throw new ArgumentNullException("method type");
@@ -45,21 +45,12 @@ namespace DevsTutorialCenterMVC.Services
                     apiResult = await _client.GetAsync($"{_baseUrl}{address}");
                     break;
             }
-
-            if (apiResult != null)
-            {
-                if (apiResult.IsSuccessStatusCode)
-                {
-                    if (apiResult.Content != null)
-                    {
-                        var result = await apiResult.Content.ReadFromJsonAsync<TResult>();
-                        if (result != null)
-                            return result;
-                    }
-                }
-            }
-
-            return default;
+            
+            if (!apiResult.IsSuccessStatusCode) return default;
+            
+            var result = await apiResult.Content.ReadFromJsonAsync<TResult>();
+            
+            return result ?? default;
         }
     }
 }
