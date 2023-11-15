@@ -1,0 +1,15 @@
+﻿@model CommentListItemVM;
+
+<div>
+    <div class="mb-3 flex items-center space-x-8 text-sm">
+        <div class="flex items-center">
+            <img class="mr-2 aspect-square h-10 rounded-full text-gray-900" src="@Model.Image"/>
+            <p>@Model.Name</p>
+        </div>
+        <p class="text-gray-600">@Model.CreatedOn</p>
+    </div>
+
+    <p class="mb-3 text-xs">@Model.Text</p>
+
+    <button class="flex-inline items-center justify-center rounded-lg bg-gray-100 px-4 py-2 text-sm text-green-700 hover:bg-gray-200">Reply</button>
+</div>

@@ -1,0 +1,9 @@
+@model BlogPostTrendingItemVM;
+
+<div class="flex justify-between space-x-5">
+    <img class="aspect-[16/10] w-2/5 overflow-hidden object-cover object-center" src="@Model.ImageUrl" />
+    <div class="flex w-3/5 flex-col justify-evenly">
+        <p class="text-xl font-semibold text-gray-800">@Model.Title</p>
+        <p>@Model.Text</p>
+    </div>
+</div>
