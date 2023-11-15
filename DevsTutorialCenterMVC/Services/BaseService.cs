@@ -1,4 +1,6 @@
-﻿namespace DevsTutorialCenterMVC.Services
+﻿using static System.GC;
+
+namespace DevsTutorialCenterMVC.Services
 {
 
     public class BaseService : IDisposable
@@ -12,7 +14,7 @@
             _baseUrl = config.GetSection("ApiUrls:BaseUrl").Value;
         }
 
-        public void Dispose() { System.GC.SuppressFinalize(true); }
+        public void Dispose() => SuppressFinalize(true);
 
 
         public async Task<TResult?> MakeRequest<TResult, TData>(string address, string methodType, TData data, string token)
