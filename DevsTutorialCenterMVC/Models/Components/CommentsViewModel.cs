@@ -1,4 +1,4 @@
-﻿namespace DevsTutorialCenterMVC.Models.Component
+﻿namespace DevsTutorialCenterMVC.Models.Components
 {
     public class CommentsViewModel
     {
