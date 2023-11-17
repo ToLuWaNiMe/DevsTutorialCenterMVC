@@ -2,6 +2,7 @@
 using DevsTutorialCenterMVC.Data.Entities;
 using DevsTutorialCenterMVC.Data.Repositories;
 using DevsTutorialCenterMVC.Services;
+using DevsTutorialCenterMVC.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,19 +11,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
-// builder.Services.AddDbContext<DevsTutorialCenterMVCContext>(
-//     option => option.UseNpgsql(builder.Configuration.GetConnectionString("ProdDb"))
-// );
-// builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
-// {
-//     options.SignIn.RequireConfirmedEmail = true;
-// }).AddEntityFrameworkStores<DevsTutorialCenterMVCContext>()
-//   .AddDefaultTokenProviders();
+
 
 builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddTransient<IMessengerService, MessengerService>();
-builder.Services.AddScoped<IAccountService, AccountService>();
-builder.Services.AddScoped<IBlogPostService, BlogPostService>();
+builder.Services.AddScoped<AccountService>();
+builder.Services.AddScoped<BlogPostService>();
 builder.Services.AddScoped<DashboardService>();
 
 
@@ -43,8 +37,6 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
-// Seeder.SeedeMe(app);
 
 app.MapControllerRoute(
     name: "default",

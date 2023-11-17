@@ -1,0 +1,16 @@
+@model ViewArticleVM;
+
+<div class="relative">
+    <img class="-z-50 aspect-[16/10] w-full object-cover object-center" src="@Model.ImageUrl" alt="" />
+    <div class="absolute -mt-36 w-full px-6">
+        <div class="w-full bg-white p-6">
+            <div class="flex items-center space-x-4">
+            <partial name="_TagComponentPartial" model="@Model.Tag"/>
+                <div class="w-4 border-t border-gray-300"></div>
+                <div class="text-sm text-gray-500">@Model.CreatedOn </div>
+            </div>
+            <p class="mt-4 text-2xl font-medium">@Model.Title</p>
+            <p class="mt-6 text-sm">@Model.Text</p>
+        </div>
+    </div>
+</div>

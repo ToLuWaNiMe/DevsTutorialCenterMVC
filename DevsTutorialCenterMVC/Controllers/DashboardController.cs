@@ -9,15 +9,19 @@ namespace DevsTutorialCenterMVC.Controllers
     public class DashboardController : Controller
     {
         private readonly DashboardService _dashboardService;
+        private readonly BlogPostService _blogPostService;
 
-        public DashboardController(DashboardService dashboardService)
+        public DashboardController(DashboardService dashboardService, BlogPostService blogPostService)
         {
             _dashboardService = dashboardService;
+            _blogPostService = blogPostService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var articles = await _blogPostService.LatestPosts();
+            
+            return View(articles);
         }
 
         [HttpGet]
