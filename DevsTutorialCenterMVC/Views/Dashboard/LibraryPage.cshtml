@@ -1,1 +1,8 @@
-﻿
+﻿@model LibraryPageVM
+
+<div>
+    @foreach (var read in Model.ReadArticles)
+    {
+        <partial name="Components/_BlogPostListItemPartial" model="@read" />
+    }
+</div>

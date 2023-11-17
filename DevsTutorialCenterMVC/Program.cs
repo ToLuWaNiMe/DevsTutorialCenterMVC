@@ -23,6 +23,7 @@ builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddTransient<IMessengerService, MessengerService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IBlogPostService, BlogPostService>();
+builder.Services.AddScoped<DashboardService>();
 
 
 var app = builder.Build();

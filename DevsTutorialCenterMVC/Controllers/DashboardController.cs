@@ -1,9 +1,20 @@
+using DevsTutorialCenterMVC.Models;
+using DevsTutorialCenterMVC.Models.Components;
+using DevsTutorialCenterMVC.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Xml.Linq;
 
 namespace DevsTutorialCenterMVC.Controllers
 {
     public class DashboardController : Controller
     {
+        private readonly DashboardService _dashboardService;
+
+        public DashboardController(DashboardService dashboardService)
+        {
+            _dashboardService = dashboardService;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -24,6 +35,96 @@ namespace DevsTutorialCenterMVC.Controllers
         public IActionResult CreateArticle()
         {
             return View();
+        }
+
+        public async Task<IActionResult> LibraryPage()
+        {
+            var readArticles = await _dashboardService.ReadArticles();
+
+            var pageModel = new LibraryPageVM
+            {
+                ReadArticles = readArticles
+            };
+            //    AllTags = new List<TagComponentViewModel>
+            //    {
+            //        new()
+            //        {
+            //            Id = "",
+            //            Name = "JAVA"
+            //        },
+            //        new()
+            //        {
+            //            Id = "",
+            //            Name = "DOTNET"
+            //        }
+            //    },
+
+            //    ReadArticles = new List<BlogPostListItemVM>
+            //    {
+            //        new()
+            //        {
+            //            Author = new AuthorListItemViewModel{Name = "Ayomide", Designation = "UI UX Designer", Image = "", NumberOfArticles = 53},
+            //            CreatedOn = "23 May 2023",
+            //            Id = "",
+            //            ImageUrl = "",
+            //            ReadTime = "5 mins",
+            //            Tag = new TagComponentViewModel{Name = "JAVA", Id =""},
+            //            Text = "The era of technological inventions with JAVA Stack",
+            //            Title = "Mastering Java",
+
+            //        },
+            //         new()
+            //         {
+            //            Author = new AuthorListItemViewModel{Name = "Ayomide", Designation = "UI UX Designer", Image = "", NumberOfArticles = 53},
+            //            CreatedOn = "23 May 2023",
+            //            Id = "",
+            //            ImageUrl = "",
+            //            ReadTime = "5 mins",
+            //            Tag = new TagComponentViewModel{Name = "JAVA", Id =""},
+            //            Text = "The era of technological inventions with JAVA Stack",
+            //            Title = "Mastering Java",
+
+            //         },
+            //          new()
+            //          {
+            //            Author = new AuthorListItemViewModel{Name = "Ayomide", Designation = "UI UX Designer", Image = "", NumberOfArticles = 53},
+            //            CreatedOn = "23 May 2023",
+            //            Id = "",
+            //            ImageUrl = "",
+            //            ReadTime = "5 mins",
+            //            Tag = new TagComponentViewModel{Name = "JAVA", Id =""},
+            //            Text = "The era of technological inventions with JAVA Stack",
+            //            Title = "Mastering Java",
+
+            //          }
+            //    },
+
+            //    TopAuthors = new List<AuthorListItemViewModel>
+            //    {
+            //        new()
+            //        {
+            //            Name = "Ayomide",
+            //            Designation = "UI UX Designer",
+            //            Image = "",
+            //            NumberOfArticles = 56,
+            //        },
+            //        new()
+            //        {
+            //            Name = "Ayomide",
+            //            Designation = "UI UX Designer",
+            //            Image = "",
+            //            NumberOfArticles = 56,
+            //        },
+            //        new()
+            //        {
+            //            Name = "Ayomide",
+            //            Designation = "UI UX Designer",
+            //            Image = "",
+            //            NumberOfArticles = 56,
+            //        }
+            //    }
+            //};
+            return View(pageModel);
         }
     }
 }
