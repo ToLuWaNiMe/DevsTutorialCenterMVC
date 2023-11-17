@@ -19,7 +19,7 @@ namespace DevsTutorialCenterMVC.Controllers
 
         public IActionResult Index()
         {
-            var articles = await _blogPostService.LatestPosts();
+            var articles =  _blogPostService.LatestPosts();
             
             return View(articles);
         }
@@ -44,10 +44,12 @@ namespace DevsTutorialCenterMVC.Controllers
         public async Task<IActionResult> LibraryPage()
         {
             var readArticles = await _dashboardService.ReadArticles();
+            var topAuthors = await _dashboardService.AllAuthors();
 
             var pageModel = new LibraryPageVM
             {
-                ReadArticles = readArticles
+                ReadArticles = readArticles,
+                TopAuthors = topAuthors,
             };
             //    AllTags = new List<TagComponentViewModel>
             //    {

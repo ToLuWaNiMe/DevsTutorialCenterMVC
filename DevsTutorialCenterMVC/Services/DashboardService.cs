@@ -1,5 +1,6 @@
 ﻿using DevsTutorialCenterMVC.Models;
 using DevsTutorialCenterMVC.Models.Components;
+using DevsTutorialCenterMVC.Services.Interfaces;
 
 namespace DevsTutorialCenterMVC.Services
 {
@@ -40,55 +41,84 @@ namespace DevsTutorialCenterMVC.Services
                     Author = new AuthorListItemViewModel
                     {
                        Name = "Author",
-                       Designation = "java",
+                       Designation = "UIUX Designer",
                        Image = "",
                        NumberOfArticles = 1,
                     },
-                    CreatedOn = "",
+                    CreatedOn = "Jun 12,2023",
                     Id = "234",
                     ImageUrl = "",
                     ReadTime = "4 mins",
-                    Tag = new TagComponentViewModel{ Id = "", Name = "java"},
-                    Text = "Text",
-                    Title = "Title",
+                    Tag = new TagViewModel{ Id = "", Name = "java"},
+                    Text = "Forem ipsum dolor sit amet, .",
+                    Title = "Exploring the ",
+                },                
+                new()
+                {
+                    Author = new AuthorListItemViewModel
+                    {
+                       Name = "Author",
+                       Designation = "UIUX Designer",
+                       Image = "",
+                       NumberOfArticles = 1,
+                    },
+                    CreatedOn = "Jun 12,2023",
+                    Id = "234",
+                    ImageUrl = "",
+                    ReadTime = "4 mins",
+                    Tag = new TagViewModel{ Id = "", Name = "java"},
+                    Text = "Forem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+                    Title = "Exploring the Evolution of Java: From Past to Present",
                 },
                 new()
                 {
                     Author = new AuthorListItemViewModel
                     {
                        Name = "Author",
-                       Designation = "java",
+                       Designation = "UIUX Designer",
                        Image = "",
                        NumberOfArticles = 1,
                     },
-                    CreatedOn = "",
+                    CreatedOn = "Jun 12,2023",
                     Id = "234",
                     ImageUrl = "",
                     ReadTime = "4 mins",
-                    Tag = new TagComponentViewModel{ Id = "", Name = "java"},
-                    Text = "Text",
-                    Title = "Title",
-                },
-                new()
-                {
-                    Author = new AuthorListItemViewModel
-                    {
-                       Name = "Author",
-                       Designation = "java",
-                       Image = "",
-                       NumberOfArticles = 1,
-                    },
-                    CreatedOn = "",
-                    Id = "234",
-                    ImageUrl = "",
-                    ReadTime = "4 mins",
-                    Tag = new TagComponentViewModel{ Id = "", Name = "java"},
-                    Text = "Text",
-                    Title = "Title",
+                    Tag = new TagViewModel{ Id = "", Name = "java"},
+                    Text = "Forem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+                    Title = "Exploring the Evolution of Java: From Past to Present",
                 }
 
             };
 
+        }
+
+        public async Task<IEnumerable<AuthorListItemViewModel>> AllAuthors()
+        {
+            return new List<AuthorListItemViewModel>
+            {
+                new()
+                {
+                    Name = "Ayomide Akin",
+                    Designation = "UIUX Designer",
+                    Image = "https://via.placeholder.com/280x204",
+                    NumberOfArticles = 50,
+                },
+                new()
+                {
+                    Name = "Ayomide Akin",
+                    Designation = "UIUX Designer",
+                    Image = "https://via.placeholder.com/280x204",
+                    NumberOfArticles = 50,
+                },
+                new()
+                {
+                    Name = "Ayomide Akin",
+                    Designation = "UIUX Designer",
+                    Image = "https://via.placeholder.com/280x204",
+                    NumberOfArticles = 50,
+                },
+
+            };
         }
     }
 }
