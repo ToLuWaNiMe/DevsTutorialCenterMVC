@@ -1,10 +1,6 @@
-﻿using DevsTutorialCenterMVC.Data;
-using DevsTutorialCenterMVC.Data.Entities;
-using DevsTutorialCenterMVC.Data.Repositories;
+﻿using DevsTutorialCenterMVC.Data.Repositories;
 using DevsTutorialCenterMVC.Services;
 using DevsTutorialCenterMVC.Services.Interfaces;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
