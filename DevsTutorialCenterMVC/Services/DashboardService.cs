@@ -6,7 +6,7 @@ namespace DevsTutorialCenterMVC.Services
 {
     public class DashboardService : BaseService
     {
-        public DashboardService(HttpClient client, IConfiguration config) : base(client, config)
+        public DashboardService(HttpClient client, IConfiguration config, TagService tagService) : base(client, config)
         {
         }
 

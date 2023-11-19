@@ -8,10 +8,10 @@
         }
     </div>
 
-    <div class="flex flex-col space-y-5 w-full border border-red-600 sm:mt-5 md:mt-0 md:w-2/5">
+    <div class="flex flex-col space-y-5 w-full border border-red-600 mt-10 md:mt-0 md:w-2/5">
         <div>
             <p class="font-semibold">AUTHORS</p>
-            <div>
+            <div class="mt-2">
                 @foreach (var topAuthor in Model.TopAuthors)
                 {
                     <partial name="Components/_AuthorListItemPartial" model="@topAuthor" />
@@ -21,13 +21,20 @@
 
         <div>
             <p class="font-semibold">MORE TOPICS</p>
-            <div>
+            <div class="flex flex-row space-x-5 mt-2">
                 @foreach(var tag in Model.AllTags)
                 {
                     <partial name="Components/_TagComponentPartial" model="@tag" />
                 }
             </div>
 
+        </div>
+
+        <div>
+            <p class="font-semibold">RECOMMENDATIONS</p>
+            <div class="mt-2">
+
+            </div>
         </div>
     </div>
 </div>

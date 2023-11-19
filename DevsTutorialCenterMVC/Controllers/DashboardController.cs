@@ -10,11 +10,13 @@ namespace DevsTutorialCenterMVC.Controllers
     {
         private readonly DashboardService _dashboardService;
         private readonly BlogPostService _blogPostService;
+        private readonly TagService _tagService;
 
-        public DashboardController(DashboardService dashboardService, BlogPostService blogPostService)
+        public DashboardController(DashboardService dashboardService, BlogPostService blogPostService, TagService tagService)
         {
             _dashboardService = dashboardService;
             _blogPostService = blogPostService;
+            _tagService = tagService;
         }
 
         public IActionResult Index()
@@ -45,11 +47,13 @@ namespace DevsTutorialCenterMVC.Controllers
         {
             var readArticles = await _dashboardService.ReadArticles();
             var topAuthors = await _dashboardService.AllAuthors();
+            var allTags = await _tagService.AllTags();
 
             var pageModel = new LibraryPageVM
             {
                 ReadArticles = readArticles,
                 TopAuthors = topAuthors,
+                AllTags = allTags
             };
             //    AllTags = new List<TagComponentViewModel>
             //    {

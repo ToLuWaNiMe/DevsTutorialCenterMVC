@@ -18,6 +18,7 @@ builder.Services.AddTransient<IMessengerService, MessengerService>();
 builder.Services.AddScoped<AccountService>();
 builder.Services.AddScoped<BlogPostService>();
 builder.Services.AddScoped<DashboardService>();
+builder.Services.AddScoped<TagService>();
 
 
 var app = builder.Build();
