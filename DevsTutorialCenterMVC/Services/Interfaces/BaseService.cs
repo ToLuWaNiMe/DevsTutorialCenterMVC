@@ -1,4 +1,6 @@
-﻿using static System.GC;
+﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
+using static System.GC;
 
 namespace DevsTutorialCenterMVC.Services.Interfaces
 {
@@ -47,10 +49,11 @@ namespace DevsTutorialCenterMVC.Services.Interfaces
             }
             
             if (!apiResult.IsSuccessStatusCode) return default;
+           
+            var result = await apiResult.Content.ReadAsStringAsync();
+            var backresult = JsonConvert.DeserializeObject<TResult>(result);
             
-            var result = await apiResult.Content.ReadFromJsonAsync<TResult>();
-            
-            return result ?? default;
+            return backresult ?? default;
         }
     }
 }

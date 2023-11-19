@@ -74,6 +74,36 @@ namespace DevsTutorialCenterMVC.Services
                     Id = "",
                     Name = "PHP",
                 },
+                new()
+                {
+                    Id = "",
+                    Name = "DOTNET",
+                },
+                new()
+                {
+                    Id = "",
+                    Name = "REACT",
+                },
+                new()
+                {
+                    Id = "",
+                    Name = "PYTHON",
+                },
+                new()
+                {
+                    Id = "",
+                    Name = "C#",
+                },
+                new()
+                {
+                    Id = "",
+                    Name = "ANGULAR",
+                },
+                new()
+                {
+                    Id = "",
+                    Name = "PHP",
+                }
             };
         }
     }

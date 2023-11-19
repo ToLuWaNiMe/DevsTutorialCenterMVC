@@ -1,4 +1,5 @@
 ﻿using DevsTutorialCenterMVC.Models;
+using DevsTutorialCenterMVC.Models.Api;
 using DevsTutorialCenterMVC.Models.Components;
 using DevsTutorialCenterMVC.Services.Interfaces;
 
@@ -120,5 +121,23 @@ namespace DevsTutorialCenterMVC.Services
 
             };
         }
+
+        public async Task<IEnumerable<BlogPostVM>> GetRecentlyAddedArticles(FilterArticleDto filterArticleDto)
+        {
+            var address = "/api/articles/get-all-article";
+            const string methodType = "GET";
+
+            // Add a parameter to filter recently added articles
+            if (filterArticleDto.IsRecentlyAdded.GetValueOrDefault())
+                address = $"{address}?isRecentlyAdded=true";
+
+            var result = await MakeRequest<ResponseObject<IEnumerable<BlogPostVM>>, string>(address, methodType, "");
+
+            if (result is null)
+                return new List<BlogPostVM>();
+
+            return result.Data.Take(3);
+        }
+
     }
 }
