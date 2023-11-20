@@ -47,13 +47,12 @@ namespace DevsTutorialCenterMVC.Services.Interfaces
                     apiResult = await _client.GetAsync($"{_baseUrl}{address}");
                     break;
             }
-            
+
             if (!apiResult.IsSuccessStatusCode) return default;
-           
-            var result = await apiResult.Content.ReadAsStringAsync();
-            var backresult = JsonConvert.DeserializeObject<TResult>(result);
-            
-            return backresult ?? default;
+
+            var result = await apiResult.Content.ReadFromJsonAsync<TResult>();
+
+            return result ?? default;
         }
     }
 }
