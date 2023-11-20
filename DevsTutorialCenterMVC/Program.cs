@@ -17,6 +17,7 @@ builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddTransient<IMessengerService, MessengerService>();
 builder.Services.AddScoped<AccountService>();
 builder.Services.AddScoped<BlogPostService>();
+builder.Services.AddScoped<StoryPageService>();
 
 
 var app = builder.Build();

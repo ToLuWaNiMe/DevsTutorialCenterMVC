@@ -1,0 +1,6 @@
+﻿@model StoryPageVM;
+
+@foreach(var pendingArticle in Model.PendingArticles)
+{
+    <partial name ="Components/_PendingListArticlePartial" model="pendingArticle"/>
+}
