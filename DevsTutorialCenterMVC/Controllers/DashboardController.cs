@@ -1,6 +1,7 @@
 using DevsTutorialCenterMVC.Models;
 using DevsTutorialCenterMVC.Models.Components;
 using DevsTutorialCenterMVC.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Xml.Linq;
 
@@ -27,6 +28,7 @@ namespace DevsTutorialCenterMVC.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Settings()
         {
             return View();

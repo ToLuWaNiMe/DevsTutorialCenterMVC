@@ -1,5 +1,6 @@
-﻿using Newtonsoft.Json;
-using System.Text.Json.Serialization;
+﻿using System.Net;
+using DevsTutorialCenterMVC.Models;
+using DevsTutorialCenterMVC.Models.Api;
 using static System.GC;
 
 namespace DevsTutorialCenterMVC.Services.Interfaces
@@ -7,11 +8,13 @@ namespace DevsTutorialCenterMVC.Services.Interfaces
     public class BaseService : IDisposable
     {
         private readonly HttpClient _client;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly string _baseUrl;
 
-        public BaseService(HttpClient client, IConfiguration config)
+        public BaseService(HttpClient client, IHttpContextAccessor httpContextAccessor, IConfiguration config)
         {
             _client = client;
+            _httpContextAccessor = httpContextAccessor;
             _baseUrl = config.GetSection("ApiUrls:BaseUrl").Value;
         }
 
@@ -53,6 +56,31 @@ namespace DevsTutorialCenterMVC.Services.Interfaces
             var result = await apiResult.Content.ReadFromJsonAsync<TResult>();
 
             return result ?? default;
+        }
+
+        public async Task<Result<TResult>> MakeRequest<TResult>(string address) where TResult : class
+        {
+            if (string.IsNullOrEmpty(address)) throw new ArgumentNullException(nameof(address));
+
+            var token = _httpContextAccessor.HttpContext?.User?.Claims.ToString();
+
+            if (!string.IsNullOrEmpty(token))
+                _client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+
+            var apiResult = await _client.GetAsync($"{_baseUrl}{address}");
+
+            if (!apiResult.IsSuccessStatusCode)
+                return Result.Failure<TResult>(new[]
+                    { new Error("Api.Error", await apiResult.Content.ReadAsStringAsync()) });
+
+            if (apiResult.StatusCode == HttpStatusCode.BadRequest)
+            {
+                
+            }
+
+            var result = await apiResult.Content.ReadFromJsonAsync<TResult>();
+
+            return Result.Success(result!);
         }
     }
 }
