@@ -2,6 +2,8 @@
 
 <link href="~/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="~/js/froala_editor.pkgd.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 
 
 <partial name="_WriteArticleNavBarPartial" /> 
@@ -9,12 +11,13 @@
 <section class="position-absolute d-flex flex-column w-100 h-100" style="left: 0;">
         
 
-    <partial name="_SuccessConfirmationModalPartial" model="@new ModalContent()"/>
+    <partial name="_SuccessConfirmationModalPartial" id="successModal" model="@new ModalContent()" />
 
     <div class="container">
         <div class="mt-5">
             <h3 class="mb-3" style="font-size: 1.2rem;font-family: 'Inter'; letter-spacing: .1px;">Create Article</h3>
-            <form method="post" asp-area="" asp-controller="Article" asp-action="Create">
+            <form  method="post" asp-area="" asp-controller="DashBoard" asp-action="CreateArticle" id="articleForm">
+
                 <div class="d-flex flex-column justify-content-between h-100">
                     <div id="article-title" class="col p-0 d-flex align-items-center mb-3">
                         <input name="Title" class="form-control input-ify" placeholder="Title">
@@ -30,7 +33,8 @@
                     </div>
                 </div>
                 <div>
-                    <button class="btn btn-success">Publish</button>
+                    <button id="publishButton" class="btn btn-success">Publish</button>
+
                 </div>
             </form>
             <script>
@@ -48,3 +52,34 @@
         </div>
     </div>
 </section>
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#publishButton').click(function (e) {
+            e.preventDefault();
+
+                $.ajax({
+                url: '/DashBoard/CreateArticle',  // Update this URL
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function (data) {
+                    if (data.success) {
+                        $('#successModal').modal('show');
+                    } else {
+                        console.log('Article creation failed. Error: ' + data.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.log('AJAX request failed. Status: ' + status + ', Error: ' + error);
+                }
+            });
+        });
+    });
+
+
+
+
+
+</script>

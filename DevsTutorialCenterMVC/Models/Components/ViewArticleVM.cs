@@ -8,4 +8,9 @@ public class ViewArticleVM
     public string Text { get; set; }
     public string CreatedOn { get; set; }
     public TagViewModel Tag { get; set; }
+
+    public ViewArticleVM()
+    {
+
+    }
 }

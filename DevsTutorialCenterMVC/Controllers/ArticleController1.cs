@@ -7,6 +7,7 @@ namespace DevsTutorialCenterMVC.Controllers
     public class ArticleController1 : Controller
     {
         private readonly IArticleService _articleService;
+
         public ArticleController1(IArticleService articleService)
         {
             _articleService = articleService;
@@ -19,29 +20,34 @@ namespace DevsTutorialCenterMVC.Controllers
         }
 
         [HttpPost]
-
         public async Task<IActionResult> Create(ViewArticleVM article)
         {
-            if (ModelState.IsValid)
+            try
             {
-
-                bool result = await _articleService.Create(article);
-
-                if (result)
+                if (ModelState.IsValid)
                 {
+                    bool result = await _articleService.Create(article);
 
-                    return RedirectToAction("Index", "Home");
+                    if (result)
+                    {
+                        return Json(new { success = true });
+                    }
+                    else
+                    {
+                        return Json(new { success = false, message = "Article creation failed. Please try again." });
+                    }
                 }
-                else
-                {
 
-                    ModelState.AddModelError(string.Empty, "Article creation failed. Please try again.");
-                }
+                return Json(new { success = false, message = "Invalid model state." });
             }
-
-
-            return View(article);
+            catch (Exception ex)
+            {
+                // Log the exception for further investigation
+                return Json(new { success = false, message = "An error occurred during article creation." });
+            }
         }
+
+
 
 
 

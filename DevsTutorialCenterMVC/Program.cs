@@ -13,6 +13,7 @@ builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddTransient<IMessengerService, MessengerService>();
 builder.Services.AddScoped<AccountService>();
 builder.Services.AddScoped<BlogPostService>();
+builder.Services.AddScoped<IArticleService, ArticleService>();
 
 
 var app = builder.Build();
@@ -35,7 +36,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=DashBoard}/{action=UpdateArticle}/{id?}");
 
 
 app.Run();
