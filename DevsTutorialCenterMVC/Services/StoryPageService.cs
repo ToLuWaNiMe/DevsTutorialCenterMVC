@@ -13,29 +13,7 @@ namespace DevsTutorialCenterMVC.Services
 
         public async Task<IEnumerable<StoryArticlesVM>> PendingArticlesAsync()
         {
-            //var address = "/api/articles/pending-articles";
-            //var methodType = "GET";
 
-            //var result = await MakeRequest<ResponseObject<PaginatorResponseViewModel<IEnumerable<StoryArticlesVM>>>, string>(address, methodType, "", "");
-            //if (result != null)
-            //{
-
-            //    var mappedResult = result.Data.PageItems.Select(x => new StoryArticlesVM
-            //    {
-            //        Id = x.Id,
-            //        ImageUrl = x.ImageUrl,
-            //        CreatedOn = x.CreatedOn,
-            //        Tag = x.Tag,
-            //        Text = x.Text,
-            //        Title = x.Title,
-            //        SubmittedOn = x.SubmittedOn,
-
-            //    });
-
-            //    return mappedResult;
-
-
-            //}
             return new List<StoryArticlesVM>()
             {
                 new()

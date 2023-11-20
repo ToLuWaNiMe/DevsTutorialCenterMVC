@@ -1,4 +1,5 @@
 using DevsTutorialCenterMVC.Models;
+using DevsTutorialCenterMVC.Models.Api;
 using DevsTutorialCenterMVC.Models.Components;
 using DevsTutorialCenterMVC.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -14,11 +15,12 @@ namespace DevsTutorialCenterMVC.Controllers
         private readonly StoryPageService _storyPageService;
         private readonly TagService _tagService;
 
-        public DashboardController(DashboardService dashboardService, BlogPostService blogPostService, TagService tagService)
+        public DashboardController(DashboardService dashboardService, BlogPostService blogPostService, TagService tagService, StoryPageService storyPageService)
         {
             _dashboardService = dashboardService;
             _blogPostService = blogPostService;
             _tagService = tagService;
+            _storyPageService = storyPageService;
         }
 
         public IActionResult Index()
@@ -38,10 +40,16 @@ namespace DevsTutorialCenterMVC.Controllers
         public async Task<IActionResult> StoryPage()
         {
             var pendingArticles = await _storyPageService.PendingArticlesAsync();
+            var topAuthors = await _dashboardService.AllAuthors();
+            var allTags = await _tagService.AllTags();
+            var recentBlogPost =  _blogPostService.GetRecommendedArticles().Result.Take(3);
 
             var pageModel = new StoryPageVM
             {
                 PendingArticles = pendingArticles,
+                TopAuthors = topAuthors,
+                AllTags = allTags,
+                RecentBlogPosts = recentBlogPost
             };
 
             return View(pageModel);
@@ -58,7 +66,7 @@ namespace DevsTutorialCenterMVC.Controllers
             var readArticles = await _dashboardService.ReadArticles();
             var topAuthors = await _dashboardService.AllAuthors();
             var allTags = await _tagService.AllTags();
-            var recentBlogPost = await _blogPostService.GetRecommendedArticles();
+            var recentBlogPost =  _blogPostService.GetRecommendedArticles().Result.Take(3);
             var pageModel = new LibraryPageVM
             {
                 ReadArticles = readArticles,
