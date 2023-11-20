@@ -262,6 +262,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.25" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0">
@@ -275,6 +276,10 @@
   <ItemGroup>
     <UptoDateCheckBuilt Include="wwwroot/css/site.css" Set="Css" />
     <UptoDateCheckBuilt Include="tailwind.config.js" Set="Css" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Models\Api\Requests\" />
   </ItemGroup>
   
 <!--  <Target Name="Tailwind" BeforeTargets="Build">-->

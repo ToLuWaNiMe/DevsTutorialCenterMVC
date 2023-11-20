@@ -11,6 +11,7 @@ namespace DevsTutorialCenterMVC.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly AuthService _authService;
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly ILogger<AccountController> _logger;
@@ -20,21 +21,24 @@ namespace DevsTutorialCenterMVC.Controllers
         private readonly IRepository _repository;
 
         public AccountController(
-            UserManager<AppUser> userManager,
-            SignInManager<AppUser> signInManager,
-            ILogger<AccountController> logger,
-            IAccountService accountService,
-            IMessengerService messengerService,
-            IConfiguration config,
-            IRepository repository)
+            AuthService authService
+            // UserManager<AppUser> userManager,
+            // SignInManager<AppUser> signInManager,
+            // ILogger<AccountController> logger,
+            // IAccountService accountService,
+            // IMessengerService messengerService,
+            // IConfiguration config,
+            // IRepository repository
+            )
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
-            _logger = logger;
-            _accountService = accountService;
-            _messengerService = messengerService;
-            _config = config;
-            _repository = repository;
+            _authService = authService;
+            // _userManager = userManager;
+            // _signInManager = signInManager;
+            // _logger = logger;
+            // _accountService = accountService;
+            // _messengerService = messengerService;
+            // _config = config;
+            // _repository = repository;
         }
 
         [HttpGet]
@@ -75,10 +79,10 @@ namespace DevsTutorialCenterMVC.Controllers
         [AllowAnonymous]
         public IActionResult Login(string? returnUrl)
         {
-            if (_signInManager.IsSignedIn(User))
-                return RedirectToAction("Index", "Home");
-
-            ViewBag.ReturnUrl = returnUrl;
+            // if (_signInManager.IsSignedIn(User))
+            //     return RedirectToAction("Index", "Home");
+            //
+            // ViewBag.ReturnUrl = returnUrl;
 
             return View();
         }
@@ -114,27 +118,18 @@ namespace DevsTutorialCenterMVC.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            if (ModelState.IsValid)
-            {
-                var result = await _signInManager.PasswordSignInAsync(model.Email,
-                    model.Password, model.RememberMe, false);
+            if (!ModelState.IsValid) 
+                return View(model);
 
-                if (result.Succeeded)
-                {
-                    if (!string.IsNullOrEmpty(returnUrl))
-                    {
-                        return LocalRedirect(returnUrl);
-                    }
-                    else
-                    {
-                        return RedirectToAction("index", "home");
-                    }
-                }
+            var result = await _authService.Login(model);
 
-                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
-            }
+            if (result.IsFailure)
+                return View(model);
+            
+            if (string.IsNullOrWhiteSpace(returnUrl))
+                return Redirect(returnUrl);
 
-            return View(model);
+            return RedirectToAction("Index", "Home");
         }
 
         public async Task<IActionResult> Logout()
