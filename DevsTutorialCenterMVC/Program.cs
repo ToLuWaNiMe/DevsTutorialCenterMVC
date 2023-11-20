@@ -1,23 +1,30 @@
-﻿using DevsTutorialCenterMVC.Data;
-using DevsTutorialCenterMVC.Data.Entities;
+﻿using System.Text;
 using DevsTutorialCenterMVC.Data.Repositories;
 using DevsTutorialCenterMVC.Services;
 using DevsTutorialCenterMVC.Services.Interfaces;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
-
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddTransient<IMessengerService, MessengerService>();
 builder.Services.AddScoped<AccountService>();
 builder.Services.AddScoped<BlogPostService>();
+builder.Services.AddScoped<AuthService>();
 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.AccessDeniedPath = "/Account/AccessDenied";
+    });
 
 var app = builder.Build();
 

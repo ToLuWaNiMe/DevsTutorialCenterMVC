@@ -1,4 +1,5 @@
 using DevsTutorialCenterMVC.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DevsTutorialCenterMVC.Controllers
@@ -20,6 +21,7 @@ namespace DevsTutorialCenterMVC.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Settings()
         {
             return View();

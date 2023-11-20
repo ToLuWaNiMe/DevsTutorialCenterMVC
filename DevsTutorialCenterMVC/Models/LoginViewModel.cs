@@ -14,5 +14,7 @@ namespace DevsTutorialCenterMVC.Models
 
         [Display(Name = "Remember me")]
         public bool RememberMe { get; set; }
+
+        public IEnumerable<string> Errors { get; set; } = Array.Empty<string>();
     }
 }
