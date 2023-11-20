@@ -21,7 +21,7 @@
 
         <div class="border border-red-600">
             <p class="font-semibold">MORE TOPICS</p>
-            <div class=" mt-2">
+            <div class=" mt-2 bg-white p-7">
                 @foreach(var tag in Model.AllTags)
                 {
                     <partial name="Components/_TagComponentPartial" model="@tag" />
