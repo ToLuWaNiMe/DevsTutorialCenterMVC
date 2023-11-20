@@ -7,14 +7,21 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
-
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddTransient<IMessengerService, MessengerService>();
 builder.Services.AddScoped<AccountService>();
 builder.Services.AddScoped<BlogPostService>();
+builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<IArticleService, ArticleService>();
 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.AccessDeniedPath = "/Account/AccessDenied";
+    });
 
 var app = builder.Build();
 
