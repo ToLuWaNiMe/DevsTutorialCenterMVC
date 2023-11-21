@@ -7,9 +7,6 @@
     var returnUrl = ViewBag.returnUrl ?? "/";
 }
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-12345..." crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" integrity="sha384-12345..." crossorigin="anonymous" />
-
 <div class="min-h-screen flex flex-col justify-center items-center bg-gray-50 py-6 sm:py-12 ">
     <form method="post" asp-action="Login" asp-controller="Account" class="w-full max-w-md mt-16 mx-auto  ">
         <div asp-validation-summary="All" class="text-danger"></div>
@@ -31,11 +28,11 @@
                     <div class="border-b border-gray-300 w-1/2"></div>
                 </div>
             </div>
-             <div style="color:#200000">
-            @if (!string.IsNullOrEmpty(errMsg))
-            {
-                @errMsg
-            }
+            <div style="color:#200000">
+                @if (!string.IsNullOrEmpty(errMsg))
+                {
+                    @errMsg
+                }
             </div>
             <div class="flex flex-col gap-4 w-full">
                 <div class="flex flex-col">
@@ -46,7 +43,7 @@
                 <div class="flex flex-col relative">
                     <label class="label">Password</label>
                     <div class="relative">
-                        <input asp-for="Password" type="password" id="passwordInput" placeholder="****************" class="input pr-10" />
+                        <input asp-for="Password" type="password" id="passwordInput" placeholder="****************" class="input pr-10"/>
 
                         <span asp-validation-for="Password" class="text-danger" style="color:#200000"></span>
                         <div class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 cursor-pointer" id="togglePassword">
@@ -59,18 +56,18 @@
                 @*     <input asp-for="RememberMe" class=""> *@
                 @*     <span>@Html.DisplayNameFor(m => m.RememberMe)</span> *@
                 @* </label> *@
-                <div class="text-blue-600 text-base font-normal">
+                <div class="text-blue-600 text-sm text-right font-normal">
                     <a href="/Account/ForgotPassword">Forgot password</a>
                 </div>
             </div>
 
             <div class="flex flex-col items-center gap-8 w-full">
-                <button type="submit" class="bg-green-500 text-white rounded p-2 w-full">
+                <button type="submit" class="w-full button">
                     <div class="font-semibold">Login</div>
                 </button>
                 <p class="text-sm">
                     <span class="text-gray-400 text-sm font-normal">Don’t have an account? </span>
-                    <a class="text-green-500 font-semibold" href="/Account/SignUp">Sign Up Here</a>
+                    <a class="text-green-500 font-semibold" asp-action="SignUp" asp-controller="Account">Sign Up Here</a>
                 </p>
             </div>
         </div>
@@ -88,71 +85,3 @@
         });
     });
 </script>
-
-
-
-@*<div class="dtc-7-login login-signup-body ">
-    <form method="post" asp-action="Login" asp-controller="Account" asp-route-ReturnUrl="@returnUrl">
-        <div asp-validation-summary="All" class="text-danger"></div>
-        <div class="dtc-7-frame-wrapper">
-            <div class="dtc-7-frame">
-                <div class="dtc-7-login-authentication">
-                    <div class="dtc-7-div">
-                        <div class="dtc-7-frame-2"><img class="dtc-7-blogger" src="~/images/blogger.svg" /></div>
-                        <div class="dtc-7-text">Welcome back</div>
-                    </div>
-                    <div class="dtc-7-frame-3">
-                        <div class="dtc-7-frame-4">
-                            <div class="dtc-7-frame-4">
-                                <div class="dtc-7-button-default">
-                                    <img class="dtc-7-img" src="~/images/google-1.svg" />
-                                    <div class="dtc-7-text-wrapper">
-                                        <a asp-action="WithAccount" asp-controller="Account">Sign in with Google</a>
-                                    </div>
-                                </div>
-                                <div class="dtc-7-frame-5">
-                                    <div class="dtc-7-divider"><img class="dtc-7-vector" src="~/images/vector-1.svg" /></div>
-                                    <div class="dtc-7-text-2">OR</div>
-                                    <div class="dtc-7-vector-wrapper"><img class="dtc-7-vector" src="~/images/vector-2.svg" /></div>
-                                </div>
-                            </div>
-
-                            <div style="color:#200000">
-                                @if (!string.IsNullOrEmpty(errMsg))
-                                {
-                                    @errMsg
-                                }
-                            </div>
-
-                            <div class="dtc-7-frame-6">
-                                <div class="dtc-7-frame-7">
-                                    <div class="dtc-7-frame-8">
-                                        <div class="dtc-7-text-3">Email Address</div>
-                                        <input asp-for="Email" class="dtc-7-button-default-2" placeholder="Enter your email" />
-                                        <span asp-validation-for="Email" class="text-danger" style="color:#200000"></span>
-                                    </div>
-                                    <div class="dtc-7-frame-8">
-                                        <div class="dtc-7-text-3">Password</div>
-                                        <input asp-for="Password" class="dtc-7-button-default-2" placeholder="****************" />
-                                        <span asp-validation-for="Password" class="text-danger" style="color:#200000"></span>
-                                    </div>
-                                    <label asp-for="RememberMe">
-                                        <input asp-for="RememberMe" />
-                                        @Html.DisplayNameFor(m => m.RememberMe)
-                                    </label>
-                                </div>
-                                <div class="dtc-7-text-5"><a asp-action="ForgotPassword" asp-controller="Account">Forgot password</a></div>
-                            </div>
-                        </div>
-                        <div class="dtc-7-frame-10">
-                            <button class="dtc-7-CTA-default"><div class="dtc-7-text-6">Login</div></button>
-                            <p class="dtc-7-p">
-                                <span class="dtc-7-span">Don’t have an account ? </span><a asp-action="SignUp" asp-controller="Account">Sign Up Here</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-</div>*@

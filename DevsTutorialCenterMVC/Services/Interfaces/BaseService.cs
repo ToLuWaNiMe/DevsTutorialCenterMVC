@@ -3,69 +3,68 @@ using DevsTutorialCenterMVC.Models;
 using DevsTutorialCenterMVC.Models.Api;
 using static System.GC;
 
-namespace DevsTutorialCenterMVC.Services.Interfaces
+namespace DevsTutorialCenterMVC.Services.Interfaces;
+
+public class BaseService : IDisposable
 {
-    public class BaseService : IDisposable
+    private readonly HttpClient _client;
+    private readonly IHttpContextAccessor _httpContextAccessor;
+    private readonly string _baseUrl;
+
+    public BaseService(HttpClient client, IHttpContextAccessor httpContextAccessor, IConfiguration config)
     {
-        private readonly HttpClient _client;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly string _baseUrl;
+        _client = client;
+        _httpContextAccessor = httpContextAccessor;
+        _baseUrl = config.GetSection("ApiUrls:BaseUrl").Value;
+    }
 
-        public BaseService(HttpClient client, IHttpContextAccessor httpContextAccessor, IConfiguration config)
+    public void Dispose() => SuppressFinalize(true);
+
+
+    public async Task<TResult?> MakeRequest<TResult, TData>(string address, string methodType, TData data,
+        string token = "")
+    {
+        if (string.IsNullOrEmpty(address)) throw new ArgumentNullException("address");
+        if (string.IsNullOrEmpty(methodType)) throw new ArgumentNullException("method type");
+
+        if (!string.IsNullOrEmpty(token))
+            _client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+
+        var apiResult = methodType.ToUpper() switch
         {
-            _client = client;
-            _httpContextAccessor = httpContextAccessor;
-            _baseUrl = config.GetSection("ApiUrls:BaseUrl").Value;
-        }
+            "POST" => await _client.PostAsJsonAsync($"{_baseUrl}{address}", data),
+            "PUT" => await _client.PutAsJsonAsync($"{_baseUrl}{address}", data),
+            "DELETE" => await _client.DeleteAsync($"{_baseUrl}{address}"),
+            _ => await _client.GetAsync($"{_baseUrl}{address}")
+        };
 
-        public void Dispose() => SuppressFinalize(true);
+        if (!apiResult.IsSuccessStatusCode) return default;
 
+        var result = await apiResult.Content.ReadFromJsonAsync<TResult>();
 
-        public async Task<TResult?> MakeRequest<TResult, TData>(string address, string methodType, TData data,
-            string token = "")
-        {
-            if (string.IsNullOrEmpty(address)) throw new ArgumentNullException("address");
-            if (string.IsNullOrEmpty(methodType)) throw new ArgumentNullException("method type");
+        return result ?? default;
+    }
 
-            if (!string.IsNullOrEmpty(token))
-                _client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+    public async Task<TResult> MakeRequest<TResult>(string address) where TResult : class
+    {
+        if (string.IsNullOrEmpty(address)) throw new ArgumentNullException(nameof(address));
 
-            var apiResult = methodType.ToUpper() switch
-            {
-                "POST" => await _client.PostAsJsonAsync($"{_baseUrl}{address}", data),
-                "PUT" => await _client.PutAsJsonAsync($"{_baseUrl}{address}", data),
-                "DELETE" => await _client.DeleteAsync($"{_baseUrl}{address}"),
-                _ => await _client.GetAsync($"{_baseUrl}{address}")
-            };
+        var token = string.Empty;
+        var claim = _httpContextAccessor.HttpContext?.User.Claims.FirstOrDefault(claim => claim.Type == "JwtToken");
 
-            if (!apiResult.IsSuccessStatusCode) return default;
+        if (claim is not null)
+            token = claim.Value;
 
-            var result = await apiResult.Content.ReadFromJsonAsync<TResult>();
+        if (!string.IsNullOrEmpty(token))
+            _client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
 
-            return result ?? default;
-        }
+        var apiResult = await _client.GetAsync($"{_baseUrl}{address}");
 
-        public async Task<TResult> MakeRequest<TResult>(string address) where TResult : class
-        {
-            if (string.IsNullOrEmpty(address)) throw new ArgumentNullException(nameof(address));
+        if (apiResult.StatusCode != HttpStatusCode.BadRequest && !apiResult.IsSuccessStatusCode)
+            throw new HttpRequestException(await apiResult.Content.ReadAsStringAsync());
 
-            var token = string.Empty;
-            var claim = _httpContextAccessor.HttpContext?.User.Claims.FirstOrDefault(claim => claim.Type == "JwtToken");
-
-            if (claim is not null)
-                token = claim.Value;
-
-            if (!string.IsNullOrEmpty(token))
-                _client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
-
-            var apiResult = await _client.GetAsync($"{_baseUrl}{address}");
-
-            if (apiResult.StatusCode != HttpStatusCode.BadRequest && !apiResult.IsSuccessStatusCode)
-                throw new HttpRequestException(await apiResult.Content.ReadAsStringAsync());
-
-            var result = await apiResult.Content.ReadFromJsonAsync<TResult>();
+        var result = await apiResult.Content.ReadFromJsonAsync<TResult>();
             
-            return result!;
-        }
+        return result!;
     }
 }
