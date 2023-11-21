@@ -1,6 +1,6 @@
 ﻿@model StoryPageVM;
 
-<div class="flex flex-col justify-start items-start bg-gray-50 border border-red-600 p-10 md:flex-row md:space-x-10">
+<div class="flex flex-col justify-start items-start bg-gray-50 p-10 md:flex-row md:space-x-10">
     <div class="flex flex-col space-y-8 md:w-3/4">
         @foreach (var pendingArticle in Model.PendingArticles)
         {
@@ -8,7 +8,7 @@
         }
     </div>
 
-    <div class="flex flex-col space-y-5 w-full border border-red-600 mt-10 md:mt-0 md:w-2/5">
+    <div class="flex flex-col space-y-5 w-full mt-10 md:mt-0 md:w-2/5">
         <div>
             <p class="font-semibold">AUTHORS</p>
             <div class="mt-2">
