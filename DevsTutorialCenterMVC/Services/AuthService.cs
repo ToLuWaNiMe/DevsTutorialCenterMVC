@@ -54,4 +54,33 @@ public class AuthService : BaseService
 
         return Result.Success(loginData);
     }
+
+
+    public async Task<Result<SignUpViewModel>> Register(SignUpViewModel signUpData)
+    {
+        const string url = "/api/auth/register";
+        var response = await MakeRequest<ResponseObject<SignUpResponseDto>, object>(url, "POST", new
+        {
+            Email = signUpData.Email,
+            FirstName = signUpData.FirstName,
+            LastName = signUpData.LastName,
+            Stack = signUpData.Stack,
+            SquadNumber = signUpData.SquadNumber,
+            Password = signUpData.Password,
+            ConfirmPassword = signUpData.ConfirmPassword
+        });
+
+        if (!response.IsSuccessful)
+            return Result.Failure<SignUpViewModel>(response.Errors);
+
+        var model = new SignUpViewModel
+        {
+          
+            Token = response.Data.Token,
+            Email = response.Data.User.Email,
+        };
+
+        return Result.Success(model);
+    }
+
 }
