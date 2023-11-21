@@ -1,49 +1,21 @@
-﻿using DevsTutorialCenterMVC.Models;
-using DevsTutorialCenterMVC.Services;
-using DevsTutorialCenterMVC.Utilities;
-using Microsoft.AspNetCore.Mvc;
-using DevsTutorialCenterMVC.Services.Interfaces;
+﻿using Microsoft.AspNetCore.Mvc;
 
-namespace DevsTutorialCenterMVC.Controllers
+namespace DevsTutorialCenterMVC.Controllers;
+
+public class AdminController : Controller
 {
-    public class AdminController : Controller
+    public async Task<IActionResult> Index(int? page, int? size)
     {
+        return View();
+    }
+        
+    public async Task<IActionResult> AccountDetails(string id)
+    {
+        return View();
+    }
 
-        private readonly IAccountService _accountService;
-
-        // public AdminController(IAccountService accountService)
-        // {
-        //     _accountService = accountService;
-        // }
-        public async Task<IActionResult> Index(int? page, int? size)
-        {
-            int pageNum = page ?? 1;
-            int pageSize = size ?? 3;
-
-            var viewModelList = await _accountService.GetAllAccountsAsync();
-            var paginatedViewModel = Helper.Paginate(viewModelList, pageNum, pageSize);
-            
-            return View(paginatedViewModel);
-        }
-
-
-
-
-        public async Task<IActionResult> AccountDetails(string id)
-        {
-
-            var account = await _accountService.AccountsDetailsAsync(id);
-            if (account == null)
-            {
-                return NotFound(); 
-            }
-
-            return View(account);
-        }
-
-        public IActionResult AuthorsUnderAdmin()
-        {
-            return View();
-        }
+    public IActionResult AuthorsUnderAdmin()
+    {
+        return View();
     }
 }

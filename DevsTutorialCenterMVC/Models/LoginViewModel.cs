@@ -12,7 +12,7 @@ namespace DevsTutorialCenterMVC.Models
         [DataType(DataType.Password)]
         public string Password { get; set; } = string.Empty;
 
-        [Display(Name = "Remember me")]
+        // [Display(Name = "Remember me")]
         public bool RememberMe { get; set; }
 
         public IEnumerable<string> Errors { get; set; } = Array.Empty<string>();

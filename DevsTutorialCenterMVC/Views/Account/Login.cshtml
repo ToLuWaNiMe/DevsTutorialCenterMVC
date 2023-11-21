@@ -7,7 +7,91 @@
     var returnUrl = ViewBag.returnUrl ?? "/";
 }
 
-<div class="dtc-7-login login-signup-body ">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-12345..." crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" integrity="sha384-12345..." crossorigin="anonymous" />
+
+<div class="min-h-screen flex flex-col justify-center items-center bg-gray-50 py-6 sm:py-12 ">
+    <form method="post" asp-action="Login" asp-controller="Account" class="w-full max-w-md mt-16 mx-auto  ">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="bg-white p-8 rounded-2xl shadow-md flex flex-col justify-start items-center gap-8 w-full">
+            <div class="flex flex-col justify-start items-center gap-6">
+                <img src="~/images/blogger.svg" class="w-16 h-16  rounded-md">
+                <div class="text-gray-900 text-2xl font-bold">Welcome back</div>
+            </div>
+            <div class="flex flex-col gap-4 w-full">
+                <div class="flex px-4 py-3 bg-white rounded-lg border border-gray-300 justify-center items-center gap-2">
+                    <img src="~/images/google-1.svg" class="w-6 h-6 rounded-md">
+                    <div class="text-gray-400">
+                        <a href="/Account/WithAccount">Sign in with Google</a>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="border-b border-gray-300 w-1/2"></div>
+                    <div class="text-gray-400">OR</div>
+                    <div class="border-b border-gray-300 w-1/2"></div>
+                </div>
+            </div>
+             <div style="color:#200000">
+            @if (!string.IsNullOrEmpty(errMsg))
+            {
+                @errMsg
+            }
+            </div>
+            <div class="flex flex-col gap-4 w-full">
+                <div class="flex flex-col">
+                    <label class="label">Email Address</label>
+                    <input asp-for="Email" type="email" class="input" placeholder="Enter your email">
+                    <span asp-validation-for="Email" class="text-danger" style="color:#200000"></span>
+                </div>
+                <div class="flex flex-col relative">
+                    <label class="label">Password</label>
+                    <div class="relative">
+                        <input asp-for="Password" type="password" id="passwordInput" placeholder="****************" class="input pr-10" />
+
+                        <span asp-validation-for="Password" class="text-danger" style="color:#200000"></span>
+                        <div class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 cursor-pointer" id="togglePassword">
+                            <!-- Font Awesome eye icon for password -->
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                </div>
+                @*  <label asp-for="RememberMe" class="flex items-center gap-2"> *@
+                @*     <input asp-for="RememberMe" class=""> *@
+                @*     <span>@Html.DisplayNameFor(m => m.RememberMe)</span> *@
+                @* </label> *@
+                <div class="text-blue-600 text-base font-normal">
+                    <a href="/Account/ForgotPassword">Forgot password</a>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center gap-8 w-full">
+                <button type="submit" class="bg-green-500 text-white rounded p-2 w-full">
+                    <div class="font-semibold">Login</div>
+                </button>
+                <p class="text-sm">
+                    <span class="text-gray-400 text-sm font-normal">Don’t have an account? </span>
+                    <a class="text-green-500 font-semibold" href="/Account/SignUp">Sign Up Here</a>
+                </p>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const passwordInput = document.getElementById('passwordInput');
+        const togglePassword = document.getElementById('togglePassword');
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+        });
+    });
+</script>
+
+
+
+@*<div class="dtc-7-login login-signup-body ">
     <form method="post" asp-action="Login" asp-controller="Account" asp-route-ReturnUrl="@returnUrl">
         <div asp-validation-summary="All" class="text-danger"></div>
         <div class="dtc-7-frame-wrapper">
@@ -71,4 +155,4 @@
             </div>
         </div>
     </form>
-</div>
+</div>*@

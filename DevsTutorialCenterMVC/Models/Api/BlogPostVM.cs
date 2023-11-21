@@ -6,7 +6,10 @@ public class BlogPostVM
     public string Title { get; set; }
     public string Text { get; set; }
     public string AuthorId { get; set; }
+    public string AuthorName { get; set; }
+    public string? AuthorImage { get; set; }
     public string TagId { get; set; }
+    public string TagName { get; set; }
     public int ReadCount { get; set; }
     public string ImageUrl { get; set; }
     public string PublicId { get; set; }
