@@ -6,7 +6,7 @@ namespace DevsTutorialCenterMVC.Services
 {
     public class StoryPageService : BaseService
     {
-        public StoryPageService(HttpClient client, IConfiguration config) : base(client, config)
+        public StoryPageService(HttpClient client, IHttpContextAccessor httpContextAccessor, IConfiguration config) : base(client, httpContextAccessor, config)
         {
         }
 

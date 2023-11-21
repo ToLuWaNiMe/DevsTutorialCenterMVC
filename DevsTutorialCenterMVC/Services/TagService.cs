@@ -6,7 +6,7 @@ namespace DevsTutorialCenterMVC.Services
 {
     public class TagService : BaseService
     {
-        public TagService(HttpClient client, IConfiguration config) : base(client, config)
+        public TagService(HttpClient client, IHttpContextAccessor httpContextAccessor, IConfiguration config) : base(client, httpContextAccessor, config)
         {
         }
 

@@ -10,14 +10,14 @@ namespace DevsTutorialCenterMVC.Controllers
 {
     public class DashboardController : Controller
     {
-        private readonly DashboardService _dashboardService;
+        private readonly LibraryPageService _libraryPageService;
         private readonly BlogPostService _blogPostService;
         private readonly StoryPageService _storyPageService;
         private readonly TagService _tagService;
 
-        public DashboardController(DashboardService dashboardService, BlogPostService blogPostService, TagService tagService, StoryPageService storyPageService)
+        public DashboardController(LibraryPageService ibraryPageService, BlogPostService blogPostService, TagService tagService, StoryPageService storyPageService)
         {
-            _dashboardService = dashboardService;
+            _libraryPageService = ibraryPageService;
             _blogPostService = blogPostService;
             _tagService = tagService;
             _storyPageService = storyPageService;
@@ -40,7 +40,7 @@ namespace DevsTutorialCenterMVC.Controllers
         public async Task<IActionResult> StoryPage()
         {
             var pendingArticles = await _storyPageService.PendingArticlesAsync();
-            var topAuthors = await _dashboardService.AllAuthors();
+            var topAuthors = await _libraryPageService.AllAuthors();
             var allTags = await _tagService.AllTags();
             var recentBlogPost =  _blogPostService.GetRecommendedArticles().Result.Take(3);
 
@@ -63,8 +63,8 @@ namespace DevsTutorialCenterMVC.Controllers
 
         public async Task<IActionResult> LibraryPage()
         {
-            var readArticles = await _dashboardService.ReadArticles();
-            var topAuthors = await _dashboardService.AllAuthors();
+            var readArticles = await _libraryPageService.ReadArticles();
+            var topAuthors = await _libraryPageService.AllAuthors();
             var allTags = await _tagService.AllTags();
             var recentBlogPost =  _blogPostService.GetRecommendedArticles().Result.Take(3);
             var pageModel = new LibraryPageVM

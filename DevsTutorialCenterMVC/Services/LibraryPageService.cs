@@ -5,9 +5,9 @@ using DevsTutorialCenterMVC.Services.Interfaces;
 
 namespace DevsTutorialCenterMVC.Services
 {
-    public class DashboardService : BaseService
+    public class LibraryPageService : BaseService
     {
-        public DashboardService(HttpClient client, IConfiguration config, TagService tagService) : base(client, config)
+        public LibraryPageService(HttpClient client, IHttpContextAccessor httpContextAccessor, IConfiguration config) : base(client, httpContextAccessor, config)
         {
         }
 
