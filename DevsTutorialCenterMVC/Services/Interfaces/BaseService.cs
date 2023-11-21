@@ -13,11 +13,6 @@ namespace DevsTutorialCenterMVC.Services.Interfaces
         private HttpClient client;
         private IConfiguration config;
 
-        public BaseService(HttpClient client, IConfiguration config)
-        {
-            this.client = client;
-            this.config = config;
-        }
 
         public BaseService(HttpClient client, IHttpContextAccessor httpContextAccessor, IConfiguration config)
         {
