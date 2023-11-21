@@ -88,46 +88,23 @@ namespace DevsTutorialCenterMVC.Controllers
         }
 
         [HttpGet]
-        public IActionResult SignUp(
-            string token = "",
-            string Firstname = "",
-            string Lastname = "",
-            string email = "",
-            string Userstack = "",
-            string Squadnumber = "0")
+        public IActionResult SignUp()
         {
-            if (token == "")
-            {
-                return BadRequest("Access Denied");
-            }
 
-            var model = new SignUpViewModel
-            {
-                Token = token,
-                FirstName = Firstname,
-                LastName = Lastname,
-                Email = email,
-                SquadNumber = int.Parse(Squadnumber),
-                Stack = Userstack
-            };
-
-            return View(model);
+            return View();
         }
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
-            if (!ModelState.IsValid) 
+            if (!ModelState.IsValid)
                 return View(model);
 
             var result = await _authService.Login(model);
 
             if (result.IsFailure)
                 return View(model);
-            
-            if (string.IsNullOrWhiteSpace(returnUrl))
-                return Redirect(returnUrl);
 
             return RedirectToAction("Index", "Home");
         }

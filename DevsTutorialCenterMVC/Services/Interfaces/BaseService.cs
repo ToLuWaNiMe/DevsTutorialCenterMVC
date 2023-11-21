@@ -27,29 +27,16 @@ namespace DevsTutorialCenterMVC.Services.Interfaces
             if (string.IsNullOrEmpty(address)) throw new ArgumentNullException("address");
             if (string.IsNullOrEmpty(methodType)) throw new ArgumentNullException("method type");
 
-            var apiResult = new HttpResponseMessage();
-
             if (!string.IsNullOrEmpty(token))
                 _client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
 
-            switch (methodType)
+            var apiResult = methodType.ToUpper() switch
             {
-                case "POST":
-                    apiResult = await _client.PostAsJsonAsync($"{_baseUrl}{address}", data);
-                    break;
-
-                case "PUT":
-                    apiResult = await _client.PutAsJsonAsync($"{_baseUrl}{address}", data);
-                    break;
-
-                case "DELETE":
-                    apiResult = await _client.DeleteAsync($"{_baseUrl}{address}");
-                    break;
-
-                default:
-                    apiResult = await _client.GetAsync($"{_baseUrl}{address}");
-                    break;
-            }
+                "POST" => await _client.PostAsJsonAsync($"{_baseUrl}{address}", data),
+                "PUT" => await _client.PutAsJsonAsync($"{_baseUrl}{address}", data),
+                "DELETE" => await _client.DeleteAsync($"{_baseUrl}{address}"),
+                _ => await _client.GetAsync($"{_baseUrl}{address}")
+            };
 
             if (!apiResult.IsSuccessStatusCode) return default;
 
@@ -58,29 +45,27 @@ namespace DevsTutorialCenterMVC.Services.Interfaces
             return result ?? default;
         }
 
-        public async Task<Result<TResult>> MakeRequest<TResult>(string address) where TResult : class
+        public async Task<TResult> MakeRequest<TResult>(string address) where TResult : class
         {
             if (string.IsNullOrEmpty(address)) throw new ArgumentNullException(nameof(address));
 
-            var token = _httpContextAccessor.HttpContext?.User?.Claims.ToString();
+            var token = string.Empty;
+            var claim = _httpContextAccessor.HttpContext?.User.Claims.FirstOrDefault(claim => claim.Type == "JwtToken");
+
+            if (claim is not null)
+                token = claim.Value;
 
             if (!string.IsNullOrEmpty(token))
                 _client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
 
             var apiResult = await _client.GetAsync($"{_baseUrl}{address}");
 
-            if (!apiResult.IsSuccessStatusCode)
-                return Result.Failure<TResult>(new[]
-                    { new Error("Api.Error", await apiResult.Content.ReadAsStringAsync()) });
-
-            if (apiResult.StatusCode == HttpStatusCode.BadRequest)
-            {
-                
-            }
+            if (apiResult.StatusCode != HttpStatusCode.BadRequest && !apiResult.IsSuccessStatusCode)
+                throw new HttpRequestException(await apiResult.Content.ReadAsStringAsync());
 
             var result = await apiResult.Content.ReadFromJsonAsync<TResult>();
-
-            return Result.Success(result!);
+            
+            return result!;
         }
     }
 }
