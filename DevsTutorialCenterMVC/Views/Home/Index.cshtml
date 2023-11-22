@@ -5,51 +5,42 @@
 
 <partial name="_LandingPageNavPartial"/>
 
-
-<div class="landing-page">
-    <div class="main-frame">
-        <div class="frame-1"> 
-
+<div class="h-[35rem] w-full flex justify-center items-center flex-col bg-center bg-cover bg-no-repeat" style="background-image: linear-gradient(to right, rgba(52, 168, 83, 1), rgba(0, 0, 0, 0.08)), url('/images/Rectangle 1.png')">
+    <div class="text-gray-100 mb-6 text-center text-3xl md:text-6xl font-bold leading-normal">
+        Join the Decadevs gist <br/>space with the latest articles <br/>in tech world
     </div>
-    <div class="frame-2">
-        <div class="frame-265">
-            <div class="h-[35rem] w-full flex justify-center items-center flex-col bg-center bg-cover bg-no-repeat" style="background-image: linear-gradient(to right, rgba(52, 168, 83, 1), rgba(0, 0, 0, 0.08)), url('/images/Rectangle 1.png')">
-                <div class="text-gray-100 mb-6 text-center text-3xl md:text-6xl font-bold leading-normal">
-                    Join the Decadevs gist <br/>space with the latest articles <br/>in tech world
-                </div>
-                <div class="flex space-x-4">
-                    <a asp-controller="Account" asp-action="SignUp" class="button flex-inline py-3 px-12 font-semibold">Get Started</a>
+    <div class="flex space-x-4">
+        <a asp-controller="Account" asp-action="SignUp" class="button flex-inline py-3 px-12 font-semibold">Get Started</a>
 
-                    <a asp-controller="Dashboard" asp-action="Index" class="button-secondary py-3 px-12 font-semibold">See Stories</a>
-                </div>
-            </div>
+        <a asp-controller="Dashboard" asp-action="Index" class="button-secondary py-3 px-12 font-semibold">See Stories</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="mt-24">
+
+        <div class="text-center mb-12">
+            <h2 class="font-bold text-4xl mb-5">Tips and recommendations on Tech Stacks</h2>
+            <div class="text-small">Read Articles by different Decadevs just like you.</div>
         </div>
 
+        <div class="text-xl mb-4">RECENT BLOG POSTS</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            @foreach (var blogPost in Model)
+            {
+                <partial name="Components/_BlogPostItemPartial" model="@blogPost"/>
+            }
+        </div>
     </div>
+
+    <div class="flex justify-center mb-10">
+        <a asp-controller="Dashboard" asp-action="Index" class="button px-12 text-lg font-semibold py-3">Explore</a>
+    </div>
+</div>
+
+<div class="bg-slate-100">
     <div class="container">
-        <div class="mt-24">
-
-            <div class="text-center mb-12">
-                <h2 class="font-bold text-4xl mb-5">Tips and recommendations on Tech Stacks</h2>
-                <div class="text-small">Read Articles by different Decadevs just like you.</div>
-            </div>
-
-            <div class="text-xl mb-4">RECENT BLOG POSTS</div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                @foreach (var blogPost in Model)
-                {
-                    <partial name="Components/_BlogPostItemPartial" model="@blogPost"/>
-                }
-           </div>
-        </div>
-
-        <div class="flex justify-center mb-10">
-            <a asp-controller="Dashboard" asp-action="Index" class="button px-12 text-lg font-semibold py-3">Explore</a>
-        </div>
-    </div>
-
-    <div class="bg-slate-100 container">
-        <div class="flex flex-col items-center justify-center py-10 w-full border-b border-slate-200">
+        <div class="flex flex-col items-center justify-center py-10 w-full">
             <a href="/" class="flex items-center mb-12">
                 <svg class="h-16"
                      viewBox="0 0 48 48"
@@ -75,7 +66,7 @@
             </p>
         </div>
     </div>
-    <div class="container text-center py-8 bg-slate-100">
+    <div class="text-center py-8 border-t border-slate-200">
         Copyright ©2023. All rights reserved. Privacy & Terms.
     </div>
 </div>
