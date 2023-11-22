@@ -6,7 +6,7 @@ namespace DevsTutorialCenterMVC.Services
     public class ArticleService : BaseService, IArticleService
     {
 
-        public ArticleService(HttpClient client, IConfiguration config) : base(client, config)
+        public ArticleService(HttpClient client, IHttpContextAccessor httpContextAccessor, IConfiguration config) : base(client, httpContextAccessor, config)
         {
 
         }

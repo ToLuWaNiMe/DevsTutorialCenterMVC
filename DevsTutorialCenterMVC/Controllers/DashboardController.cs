@@ -1,8 +1,9 @@
 using DevsTutorialCenterMVC.Data.MethodExtensions;
+using DevsTutorialCenterMVC.Models.Api;
 using DevsTutorialCenterMVC.Models.Components;
 using DevsTutorialCenterMVC.Services;
-using Microsoft.AspNetCore.Authorization;
 using DevsTutorialCenterMVC.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
@@ -41,7 +42,9 @@ namespace DevsTutorialCenterMVC.Controllers
 
         public IActionResult CreateArticle()
         {
-            return View();
+            var tags = _tagService.GetAllTags();
+            var model = new CreateArticleDto { TagId = tags };
+            return View(model);
         }
 
 

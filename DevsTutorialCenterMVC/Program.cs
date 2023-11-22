@@ -1,6 +1,7 @@
 ﻿using DevsTutorialCenterMVC.Data.Repositories;
 using DevsTutorialCenterMVC.Services;
 using DevsTutorialCenterMVC.Services.Interfaces;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,7 +44,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=DashBoard}/{action=CreateArticle}/{id?}");
 
 
 app.Run();
