@@ -1,4 +1,4 @@
-﻿using DevsTutorialCenterMVC.Models.Components;
+﻿using DevsTutorialCenterMVC.Models.Api;
 using DevsTutorialCenterMVC.Services.Interfaces;
 
 namespace DevsTutorialCenterMVC.Services
@@ -11,14 +11,14 @@ namespace DevsTutorialCenterMVC.Services
 
         }
 
-        public async Task<bool> Create(ViewArticleVM article)
+        public async Task<bool> Create(CreateArticleDto article)
         {
-            string apiUrl = "/api/articles/create-article";
+            string apiUrl = "api/articles/create-article";
 
             try
             {
 
-                bool result = await MakeRequest<bool, ViewArticleVM>(apiUrl, "POST", article);
+                bool result = await MakeRequest<bool, CreateArticleDto>(apiUrl, "POST", article);
 
 
                 return result;
@@ -29,13 +29,13 @@ namespace DevsTutorialCenterMVC.Services
             }
         }
 
-        public async Task<ViewArticleVM> GetArticleById(int id)
+        public async Task<UpdateArticleDto> GetArticleById(int id)
         {
             try
             {
                 string apiUrl = $"get-single-article/{id}";
 
-                var article = await MakeRequest<ViewArticleVM, object>(apiUrl, "GET", data: null);
+                var article = await MakeRequest<UpdateArticleDto, object>(apiUrl, "GET", data: null);
 
                 return article;
             }
@@ -47,15 +47,15 @@ namespace DevsTutorialCenterMVC.Services
         }
 
 
-        public async Task<bool> UpdateArticle(int articleId, ViewArticleVM updatedArticle)
+        public async Task<bool> UpdateArticle(int articleId, UpdateArticleDto updatedArticle)
         {
             try
             {
-                string apiUrl = $"/api/articles/update-article/{articleId}";
+                string apiUrl = $"api/articles/update-article/{articleId}";
                 const string methodType = "PATCH";
 
 
-                var result = await MakeRequest<bool, ViewArticleVM>(apiUrl, methodType, updatedArticle);
+                var result = await MakeRequest<bool, UpdateArticleDto>(apiUrl, methodType, updatedArticle);
 
                 return result;
             }

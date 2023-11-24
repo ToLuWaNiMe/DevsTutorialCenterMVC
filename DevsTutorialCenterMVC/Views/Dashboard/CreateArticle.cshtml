@@ -1,4 +1,4 @@
-﻿@model GetAllTagsViewModel
+﻿@model DevsTutorialCenterMVC.Models.GetAllTagsDto
 
 
 <link href="~/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
@@ -16,15 +16,20 @@
                     <div id="article-title" class="col p-0 d-flex align-items-center mb-3">
                         <input name="Title" class="form-control input-ify" placeholder="Title">
                     </div>
+                    <div id="publicId" class="col p-0 d-flex align-items-center mb-3">
+                        <input name="Public-Id" class="form-control input-ify" placeholder="Public-Id">
+                    </div>
                     <div class="col mb-3">
                         <label for="imageUrl" class="form-label"></label>
                         <input type="text" name="ImageUrl" id="imageUrl" class="form-control" placeholder="Enter Image URL">
                     </div>
-                    <select class="col form-control form-select input-ify mb-3">
+                    <select class="col form-control form-select input-ify mb-3" asp-for="TagId" asp-items="@(new SelectList(Model.TagId, "Id", "Name"))">
                         <option class="small text-secondary" selected disabled>--- Select Tag Option ---</option>
-                        <option value="DotNet">@Model.Id</option>
-                        <option value="Java">@Model.Id</option>
-                        <option value="Node">@Model.Id</option>
+                        @foreach (var tag in Model.TagId)
+                        {
+                            <option value="@tag.Id">@tag.Name</option>
+                       
+                        }
                     </select>
                     <div class="col-12 mb-3">
                         <textarea name="Content" id="article-ify" class="form-control" placeholder="Tell your story...."></textarea>
@@ -52,18 +57,15 @@
             e.preventDefault();
 
             $.ajax({
-                url: '/DashBoard/CreateArticle',
-                type: 'POST',
-                data: $(this).serialize(),
-                success: function (data) {
-                    if (data.success) {
-                        $('#successModal').modal('show');
-                    } else {
-                        console.log('Article creation failed. Error: ' + data.message);
-                    }
+                url: 'https://localhost:7290/DashBoard/CreateArticle',
+                method: 'POST',
+                contentType: 'application/json', // Set the correct content type
+                data: JSON.stringify({ /* your JSON data here */ }), // Convert your data to JSON format
+                success: function (response) {
+                    "articlr created successfully"
                 },
-                error: function (xhr, status, error) {
-                    console.log('AJAX request failed. Status: ' + status + ', Error: ' + error);
+                error: function (error) {
+                    // Handle error
                 }
             });
         });

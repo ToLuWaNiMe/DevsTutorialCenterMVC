@@ -1,6 +1,6 @@
-using DevsTutorialCenterMVC.Data.MethodExtensions;
+using DevsTutorialCenterMVC.Extensions;
+using DevsTutorialCenterMVC.Models;
 using DevsTutorialCenterMVC.Models.Api;
-using DevsTutorialCenterMVC.Models.Components;
 using DevsTutorialCenterMVC.Services;
 using DevsTutorialCenterMVC.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -12,12 +12,14 @@ namespace DevsTutorialCenterMVC.Controllers
     public class DashboardController : Controller
     {
         private readonly IArticleService _articleService;
+        private readonly ITagService _tagService;
         private readonly BlogPostService _blogPostService;
 
-        public DashboardController(BlogPostService blogPostService, IArticleService articleService)
+        public DashboardController(BlogPostService blogPostService, IArticleService articleService, ITagService tagService)
         {
             _blogPostService = blogPostService;
             _articleService = articleService;
+            _tagService = tagService;
         }
 
         public async Task<IActionResult> Index()
@@ -40,41 +42,51 @@ namespace DevsTutorialCenterMVC.Controllers
         }
 
 
-        public IActionResult CreateArticle()
+
+        public async Task<IActionResult> CreateArticle()
+
         {
-            var tags = _tagService.GetAllTags();
-            var model = new CreateArticleDto { TagId = tags };
-            return View(model);
+            var model = new GetAllTagsDto();
+
+            try
+            {
+                var tags = await _tagService.GetAllTagsAsync();
+
+
+                model.TagId = tags;
+
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Home");
+            }
         }
 
 
 
 
+
         [HttpPost]
-        public async Task<IActionResult> CreateArticle(ViewArticleVM article)
+        public async Task<IActionResult> CreateArticle([FromBody] CreateArticleDto article)
         {
+
+
             try
             {
                 if (ModelState.IsValid)
                 {
                     bool result = await _articleService.Create(article);
 
-                    if (result)
-                    {
-                        return Json(new { success = true });
-                    }
-                    else
-                    {
-                        return Json(new { success = false, message = "Article creation failed. Please try again." });
-                    }
+
                 }
 
-                return Json(new { success = false, message = "Invalid model state." });
+                return View();
             }
             catch (Exception ex)
             {
 
-                return Json(new { success = false, message = "An error occurred during article creation." });
+                return RedirectToAction("Home");
             }
         }
 
@@ -96,7 +108,7 @@ namespace DevsTutorialCenterMVC.Controllers
 
 
         [HttpPatch("/api/articles/update-article/{articleId}")]
-        public async Task<IActionResult> UpdateArticle(int articleId, [FromBody] JsonPatchDocument<ViewArticleVM> patchDocument)
+        public async Task<IActionResult> UpdateArticle(int articleId, [FromBody] JsonPatchDocument<UpdateArticleDto> patchDocument)
         {
             try
             {

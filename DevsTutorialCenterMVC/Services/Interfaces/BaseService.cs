@@ -1,6 +1,5 @@
 ﻿using System.Net;
-using DevsTutorialCenterMVC.Models;
-using DevsTutorialCenterMVC.Models.Api;
+using System.Text.Json;
 using static System.GC;
 
 namespace DevsTutorialCenterMVC.Services.Interfaces;
@@ -16,6 +15,8 @@ public class BaseService : IDisposable
         _client = client;
         _httpContextAccessor = httpContextAccessor;
         _baseUrl = config.GetSection("ApiUrls:BaseUrl").Value;
+
+        Console.WriteLine($"Base URL: {_baseUrl}");
     }
 
     public void Dispose() => SuppressFinalize(true);
@@ -24,25 +25,38 @@ public class BaseService : IDisposable
     public async Task<TResult?> MakeRequest<TResult, TData>(string address, string methodType, TData data,
         string token = "")
     {
+        Console.WriteLine($"Address: {address}");
         if (string.IsNullOrEmpty(address)) throw new ArgumentNullException("address");
         if (string.IsNullOrEmpty(methodType)) throw new ArgumentNullException("method type");
 
         if (!string.IsNullOrEmpty(token))
             _client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
 
+        var baseUri = new Uri(_baseUrl);
+
+        if (string.IsNullOrEmpty(address))
+            throw new ArgumentNullException("address");
+
+        var fullUri = new Uri(baseUri, address);
+
         var apiResult = methodType.ToUpper() switch
         {
-            "POST" => await _client.PostAsJsonAsync($"{_baseUrl}{address}", data),
-            "PUT" => await _client.PutAsJsonAsync($"{_baseUrl}{address}", data),
-            "DELETE" => await _client.DeleteAsync($"{_baseUrl}{address}"),
-            _ => await _client.GetAsync($"{_baseUrl}{address}")
+            "POST" => await _client.PostAsJsonAsync(fullUri, data),
+            "PUT" => await _client.PutAsJsonAsync(fullUri, data),
+            "DELETE" => await _client.DeleteAsync(fullUri),
+            _ => await _client.GetAsync(fullUri)
         };
 
-        if (!apiResult.IsSuccessStatusCode) return default;
-
-        var result = await apiResult.Content.ReadFromJsonAsync<TResult>();
-
-        return result ?? default;
+        try
+        {
+            var result = await apiResult.Content.ReadFromJsonAsync<TResult>();
+            return result ?? default;
+        }
+        catch (JsonException ex)
+        {
+            Console.WriteLine($"Error deserializing JSON: {ex.Message}");
+            throw;
+        }
     }
 
     public async Task<TResult> MakeRequest<TResult>(string address) where TResult : class
@@ -64,7 +78,7 @@ public class BaseService : IDisposable
             throw new HttpRequestException(await apiResult.Content.ReadAsStringAsync());
 
         var result = await apiResult.Content.ReadFromJsonAsync<TResult>();
-            
+
         return result!;
     }
 }

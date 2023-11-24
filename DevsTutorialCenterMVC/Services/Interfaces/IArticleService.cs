@@ -1,12 +1,12 @@
-﻿using DevsTutorialCenterMVC.Models.Components;
+﻿using DevsTutorialCenterMVC.Models.Api;
 
 namespace DevsTutorialCenterMVC.Services.Interfaces
 {
     public interface IArticleService
     {
-        Task<bool> Create(ViewArticleVM article);
-        Task<ViewArticleVM> GetArticleById(int id);
+        Task<bool> Create(CreateArticleDto article);
+        Task<UpdateArticleDto> GetArticleById(int id);
 
-        Task<bool> UpdateArticle(int articleId, ViewArticleVM updatedArticle);
+        Task<bool> UpdateArticle(int articleId, UpdateArticleDto updatedArticle);
     }
 }

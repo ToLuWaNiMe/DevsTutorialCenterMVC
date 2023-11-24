@@ -17,7 +17,7 @@ public class BlogPostService : BaseService
 
         if (filterArticleDto is not null)
             address = $"{address}?";
-        
+
         if (filterArticleDto?.Page is not null)
             address = $"{address}&page={filterArticleDto.Page}";
 
@@ -32,12 +32,12 @@ public class BlogPostService : BaseService
 
         if (filterArticleDto.IsRecentlyAdded.GetValueOrDefault())
             address = $"{address}&isRecentlyAdded={filterArticleDto.IsRecentlyAdded}";
-        
+
         if (filterArticleDto.IsTopRead.GetValueOrDefault())
             address = $"{address}&isTopRead={filterArticleDto.IsTopRead}";
 
         var result = await MakeRequest<ResponseObject<PaginatorResponseDto<IEnumerable<BlogPostVM>>>>(address);
-        
+
         return result.Data;
     }
 
@@ -52,6 +52,7 @@ public class BlogPostService : BaseService
         {
             var mappedResult = result.Data.Select(x => new GetAllTagsViewModel
             {
+
                 Id = x.Id,
                 Name = x.Name,
             });
