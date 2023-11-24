@@ -407,8 +407,7 @@ DevsTutorialCenterMVC/devstutorialcenter.db
 DevsTutorialCenterMVC/devstutorialcenter.db-shm
 DevsTutorialCenterMVC/devstutorialcenter.db-wal
 
-DevsTutorialCenterMVC/appsettings.Development.json
-/DevsTutorialCenterMVC/appsettings.Development.json
-/DevsTutorialCenterMVC/appsettings.json
+**/appsettings.Development.json
+**/appsettings.json
 
 **/styles.css
