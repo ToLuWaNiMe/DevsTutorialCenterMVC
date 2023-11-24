@@ -1,4 +1,7 @@
-﻿<link href="~/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+﻿@model GetAllTagsViewModel
+
+
+<link href="~/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="~/js/froala_editor.pkgd.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
@@ -19,9 +22,9 @@
                     </div>
                     <select class="col form-control form-select input-ify mb-3">
                         <option class="small text-secondary" selected disabled>--- Select Tag Option ---</option>
-                        <option value="DotNet">DotNet</option>
-                        <option value="Java">Java</option>
-                        <option value="Node">Node</option>
+                        <option value="DotNet">@Model.Id</option>
+                        <option value="Java">@Model.Id</option>
+                        <option value="Node">@Model.Id</option>
                     </select>
                     <div class="col-12 mb-3">
                         <textarea name="Content" id="article-ify" class="form-control" placeholder="Tell your story...."></textarea>

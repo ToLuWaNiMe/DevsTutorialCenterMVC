@@ -1,6 +1,6 @@
-﻿using DevsTutorialCenterMVC.Data.Repositories;
+﻿using System.Text;
+using DevsTutorialCenterMVC.Data.Repositories;
 using DevsTutorialCenterMVC.Services;
-using DevsTutorialCenterMVC.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,8 +10,6 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
 builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddScoped<IRepository, Repository>();
-builder.Services.AddTransient<IMessengerService, MessengerService>();
 builder.Services.AddScoped<AccountService>();
 builder.Services.AddScoped<BlogPostService>();
 builder.Services.AddScoped<AuthService>();
