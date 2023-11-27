@@ -42,12 +42,12 @@ namespace DevsTutorialCenterMVC.Controllers
 
         public async Task<IActionResult> CreateArticle()
         {
-            // Assuming you have a method to get tags, replace this with your actual data retrieval logic
-            var tags = await _tagService.GetAllTagsAsync(); // Modify this based on your actual service
+
+            var tags = await _tagService.GetAllTagsAsync();
 
             var createArticleDto = new CreateArticleDto
             {
-                // Populate other properties as needed
+
                 TagId = tags?.ToList(),
 
 
@@ -56,7 +56,7 @@ namespace DevsTutorialCenterMVC.Controllers
             return View(createArticleDto);
         }
         [HttpPost]
-        // [Authorize]
+        [Authorize]
         public async Task<IActionResult> CreateArticle([FromBody] CreateArticleDto article)
         {
             try
