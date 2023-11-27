@@ -25,7 +25,6 @@ namespace DevsTutorialCenterMVC.Controllers
         public async Task<IActionResult> Index()
         {
             var articles = await _blogPostService.LatestPosts();
-
             return View(articles);
         }
 
@@ -41,61 +40,52 @@ namespace DevsTutorialCenterMVC.Controllers
             return View();
         }
 
-
-
         public async Task<IActionResult> CreateArticle()
-
         {
-            var model = new GetAllTagsDto();
+            // Assuming you have a method to get tags, replace this with your actual data retrieval logic
+            var tags = await _tagService.GetAllTagsAsync(); // Modify this based on your actual service
 
-            try
+            var createArticleDto = new CreateArticleDto
             {
-                var tags = await _tagService.GetAllTagsAsync();
+                // Populate other properties as needed
+                TagId = tags?.ToList(),
 
 
-                model.TagId = tags;
+            };
 
-                return View(model);
-            }
-            catch (Exception ex)
-            {
-                return RedirectToAction("Home");
-            }
+            return View(createArticleDto);
         }
-
-
-
-
-
         [HttpPost]
+        // [Authorize]
         public async Task<IActionResult> CreateArticle([FromBody] CreateArticleDto article)
         {
-
-
             try
             {
-                if (ModelState.IsValid)
+                if (article == null)
                 {
-                    bool result = await _articleService.Create(article);
-
-
+                    return BadRequest("Article data is missing.");
                 }
 
-                return View();
+                bool result = await _articleService.Create(article);
+
+                if (result)
+                {
+                    return Ok(new { success = true, message = "Article created successfully." });
+                }
+                else
+                {
+                    return BadRequest(new { success = false, message = "Article creation failed. Please try again." });
+                }
             }
             catch (Exception ex)
             {
-
-                return RedirectToAction("Home");
+                return StatusCode(500, new { success = false, message = "An error occurred during article creation." });
             }
         }
-
-
 
         [HttpGet]
         public async Task<IActionResult> UpdateArticle(int articleId)
         {
-
             var article = await _articleService.GetArticleById(articleId);
 
             if (article == null)
@@ -105,7 +95,6 @@ namespace DevsTutorialCenterMVC.Controllers
 
             return View("UpdateArticle", article);
         }
-
 
         [HttpPatch("/api/articles/update-article/{articleId}")]
         public async Task<IActionResult> UpdateArticle(int articleId, [FromBody] JsonPatchDocument<UpdateArticleDto> patchDocument)
@@ -126,13 +115,11 @@ namespace DevsTutorialCenterMVC.Controllers
 
                 patchDocument.ApplyTo(existingArticle, (Microsoft.AspNetCore.JsonPatch.Adapters.IObjectAdapter)ModelState);
 
-
                 if (!ModelState.IsValid)
                 {
                     var errors = ModelState.AllErrors();
                     return BadRequest(new { success = false, errors });
                 }
-
 
                 bool result = await _articleService.UpdateArticle(articleId, existingArticle);
 
@@ -150,9 +137,5 @@ namespace DevsTutorialCenterMVC.Controllers
                 return StatusCode(500, new { success = false, message = "An error occurred during article update." });
             }
         }
-
-
-
-
     }
 }

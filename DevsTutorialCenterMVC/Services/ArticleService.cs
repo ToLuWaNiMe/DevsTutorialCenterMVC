@@ -1,4 +1,6 @@
-﻿using DevsTutorialCenterMVC.Models.Api;
+﻿using DevsTutorialCenterAPI.Models.DTOs;
+using DevsTutorialCenterMVC.Models;
+using DevsTutorialCenterMVC.Models.Api;
 using DevsTutorialCenterMVC.Services.Interfaces;
 
 namespace DevsTutorialCenterMVC.Services
@@ -17,14 +19,14 @@ namespace DevsTutorialCenterMVC.Services
 
             try
             {
+                var result = await MakeRequest<CreateArticleDtoReturn, CreateArticleDto>(apiUrl, "POST", article);
 
-                bool result = await MakeRequest<bool, CreateArticleDto>(apiUrl, "POST", article);
-
-
-                return result;
+                // Check if the result is not null or any other condition based on your requirements
+                return result != null;
             }
-            catch (HttpRequestException)
+            catch (HttpRequestException ex)
             {
+                Console.WriteLine($"Error during HTTP request: {ex.Message}");
                 return false;
             }
         }

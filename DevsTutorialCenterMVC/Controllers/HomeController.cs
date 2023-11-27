@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DevsTutorialCenterMVC.Services;
 using Microsoft.AspNetCore.Authorization;
-using DevsTutorialCenterMVC.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DevsTutorialCenterMVC.Controllers;
 
@@ -24,7 +24,7 @@ public class HomeController : Controller
     {
         return View();
     }
-      
+
     public IActionResult Privacy()
     {
         return View();

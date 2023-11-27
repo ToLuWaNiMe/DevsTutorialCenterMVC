@@ -49,16 +49,22 @@ public class BaseService : IDisposable
 
         try
         {
-            var result = await apiResult.Content.ReadFromJsonAsync<TResult>();
-            return result ?? default;
+            using var responseStream = await apiResult.Content.ReadAsStreamAsync();
+            return await JsonSerializer.DeserializeAsync<TResult>(responseStream, DefaultJsonSerializerOptions);
         }
         catch (JsonException ex)
         {
             Console.WriteLine($"Error deserializing JSON: {ex.Message}");
             throw;
         }
+
+
     }
 
+    private static readonly JsonSerializerOptions DefaultJsonSerializerOptions = new JsonSerializerOptions
+    {
+        PropertyNameCaseInsensitive = true,
+    };
     public async Task<TResult> MakeRequest<TResult>(string address) where TResult : class
     {
         if (string.IsNullOrEmpty(address)) throw new ArgumentNullException(nameof(address));
