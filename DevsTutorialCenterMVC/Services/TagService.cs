@@ -1,8 +1,12 @@
-﻿using DevsTutorialCenterMVC.Models;
+
+﻿using DevsTutorialCenterMVC.Models.Components;
+using DevsTutorialCenterMVC.Models;
+
 using DevsTutorialCenterMVC.Services.Interfaces;
 
 namespace DevsTutorialCenterMVC.Services
 {
+
     public class TagService : BaseService, ITagService
     {
         public TagService(HttpClient client, IHttpContextAccessor httpContextAccessor, IConfiguration config) : base(
@@ -14,6 +18,7 @@ namespace DevsTutorialCenterMVC.Services
         {
             var address = "/api/tags/get-all-tag";
             var methodType = "GET";
+
 
             var result =
                 await MakeRequest<ResponseObject<IEnumerable<GetAllTagsViewModel>>, string>(address, methodType, "", "");
@@ -27,6 +32,7 @@ namespace DevsTutorialCenterMVC.Services
                 });
 
                 return mappedResult;
+
             }
 
             return null;
@@ -34,5 +40,6 @@ namespace DevsTutorialCenterMVC.Services
 
 
     }
+
 
 }

@@ -1,0 +1,46 @@
+﻿@model LibraryPageVM
+
+<div class="flex flex-col justify-start items-start bg-gray-50 border border-red-600 p-10 md:flex-row md:space-x-10 ">
+    <div class="flex flex-col space-y-8 md:w-3/4">
+        @foreach (var read in Model.ReadArticles)
+        {
+            <partial name="Components/_BlogPostListItemPartial" model="@read" />
+        }
+    </div>
+
+    <div class="flex flex-col space-y-5 w-full mt-10 md:mt-0 md:w-2/5">
+        <div>
+            <p class="font-semibold">AUTHORS</p>
+            <div class="mt-2">
+                @foreach (var topAuthor in Model.TopAuthors)
+                {
+                    <partial name="Components/_AuthorListItemPartial" model="@topAuthor" />
+                }
+            </div>
+        </div>
+
+        <div class="">
+            <p class="font-semibold">MORE TOPICS</p>
+            <div class=" mt-2 p-1">
+                @foreach(var tag in Model.AllTags)
+                {
+                    <partial name="Components/_TagComponentPartial" model="@tag" />
+                }
+            </div>
+
+        </div>
+
+        <div>
+            <p class="font-semibold">RECOMMENDATIONS</p>
+            <div class="mt-2">
+                @foreach(var recentpost in Model.RecentBlogPosts)
+                {
+                    <partial name="Components/_BlogPostRecommendationItemPartial" model="@recentpost"/>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

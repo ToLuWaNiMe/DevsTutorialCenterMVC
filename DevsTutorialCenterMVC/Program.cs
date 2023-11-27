@@ -12,8 +12,14 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<AccountService>();
 builder.Services.AddScoped<BlogPostService>();
 builder.Services.AddScoped<AuthService>();
+
 builder.Services.AddScoped<IArticleService, ArticleService>();
 builder.Services.AddScoped<ITagService, TagService>();
+
+builder.Services.AddScoped<LibraryPageService>();
+builder.Services.AddScoped<TagService>();
+builder.Services.AddScoped<StoryPageService>();
+
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>

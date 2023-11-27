@@ -1,6 +1,7 @@
 ﻿using DevsTutorialCenterMVC.Models;
 using DevsTutorialCenterMVC.Models.Api;
 using DevsTutorialCenterMVC.Services.Interfaces;
+using DevsTutorialCenterMVC.Models.Components;
 
 namespace DevsTutorialCenterMVC.Services;
 
@@ -41,10 +42,34 @@ public class BlogPostService : BaseService
         return result.Data;
     }
 
-    public async Task<IEnumerable<GetAllTagsViewModel>> InterestingTopics()
-    {
-        var address = "/api/tags/get-all-tag";
-        var methodType = "GET";
+        public async Task<IEnumerable<BlogPostRecommendationItemVM>> GetRecommendedArticles()
+        {
+            var address = "/api/articles/get-all-articles?IsRecentlyAdded=true";
+            var methodType = "GET";
+
+            var result = await MakeRequest<ResponseObject<PaginatorResponseDto<IEnumerable<BlogPostRecommendationItemVM>>>, string>(address, methodType, "", "");
+
+            if (result != null && result.Data.PageItems != null)
+            {
+                // Use null conditional operator to handle null checks more concisely
+                var mappedResult = result.Data.PageItems.Select(x => new BlogPostRecommendationItemVM
+                {
+                    Id = x.Id,
+                    Text = x.Text,
+                    Title = x.Title,
+                });
+
+                return mappedResult;
+            }
+
+            // Use Enumerable.Empty<T>() for a more efficient empty collection
+            return Enumerable.Empty<BlogPostRecommendationItemVM>();
+        }
+
+        public async Task<IEnumerable<GetAllTagsViewModel>> InterestingTopics()
+        {
+            var address = "/api/tags/get-all-tag";
+            var methodType = "GET";
 
         var result =
             await MakeRequest<ResponseObject<List<GetAllTagsViewModel>>, string>(address, methodType, "", "");
