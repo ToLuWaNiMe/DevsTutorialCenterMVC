@@ -13,7 +13,7 @@ public class BlogPostService : BaseService
 
     public async Task<PaginatorResponseDto<IEnumerable<BlogPostVM>>> GetAllArticles(FilterArticleDto? filterArticleDto = null)
     {
-        var address = "/api/articles";
+        var address = "/api/articles/get-all-articles";
 
         if (filterArticleDto is not null)
             address = $"{address}?";

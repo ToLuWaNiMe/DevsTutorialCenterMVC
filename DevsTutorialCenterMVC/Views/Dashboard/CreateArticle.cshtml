@@ -85,9 +85,9 @@
                 success: function (response) {
                     console.log(response);
 
-                    // Check if the article was created successfully
+                    
                     if (response.success) {
-                        // Redirect to the partial view or another URL
+                        
                         window.location.href = '/DashBoard/_SuccessConfirmationModalPartial';
                     } else {
                         console.error(response.message);
