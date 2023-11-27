@@ -1,0 +1,31 @@
+﻿<div class="flex flex-col-reverse space-y-5 md:flex-row md:space-y-0 md:space-x-5">
+    <div class="w-full md:w-2/3 space-y-2">
+       
+        <div class="flex items-center space-x-4">
+            <partial name="Components/_TagComponentPartial" model="@Model.Tag" />
+            <div class="w-4 border-t border-gray-300"></div>
+        </div>
+        <p class="text-gray-800 font-semibold text-xl">@Model.Title</p>
+        <p>@Model.Text</p>
+         <div class="flex items-center space-x-8">
+            <div class="flex items-center">
+                <div>
+                    <p>Published on</p>
+                </div>
+            </div>
+            <p class="text-gray-400">@Model.CreatedOn</p>
+        </div>
+        <div class="flex items-center space-x-8">
+            <div class="flex items-center">
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                  </svg>
+                </div>
+                <p>@Model.noOfLikes Likes</p>
+            </div>
+            <p class="text-gray-400">@Model.noOfCOmments Comments</p>
+        </div>
+    </div>
+    <img class="aspect-[16/10] w-full md:w-1/3 h-auto overflow-hidden object-cover object-center" src="https://via.placeholder.com/280x204" alt="Article Image" />
+</div>
