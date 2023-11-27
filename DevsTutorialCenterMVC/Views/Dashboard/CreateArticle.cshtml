@@ -84,7 +84,14 @@
                 data: JSON.stringify(formData),
                 success: function (response) {
                     console.log(response);
-                    window.alert("Article Created Successfully"); // Corrected here
+
+                    // Check if the article was created successfully
+                    if (response.success) {
+                        // Redirect to the partial view or another URL
+                        window.location.href = '/DashBoard/_SuccessConfirmationModalPartial';
+                    } else {
+                        console.error(response.message);
+                    }
                 },
                 error: function (error) {
                     console.error(error);
