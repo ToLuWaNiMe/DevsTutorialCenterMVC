@@ -20,7 +20,9 @@
                     }
                     @if (Model != null)
                     {
+
                         <div id="@Model.PublicId" class="col p-0 d-flex align-items-center mb-3 pb-3">
+
                             <input name="PublicId" id="@Model.PublicId" class="form-control input-ify" placeholder="Public-Id">
                         </div>
                     }
@@ -85,9 +87,9 @@
                 success: function (response) {
                     console.log(response);
 
-                    
+
                     if (response.success) {
-                        
+
                         window.location.href = '/DashBoard/_SuccessConfirmationModalPartial';
                     } else {
                         console.error(response.message);
