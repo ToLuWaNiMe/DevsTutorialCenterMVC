@@ -25,7 +25,7 @@ public class BaseService : IDisposable
     public async Task<TResult?> MakeRequest<TResult, TData>(string address, string methodType, TData data,
         string token = "")
     {
-        Console.WriteLine($"Address: {address}");
+
         if (string.IsNullOrEmpty(address)) throw new ArgumentNullException("address");
         if (string.IsNullOrEmpty(methodType)) throw new ArgumentNullException("method type");
 

@@ -21,7 +21,7 @@ namespace DevsTutorialCenterMVC.Services
             {
                 var result = await MakeRequest<CreateArticleDtoReturn, CreateArticleDto>(apiUrl, "POST", article);
 
-                // Check if the result is not null or any other condition based on your requirements
+
                 return result != null;
             }
             catch (HttpRequestException ex)

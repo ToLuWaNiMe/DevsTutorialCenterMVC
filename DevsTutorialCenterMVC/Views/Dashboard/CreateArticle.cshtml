@@ -77,14 +77,14 @@
                 // Add other form fields as needed
             };
 
-
             $.ajax({
                 url: '/DashBoard/CreateArticle',
                 method: 'POST',
-                contentType: 'application/json', 
+                contentType: 'application/json',
                 data: JSON.stringify(formData),
                 success: function (response) {
                     console.log(response);
+                    window.alert("Article Created Successfully"); // Corrected here
                 },
                 error: function (error) {
                     console.error(error);
@@ -93,5 +93,5 @@
 
         });
     });
-
 </script>
+
