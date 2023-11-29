@@ -58,7 +58,7 @@ namespace DevsTutorialCenterMVC.Controllers
         {
             var pendingArticles = await _storyPageService.PendingArticlesAsync();
             var topAuthors = await _libraryPageService.AllAuthors();
-            var allTags = await _tagService.InterestingTopics();
+            var allTags = await _tagService.AllTags();
             var recentBlogPost =  _blogPostService.GetRecommendedArticles().Result.Take(3);
 
             var pageModel = new StoryPageVM
@@ -174,7 +174,7 @@ namespace DevsTutorialCenterMVC.Controllers
         {
             var readArticles = await _libraryPageService.ReadArticles();
             var topAuthors = await _libraryPageService.AllAuthors();
-            var allTags = await _tagService.InterestingTopics();
+            var allTags = await _tagService.AllTags();
             var recentBlogPost =  _blogPostService.GetRecommendedArticles().Result.Take(3);
             var pageModel = new LibraryPageVM
             {
