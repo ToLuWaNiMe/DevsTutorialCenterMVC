@@ -6,7 +6,8 @@ namespace DevsTutorialCenterMVC.Services
 {
     public class AuthorService : BaseService
     {
-        public AuthorService(HttpClient client, IHttpContextAccessor httpContextAccessor, IConfiguration config) : base(client, httpContextAccessor, config)
+        public AuthorService(HttpClient client, IHttpContextAccessor httpContextAccessor, IConfiguration config) : base(
+            client, httpContextAccessor, config)
         {
         }
 
@@ -17,7 +18,8 @@ namespace DevsTutorialCenterMVC.Services
                 var address = $"/api/authors/{authorId}";
                 var methodType = "GET";
 
-                var result = await MakeRequest<ResponseObject<AuthorListItemViewModel>, string>(address, methodType, "", "");
+                var result =
+                    await MakeRequest<ResponseObject<AuthorListItemViewModel>, string>(address, methodType, "", "");
 
                 if (result != null)
                 {
@@ -34,34 +36,24 @@ namespace DevsTutorialCenterMVC.Services
 
         public async Task<IEnumerable<AuthorListItemViewModel>> GetAllAuthorsAsync()
         {
-            try
+            var address = "/api/authors";
+            var methodType = "GET";
+
+            var result =
+                await MakeRequest<ResponseObject<IEnumerable<AuthorListItemViewModel>>, object>(address, methodType,
+                    default(object));
+
+            if (result?.Data == null) return Enumerable.Empty<AuthorListItemViewModel>();
+            
+            var authors = result.Data.Select(author => new AuthorListItemViewModel
             {
-                var address = "/api/authors";
-                var methodType = "GET";
+                Image = author.Image,
+                Name = author.Name,
+                Designation = author.Designation,
+                NumberOfArticles = author.NumberOfArticles
+            });
 
-                var result = await MakeRequest<ResponseObject<IEnumerable<AuthorListItemViewModel>>, object>(address, methodType, default(object));
-
-                if (result != null && result.Data != null)
-                {
-                    var authors = result.Data.Select(author => new AuthorListItemViewModel
-                    {
-                        Image = author.Image,
-                        Name = author.Name,
-                        Designation = author.Designation,
-                        NumberOfArticles = author.NumberOfArticles
-                    });
-
-                    return authors;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error in AuthorService.GetAllAuthorsAsync: {ex.Message}");
-            }
-
-            return Enumerable.Empty<AuthorListItemViewModel>();
+            return authors;
         }
-
-
     }
 }
