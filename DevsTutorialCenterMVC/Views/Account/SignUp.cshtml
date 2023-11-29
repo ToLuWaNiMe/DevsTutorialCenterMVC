@@ -28,19 +28,19 @@
             <div class="mt-4">
                 <div>
                     <label class="label" for="FirstName">First Name</label>
-                    <input type="text" placeholder="Enter your full names" class="input">
+                    <input asp-for="FirstName" type="text" placeholder="Enter your full names" class="input">
                     <span asp-validation-for="FirstName" class="text-red-500 text-xs"></span>
                 </div>
 
                 <div class="mt-4">
                     <label class="label" for="LastName">Last Name</label>
-                    <input type="text" placeholder="Enter your full names" class="input">
+                    <input asp-for="LastName" type="text" placeholder="Enter your full names" class="input">
                     <span asp-validation-for="LastName" class="text-red-500 text-xs"></span>
                 </div>
 
                 <div class="mt-4 mb-4">
                     <label class="label" for="Email">Email Address</label>
-                    <input type="text" placeholder="Enter your email" class="input">
+                    <input asp-for="Email" type="text" placeholder="Enter your email" class="input">
                     <span asp-validation-for="Email" class="text-red-500 text-xs"></span>
                 </div>
 
@@ -67,7 +67,7 @@
                 <div class="mt-4">
                     <label class="label">Password</label>
                     <div class="relative">
-                        <input type="password" placeholder="************" class="input" id="password">
+                        <input asp-for="Password" type="password" placeholder="************" class="input" id="password">
                         <span asp-validation-for="Password" class="text-red-500 text-xs"></span>
                         <div class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 cursor-pointer" id="togglePassword">
                             <i class="fas fa-eye text-sm"></i>
@@ -78,7 +78,7 @@
                 <div class="mt-4">
                     <label class="label">Confirm Password</label>
                     <div class="relative">
-                        <input type="password" placeholder="************" class="input" id="confirmPassword">
+                        <input asp-for="ConfirmPassword" type="password" placeholder="************" class="input" id="confirmPassword">
                         <span asp-validation-for="ConfirmPassword" class="text-red-500 text-xs"></span>
                         <div class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 cursor-pointer" id="toggleConfirmPassword">
                             <i class="fas fa-eye text-sm"></i>

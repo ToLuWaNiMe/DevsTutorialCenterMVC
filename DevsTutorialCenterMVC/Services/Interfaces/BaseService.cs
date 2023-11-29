@@ -38,7 +38,14 @@ public class BaseService : IDisposable
             _ => await _client.GetAsync($"{_baseUrl}{address}")
         };
 
-        if (!apiResult.IsSuccessStatusCode) return default;
+        if (apiResult.StatusCode == HttpStatusCode.BadRequest)
+        {
+            var res = await apiResult.Content.ReadFromJsonAsync<TResult>();
+            return res;
+        }
+
+        if (!apiResult.IsSuccessStatusCode)
+            return default;
 
         var result = await apiResult.Content.ReadFromJsonAsync<TResult>();
 

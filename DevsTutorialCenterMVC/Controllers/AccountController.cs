@@ -73,7 +73,11 @@ namespace DevsTutorialCenterMVC.Controllers
         [HttpPost]
         public async Task<IActionResult> SignUp(SignUpViewModel model)
         {
-            return BadRequest();
+            var authResponse = await _authService.Register(model);
+            if (authResponse.IsFailure)
+                return BadRequest();
+            
+            return RedirectToAction("Login");
         }
 
         public IActionResult WithAccount()

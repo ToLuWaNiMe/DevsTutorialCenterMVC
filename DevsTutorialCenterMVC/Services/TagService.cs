@@ -11,7 +11,7 @@ namespace DevsTutorialCenterMVC.Services
         }
 
 
-        public async Task<IEnumerable<TagViewModel>> InterestingTopics()
+        public async Task<IEnumerable<TagViewModel>> AllTags()
         {
             var address = "/api/tags/get-all-tag";
             var methodType = "GET";
