@@ -1,0 +1,59 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+@model DashboardViewModel;
+
+<partial name="_LandingPageNavPartial"/>
+
+<div class="container">
+    <div class="flex mt-10 space-x-8">
+        <div class="w-3/4">
+            <h2 class="text-lg mb-4">TRENDING</h2>
+            <div class="flex justify-between space-x-5">
+                @foreach (var trendingPost in Model.TrendingPosts)
+                {
+                    <partial name="Components/_BlogPostTrendingItemPartial" model="trendingPost"/>
+                }
+            </div>
+
+            <div class="mt-10">
+                <h2 class="text-lg mb-4">LATEST POSTS</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    @foreach (var latestPost in Model.LatestBlogPosts)
+                    {
+                        <partial name="Components/_BlogPostItemPartial" model="latestPost"/>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="w-1/4">
+            <div class="mb-8">
+                <p class="font-semibold">AUTHORS</p>
+                <div class="mt-2">
+                    @foreach (var topAuthor in Model.Authors)
+                    {
+                        <partial name="Components/_AuthorListItemPartial" model="@topAuthor"/>
+                    }
+                </div>
+            </div>
+            <div class="mb-8">
+                <p class="font-semibold mb-2">INTERESTING TOPICS</p>
+                @foreach (var tag in Model.Tags)
+                {
+                    <partial name="Components/_TagComponentPartial" model="@tag"/>
+                }
+            </div>
+            <div>
+                <p class="font-semibold">POPULAR</p>
+                <div class="mt-2">
+                    @foreach (var popularPost in Model.PopularBlogPosts)
+                    {
+                        <partial name="Components/_BlogPostRecommendationItemPartial" model="@popularPost"/>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

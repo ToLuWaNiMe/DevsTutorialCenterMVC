@@ -1,9 +1,19 @@
-﻿@model BlogPostRecommendationItemVM;
+﻿@model DevsTutorialCenterMVC.Models.Api.BlogPostVM;
 
-<div class="flex space-x-6 bg-white p-2 border-b-2">
+<div class="flex space-x-6 bg-white p-2 border-b border-slate-50">
     <div>
-        <p class="mb-2 text-xl font-semibold text-gray-800">@Model.Title</p>
-        <p class="text-slate-400">@Model.Text</p>
+        <p class="mb-2 text-lg font-semibold text-gray-800">@Model.Title</p>
+        <p class="text-slate-400">
+            @if (@Model.Text.Length > 50)
+            {
+                @Model.Text[..50]
+            }
+            else
+            {
+                @Model.Text
+            }
+            ...
+        </p>
     </div>
     <div class="flex items-center justify-center">
         <svg xmlns="http://www.w3.org/2000/svg" width="21" height="17" viewBox="0 0 21 17" fill="none">

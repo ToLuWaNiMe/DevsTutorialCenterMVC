@@ -9,7 +9,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
 builder.Services.AddHttpContextAccessor();
 
+builder.Services.AddScoped<HttpClientService>();
+
 builder.Services.AddScoped<AccountService>();
+builder.Services.AddScoped<AuthorService>();
 builder.Services.AddScoped<BlogPostService>();
 builder.Services.AddScoped<AuthService>();
 

@@ -7,12 +7,17 @@ namespace DevsTutorialCenterMVC.Services;
 
 public class BlogPostService : BaseService
 {
-    public BlogPostService(HttpClient client, IHttpContextAccessor httpContextAccessor, IConfiguration config) : base(
+    private readonly HttpClientService _httpClientService;
+
+    public BlogPostService(HttpClient client, IHttpContextAccessor httpContextAccessor, IConfiguration config,
+        HttpClientService httpClientService) : base(
         client, httpContextAccessor, config)
     {
+        _httpClientService = httpClientService;
     }
 
-    public async Task<PaginatorResponseDto<IEnumerable<BlogPostVM>>> GetAllArticles(FilterArticleDto? filterArticleDto = null)
+    public async Task<PaginatorResponseDto<IEnumerable<BlogPostVM>>> GetAllArticles(
+        FilterArticleDto? filterArticleDto = null)
     {
         var address = "/api/articles/get-all-articles";
 
@@ -37,58 +42,51 @@ public class BlogPostService : BaseService
         if (filterArticleDto.IsTopRead.GetValueOrDefault())
             address = $"{address}&isTopRead={filterArticleDto.IsTopRead}";
 
-        var result = await MakeRequest<ResponseObject<PaginatorResponseDto<IEnumerable<BlogPostVM>>>>(address);
+        var result = await
+            _httpClientService.GetAsync<ResponseObject<PaginatorResponseDto<IEnumerable<BlogPostVM>>>>(address);
+        // var result = await MakeRequest<ResponseObject<PaginatorResponseDto<IEnumerable<BlogPostVM>>>>(address);
 
         return result.Data;
     }
 
-        public async Task<IEnumerable<BlogPostRecommendationItemVM>> GetRecommendedArticles()
-        {
-            var address = "/api/articles/get-all-articles?IsRecentlyAdded=true";
-            var methodType = "GET";
-
-            var result = await MakeRequest<ResponseObject<PaginatorResponseDto<IEnumerable<BlogPostRecommendationItemVM>>>, string>(address, methodType, "", "");
-
-            if (result != null && result.Data.PageItems != null)
-            {
-                // Use null conditional operator to handle null checks more concisely
-                var mappedResult = result.Data.PageItems.Select(x => new BlogPostRecommendationItemVM
-                {
-                    Id = x.Id,
-                    Text = x.Text,
-                    Title = x.Title,
-                });
-
-                return mappedResult;
-            }
-
-            // Use Enumerable.Empty<T>() for a more efficient empty collection
-            return Enumerable.Empty<BlogPostRecommendationItemVM>();
-        }
-
-        public async Task<IEnumerable<GetAllTagsViewModel>> InterestingTopics()
-        {
-            var address = "/api/tags/get-all-tag";
-            var methodType = "GET";
+    public async Task<IEnumerable<BlogPostRecommendationItemVM>> GetRecommendedArticles()
+    {
+        var address = "/api/articles/get-all-articles?IsRecentlyAdded=true";
+        var methodType = "GET";
 
         var result =
-            await MakeRequest<ResponseObject<List<GetAllTagsViewModel>>, string>(address, methodType, "", "");
-        if (result != null)
-        {
-            var mappedResult = result.Data.Select(x => new GetAllTagsViewModel
-            {
+            await MakeRequest<ResponseObject<PaginatorResponseDto<IEnumerable<BlogPostRecommendationItemVM>>>, string>(
+                address, methodType, "", "");
 
+        if (result != null && result.Data.PageItems != null)
+        {
+            // Use null conditional operator to handle null checks more concisely
+            var mappedResult = result.Data.PageItems.Select(x => new BlogPostRecommendationItemVM
+            {
                 Id = x.Id,
-                Name = x.Name,
+                Text = x.Text,
+                Title = x.Title,
             });
 
             return mappedResult;
         }
 
-        return null;
+        // Use Enumerable.Empty<T>() for a more efficient empty collection
+        return Enumerable.Empty<BlogPostRecommendationItemVM>();
     }
 
-    public async Task<IEnumerable<BlogPostVM>> LatestPosts()
+    public async Task<IEnumerable<BlogPostVM>> InterestingTopics()
+    {
+        var filter = new FilterArticleDto
+        {
+            Page = 1,
+            Size = 3,
+            IsTopRead = true
+        };
+        return (await GetAllArticles(filter)).PageItems;
+    }
+
+    public async Task<IEnumerable<BlogPostVM>> RecentPosts()
     {
         var filter = new FilterArticleDto
         {
@@ -99,57 +97,36 @@ public class BlogPostService : BaseService
         return (await GetAllArticles(filter)).PageItems;
     }
 
-    public async Task<IEnumerable<GetAllArticlesViewModel>> Popular()
+    public async Task<IEnumerable<BlogPostVM>> LatestPosts()
     {
-        var address = "/api/articles/get-all-articles?Page=1&Size=2&IsRecommended=true";
-        var methodType = "GET";
-
-        var result =
-            await MakeRequest<ResponseObject<PaginatorResponseViewModel<IEnumerable<GetAllArticlesViewModel>>>, string>(
-                address, methodType, "", "");
-        if (result != null)
+        var filter = new FilterArticleDto
         {
-            var mappedResult = result.Data.PageItems.Select(x => new GetAllArticlesViewModel
-            {
-                Id = x.Id,
-                UserId = x.UserId,
-                ImageUrl = x.ImageUrl,
-                CreatedOn = x.CreatedOn,
-                Tag = x.Tag,
-                Text = x.Text,
-                Title = x.Title,
-            });
-
-            return mappedResult;
-        }
-
-        return null;
+            Page = 1,
+            Size = 15,
+            IsRecentlyAdded = true
+        };
+        return (await GetAllArticles(filter)).PageItems;
     }
 
-    public async Task<IEnumerable<GetAllArticlesViewModel>> TrendingPosts()
+    public async Task<IEnumerable<BlogPostVM>> PopularPosts()
     {
-        var address = "/api/articles/get-all-articles?Page=1&Size=2&IsTrending=true";
-        var methodType = "GET";
-
-        var result =
-            await MakeRequest<ResponseObject<PaginatorResponseViewModel<IEnumerable<GetAllArticlesViewModel>>>, string>(
-                address, methodType, "", "");
-        if (result != null)
+        var filter = new FilterArticleDto
         {
-            var mappedResult = result.Data.PageItems.Select(x => new GetAllArticlesViewModel
-            {
-                Id = x.Id,
-                UserId = x.UserId,
-                ImageUrl = x.ImageUrl,
-                CreatedOn = x.CreatedOn,
-                Tag = x.Tag,
-                Text = x.Text,
-                Title = x.Title,
-            });
+            Page = 1,
+            Size = 3,
+            IsTopRead = true
+        };
+        return (await GetAllArticles(filter)).PageItems;
+    }
 
-            return mappedResult;
-        }
-
-        return null;
+    public async Task<IEnumerable<BlogPostVM>> TrendingPosts()
+    {
+        var filter = new FilterArticleDto
+        {
+            Page = 1,
+            Size = 2,
+            IsTopRead = true
+        };
+        return (await GetAllArticles(filter)).PageItems;
     }
 }
