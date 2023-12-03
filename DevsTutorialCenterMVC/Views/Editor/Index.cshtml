@@ -1,16 +1,15 @@
-﻿@model ViewArticleVM;
+﻿@model IEnumerable<DevsTutorialCenterMVC.Models.Api.BlogPostVM>
 
-<div class="relative">
-    <img class="-z-50 aspect-[16/10] w-full object-cover object-center" src="@Model.ImageUrl" alt="" />
-    <div class="absolute -mt-36 w-full px-6">
-        <div class="w-full bg-white p-6">
-            <div class="flex items-center space-x-4">
-            <partial name="_TagComponentPartial" model="@Model.Tag"/>
-                <div class="w-4 border-t border-gray-300"></div>
-                <div class="text-sm text-gray-500">@Model.CreatedOn </div>
-            </div>
-            <p class="mt-4 text-2xl font-medium">@Model.Title</p>
-            <p class="mt-6 text-sm">@Model.Text</p>
+<partial name="_LandingPageNavPartial"/>
+
+<div class="container mt-2">
+
+    <div class="flex flex-col justify-start items-start mt-10 md:flex-row md:space-x-10 ">
+        <div class="flex flex-col space-y-8">
+            @foreach (var post in Model)
+            {
+                <partial name="Components/_BlogPostEditorItemPartial" model="@post"/>
+            }
         </div>
     </div>
 </div>

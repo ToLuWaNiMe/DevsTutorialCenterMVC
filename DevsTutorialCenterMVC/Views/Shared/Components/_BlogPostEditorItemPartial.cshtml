@@ -1,29 +1,36 @@
-﻿@model DevsTutorialCenterMVC.Models.Components.BlogPostEditorItemViewModel
+﻿@using DevsTutorialCenterMVC.Utilities
+@model DevsTutorialCenterMVC.Models.Api.BlogPostVM
 
-<link rel="stylesheet" href="~/css/blog_post_editor_item_partial.css" asp-append-version="true" />
-
-
-<div class="editor-blogpost-component">
-    <div class="text-box">
-        <h3 class="text-1">
-            @Model.Title
-        </h3>
-        <p class="text-2">
-            @Model.Text
+<div class="flex justify-between space-x-5">
+    <div class="w-1/2 flex flex-col justify-evenly">
+        <div class="flex items-center mb-2 space-x-4">
+        </div>
+        <p class="text-gray-800 font-semibold text-xl">@Model.Title</p>
+        <p>
+            @if (Model.Text.Length > 50)
+            {
+                @Model.Text[..50]
+            }
+            else
+            {
+                @Model.Text
+            }
+            ...
         </p>
-        <div class="submit-date">
-            <h6 class="submitted">Submitted</h6>
-            <div class="line-submit-date"></div>
-            <div class="sub-date">@Model.CreatedOn</div>
+
+        <div class="flex items-center space-x-4 text-gray-500 text-sm">
+            <p>Submit</p>
+            <hr class="w-6"/>
+            <p>@Model.CreatedOn.FormatDate()</p>
         </div>
     </div>
-
-    <div class="image-box">
-        @Model.ImageUrl
-    </div>
-    <div class="btn-box">
-        <button class="approve-btn">Approve</button>
-        <button class="decline-btn">Decline</button>
+    <img class="aspect-[16/10] w-1/4 overflow-hidden object-cover object-center" src="@Model.ImageUrl"/>
+    <div class="w-1/4 flex justify-center space-x-2 items-center">
+        <form method="POST" asp-controller="Editor" asp-action="ApproveArticle" asp-route-articleId="@Model.Id">
+            <button type="submit" class="button">Approve</button>
+        </form>
+        <form method="POST" asp-controller="Editor" asp-action="RejectArticle" asp-route-articleId="@Model.Id">
+            <button type="submit" class="button-secondary">Decline</button>
+        </form>
     </div>
 </div>
-<div class="dtc-3-line-4"></div>

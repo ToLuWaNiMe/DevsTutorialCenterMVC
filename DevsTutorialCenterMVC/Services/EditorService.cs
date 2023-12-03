@@ -20,14 +20,14 @@ public class EditorService
     
     public async Task<bool> ApproveArticle(string articleId)
     {
-        var address = $"api/articles/approve-article/{articleId}";
+        var address = $"api/articles/publish-article/{articleId}";
         var response = await _httpClientService.PostAsync<ResponseObject>(address);
         return response.IsSuccessful;
     }
     
     public async Task<bool> RejectArticle(string articleId)
     {
-        var address = $"api/articles/publish-article/{articleId}";
+        var address = $"api/articles/reject-article/{articleId}";
         var response = await _httpClientService.PostAsync<ResponseObject>(address);
         return response.IsSuccessful;
     }

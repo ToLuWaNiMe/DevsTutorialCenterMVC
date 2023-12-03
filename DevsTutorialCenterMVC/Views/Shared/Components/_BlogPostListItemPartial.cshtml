@@ -20,7 +20,17 @@
             <div class="text-gray-700">@Model.ReadTime read</div>
         </div>
         <p class="text-gray-800 font-semibold text-xl">@Model.Title</p>
-        <p>@Model.Text</p>
+        <p>
+            @if (Model.Text.Length > 50)
+            {
+                @Model.Text[..50]
+            }
+            else
+            {
+                @Model.Text
+            }
+            ...
+        </p>
     </div>
     <img class="aspect-[16/10] w-1/3 overflow-hidden object-cover object-center" src="@Model.ImageUrl"/>
 </div>
