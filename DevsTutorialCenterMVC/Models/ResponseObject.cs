@@ -12,6 +12,16 @@ public class ResponseObject<T>
     public IEnumerable<Error> Errors { get; set; } = Array.Empty<Error>();
 }
 
+public class ResponseObject
+{
+    public bool IsSuccessful { get; set; }
+    public int Code { get; set; }
+    public string Message { get; set; }
+    public object Data { get; set; }
+    public string Error { get; set; }
+    public IEnumerable<Error> Errors { get; set; } = Array.Empty<Error>();
+}
+
 
 public class Error
 {

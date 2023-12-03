@@ -41,8 +41,9 @@ public class AuthService : BaseService
         var token = response.Data.Token;
         var claims = new List<Claim>
         {
-            new(ClaimTypes.Name, $"{response.Data.User.FirstName} {response.Data.User.LastName}"),
-            new(ClaimTypes.Email, response.Data.User.Email),
+            new("Name", $"{response.Data.User.FirstName} {response.Data.User.LastName}"),
+            new("Email", response.Data.User.Email),
+            new ("ImageUrl", response.Data.User.ImageUrl),
             new("Stack", response.Data.User.Stack),
             new("Squad", response.Data.User.Squad),
             new("JwtToken", token),

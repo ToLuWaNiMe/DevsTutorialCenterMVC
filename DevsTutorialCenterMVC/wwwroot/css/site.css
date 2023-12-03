@@ -6,21 +6,51 @@
     .input {
         @apply w-full rounded-lg border border-gray-300 px-3 py-2 text-sm ring-green-200 focus:border-0 focus:outline-none focus:ring-2 active:outline-none active:ring-2;
     }
-    
+
     .label {
         @apply mb-2 block text-sm text-gray-900;
     }
-    
+
     .button {
         @apply inline-flex items-center justify-center rounded-md bg-green-600 px-6 py-2 text-white shadow transition duration-150 ease-in-out hover:bg-green-700 focus:shadow-lg focus:outline-none focus:ring disabled:opacity-25 ring-green-300;
     }
-    
-    .button-secondary
-    {
+
+    .button-secondary {
         @apply inline-flex items-center justify-center rounded-md px-6 py-2 shadow transition duration-150 ease-in-out focus:shadow-lg focus:outline-none focus:ring disabled:opacity-25 bg-white text-gray-800 hover:bg-gray-200 ring-green-200;
     }
-    
+
+    .button-tertiary {
+        @apply bg-gray-200 inline-flex items-center justify-center rounded-md px-6 py-2 transition duration-150 ease-in-out focus:shadow-lg focus:outline-none focus:ring disabled:opacity-25 text-gray-800 hover:bg-gray-300 ring-green-200;
+    }
+
     .container {
         @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
     }
+    
+    #tabs {
+        @apply block overflow-hidden
+    }
+
+    .tabActiveHeader {
+        @apply border-b-2 border-green-600;
+    }
+}
+
+#tabs > ul > li {
+    margin: 0 2px 0 0;
+    padding: 0.5rem 1rem;
+    display: block;
+    float: left;}
+
+#tabs > ul > li:hover {
+    cursor: pointer;
+}
+
+#tabs > ul > li.tabActiveHeader {
+    cursor: pointer;
+}
+
+#tabscontent {
+    padding: 10px 10px 25px;
+    margin: 0;
 }

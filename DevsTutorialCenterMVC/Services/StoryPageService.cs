@@ -1,53 +1,39 @@
 ﻿using DevsTutorialCenterMVC.Models;
+using DevsTutorialCenterMVC.Models.Api;
 using DevsTutorialCenterMVC.Models.Components;
 using DevsTutorialCenterMVC.Services.Interfaces;
+using DevsTutorialCenterMVC.Utilities;
 
 namespace DevsTutorialCenterMVC.Services
 {
     public class StoryPageService : BaseService
     {
-        public StoryPageService(HttpClient client, IHttpContextAccessor httpContextAccessor, IConfiguration config) : base(client, httpContextAccessor, config)
-        {
-        }
+        private readonly BlogPostService _blogPostService;
 
+        public StoryPageService(HttpClient client, IHttpContextAccessor httpContextAccessor, IConfiguration config,
+            BlogPostService blogPostService) : base(client, httpContextAccessor, config)
+        {
+            _blogPostService = blogPostService;
+        }
 
         public async Task<IEnumerable<StoryArticlesVM>> PendingArticlesAsync()
         {
-
-            return new List<StoryArticlesVM>()
+            return (await _blogPostService.GetAllArticles(new FilterArticleDto
             {
-                new()
+                Size = 4
+            })).PageItems.Select(blog => new StoryArticlesVM
+            {
+                Id = blog.Id,
+                ImageUrl = blog.ImageUrl,
+                Tag = new TagViewModel
                 {
-                    SubmittedOn = "21, Jun 2023",
-                    Id = "",
-                    ImageUrl = "",
-                    Tag = new TagViewModel{ Name = "JAVA", Id ="", },
-                    Text = "jbsjvjdvdn vnndin vnnnoso mvbu sbb n djd ihllgvvsf c. nkncjb ns.",
-                    Title = "THE SOLUTION FOR AFRICA",
-                    
+                    Id = blog.TagId,
+                    Name = blog.TagName
                 },
-
-                new()
-                {
-                    SubmittedOn = "21, Jun 2023",
-                    Id = "",
-                    ImageUrl = "",
-                    Tag = new TagViewModel{ Name = "JAVA", Id ="", },
-                    Text = "jbsjvjdvdn vnndin vnnnoso mvbu sbb n djd ihllgvvsf c. nkncjb ns.",
-                    Title = "THE SOLUTION FOR AFRICA",
-                },
-
-                new()
-                {
-                    SubmittedOn = "21, Jun 2023",
-                    Id = "",
-                    ImageUrl = "",
-                    Tag = new TagViewModel{ Name = "JAVA", Id ="", },
-                    Text = "jbsjvjdvdn vnndin vnnnoso mvbu sbb n djd ihllgvvsf c. nkncjb ns.",
-                    Title = "THE SOLUTION FOR AFRICA",
-                },
-            };
+                Title = blog.Title,
+                Text = blog.Text,
+                CreatedOn = blog.CreatedOn.FormatDate(),
+            });
         }
-
     }
 }

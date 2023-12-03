@@ -1,0 +1,57 @@
+@{
+    ViewData["Title"] = "Article";
+}
+
+@using DevsTutorialCenterMVC.Utilities
+@model SingleArticlePageVM;
+
+<partial name="_LandingPageNavPartial"/>
+
+<div class="container">
+    <div class="flex mt-2 space-x-5">
+        <div class="w-3/4">
+            <div class="relative">
+                <img class="-z-50 aspect-[16/10] w-full object-cover object-center" src="@Model.Article.ImageUrl" alt=""/>
+                <div class="absolute -mt-36 w-full px-6">
+                    <div class="w-full bg-white p-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="inline-flex space-x-5 rounded-full bg-gray-100 px-3 py-1 text-sm uppercase text-slate-500">@Model.Article.TagName</div>
+                            <div class="w-4 border-t border-gray-300"></div>
+                            <div class="text-sm text-gray-500">@Model.Article.CreatedOn.FormatDate() </div>
+                        </div>
+                        <p class="mt-4 text-2xl font-medium">@Model.Article.Title</p>
+                        <p class="mt-6 text-sm">@Model.Article.Text</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="w-1/4">
+            <div class="mb-8">
+                <p class="font-semibold">AUTHORS</p>
+                <div class="mt-2">
+                    @foreach (var topAuthor in Model.Authors)
+                    {
+                        <partial name="Components/_AuthorListItemPartial" model="@topAuthor"/>
+                    }
+                </div>
+            </div>
+            <div class="mb-8">
+                <p class="font-semibold mb-2">INTERESTING TOPICS</p>
+                @foreach (var tag in Model.Tags)
+                {
+                    <partial name="Components/_TagComponentPartial" model="@tag"/>
+                }
+            </div>
+            <div>
+                <p class="font-semibold">MORE ARTICLES</p>
+                <div class="mt-2">
+                    @foreach (var morePost in Model.MoreArticles)
+                    {
+                        <partial name="Components/_BlogPostRecommendationItemPartial" model="@morePost"/>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

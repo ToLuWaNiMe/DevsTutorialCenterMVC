@@ -2,9 +2,11 @@
 {
     public class AuthorListItemViewModel
     {
-        public string Image { get; set; }
-        public string Name { get; set; }
-        public string Designation { get; set; }
-        public int NumberOfArticles { get; set; }
+        public string Id { get; set; }
+        public string ImageUrl { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Stack { get; set; }
+        public int NoOfArticles { get; set; }
     }
 }

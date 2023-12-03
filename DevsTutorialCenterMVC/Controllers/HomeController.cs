@@ -17,7 +17,7 @@ public class HomeController : Controller
     {
         var articles = await _blogPostService.LatestPosts();
         return View(articles);
-    }
+    } 
 
     [Authorize]
     public IActionResult OpenArticle()

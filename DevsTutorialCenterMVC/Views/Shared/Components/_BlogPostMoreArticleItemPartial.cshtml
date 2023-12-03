@@ -1,14 +1,24 @@
-@model BlogPostMoreArticleItemVM;
+@using DevsTutorialCenterMVC.Utilities
+@model DevsTutorialCenterMVC.Models.Api.BlogPostVM;
 
 <div class="flex space-x-6">
-    <img class="aspect-square h-full object-cover object-center" src="@Model.ImageUrl" alt=""/>
+    <img class="aspect-square w-16 object-cover object-center" src="@Model.ImageUrl" alt=""/>
     <div class="py-2">
         <p class="mb-2 text-xl font-semibold text-gray-800">@Model.Title</p>
-        <p class="text-slate-500">@Model.Text</p>
+        <p class="text-slate-500">
+            @if (@Model.Text.Length > 50)
+            {
+                @Model.Text[..50]
+            }
+            else
+            {
+                @Model.Text
+            }
+            ...</p>
         <hr class="my-4"/>
         <div class="flex items-center justify-between text-sm text-gray-400">
             <p>@Model.ReadTime read</p>
-            <p>@Model.CreatedOn</p>
+            <p>@Model.CreatedOn.FormatDate()</p>
         </div>
     </div>
 </div>

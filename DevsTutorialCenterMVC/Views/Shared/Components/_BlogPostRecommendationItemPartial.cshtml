@@ -1,6 +1,6 @@
 ﻿@model DevsTutorialCenterMVC.Models.Api.BlogPostVM;
 
-<div class="flex space-x-6 bg-white p-2 border-b border-slate-50">
+<a class="flex space-x-6 bg-white p-2 border-b border-slate-50" asp-controller="Articles" asp-action="GetSingleArticle" asp-route-id="@Model.Id">
     <div>
         <p class="mb-2 text-lg font-semibold text-gray-800">@Model.Title</p>
         <p class="text-slate-400">
@@ -21,4 +21,4 @@
             <path d="M12.4419 0.923862L20 8.36572L12.4419 15.8076" stroke="#121212" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     </div>
-</div>
+</a>

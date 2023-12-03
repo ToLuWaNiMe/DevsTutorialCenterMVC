@@ -21,8 +21,15 @@ public class BlogPostService : BaseService
     {
         var address = "/api/articles/get-all-articles";
 
-        if (filterArticleDto is not null)
-            address = $"{address}?";
+        if (filterArticleDto is null)
+        {
+            var res = await
+                _httpClientService.GetAsync<ResponseObject<PaginatorResponseDto<IEnumerable<BlogPostVM>>>>(address);
+
+            return res.Data;
+        }
+        
+        address = $"{address}?";
 
         if (filterArticleDto?.Page is not null)
             address = $"{address}&page={filterArticleDto.Page}";
@@ -44,35 +51,20 @@ public class BlogPostService : BaseService
 
         var result = await
             _httpClientService.GetAsync<ResponseObject<PaginatorResponseDto<IEnumerable<BlogPostVM>>>>(address);
-        // var result = await MakeRequest<ResponseObject<PaginatorResponseDto<IEnumerable<BlogPostVM>>>>(address);
 
         return result.Data;
     }
 
-    public async Task<IEnumerable<BlogPostRecommendationItemVM>> GetRecommendedArticles()
+    public async Task<IEnumerable<BlogPostVM>> GetRecommendedArticles()
     {
-        var address = "/api/articles/get-all-articles?IsRecentlyAdded=true";
-        var methodType = "GET";
-
-        var result =
-            await MakeRequest<ResponseObject<PaginatorResponseDto<IEnumerable<BlogPostRecommendationItemVM>>>, string>(
-                address, methodType, "", "");
-
-        if (result != null && result.Data.PageItems != null)
+        
+        var filter = new FilterArticleDto
         {
-            // Use null conditional operator to handle null checks more concisely
-            var mappedResult = result.Data.PageItems.Select(x => new BlogPostRecommendationItemVM
-            {
-                Id = x.Id,
-                Text = x.Text,
-                Title = x.Title,
-            });
-
-            return mappedResult;
-        }
-
-        // Use Enumerable.Empty<T>() for a more efficient empty collection
-        return Enumerable.Empty<BlogPostRecommendationItemVM>();
+            Page = 1,
+            Size = 15,
+            IsRecentlyAdded = true
+        };
+        return (await GetAllArticles(filter)).PageItems;
     }
 
     public async Task<IEnumerable<BlogPostVM>> InterestingTopics()
@@ -91,7 +83,7 @@ public class BlogPostService : BaseService
         var filter = new FilterArticleDto
         {
             Page = 1,
-            Size = 3,
+            Size = 15,
             IsRecentlyAdded = true
         };
         return (await GetAllArticles(filter)).PageItems;
@@ -102,7 +94,7 @@ public class BlogPostService : BaseService
         var filter = new FilterArticleDto
         {
             Page = 1,
-            Size = 15,
+            Size = 3,
             IsRecentlyAdded = true
         };
         return (await GetAllArticles(filter)).PageItems;
@@ -128,5 +120,14 @@ public class BlogPostService : BaseService
             IsTopRead = true
         };
         return (await GetAllArticles(filter)).PageItems;
+    }
+
+    public async Task<SingleArticleVM> GetArticleById(string id)
+    {
+        var address = $"/api/articles/get-single-article/{id}";
+        
+        var res = await _httpClientService.GetAsync<ResponseObject<SingleArticleVM>>(address);
+        
+        return res.Data;
     }
 }

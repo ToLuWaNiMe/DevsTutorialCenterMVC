@@ -38,6 +38,17 @@ public class HttpClientService
         return await GetResponseResultAsync<TRes>(client, request);
     }
 
+    public async Task<TRes> PostAsync<TRes>(string url)
+        where TRes : class
+    {
+        var client = CreateClient();
+        var request = new HttpRequestMessage(HttpMethod.Post, url)
+        {
+            Content = new StringContent(JsonConvert.SerializeObject(new {}), null, "application/json")
+        };
+        return await GetResponseResultAsync<TRes>(client, request);
+    }
+
     public async Task<TRes> PutAsync<TReq, TRes>(string url, TReq requestModel)
         where TRes : class
         where TReq : class
@@ -75,8 +86,7 @@ public class HttpClientService
     {
         var response = await client.SendAsync(request);
         var responseString = await response.Content.ReadAsStringAsync();
-
-
+        
         var result = JsonConvert.DeserializeObject<TRes>(responseString);
         return result!;
     }

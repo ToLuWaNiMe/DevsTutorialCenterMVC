@@ -8,6 +8,6 @@ namespace DevsTutorialCenterMVC.Models
         public IEnumerable<BlogPostListItemVM> ReadArticles { get; set; } = new List<BlogPostListItemVM>();
         public IEnumerable<TagViewModel> AllTags { get; set; } = new List<TagViewModel>();
         public IEnumerable<AuthorListItemViewModel> TopAuthors { get; set; } = new List<AuthorListItemViewModel>();
-        public IEnumerable<BlogPostRecommendationItemVM> RecentBlogPosts { get; set; } = new List<BlogPostRecommendationItemVM>();
+        public IEnumerable<BlogPostVM> RecentBlogPosts { get; set; } = new List<BlogPostVM>();
     }
 }

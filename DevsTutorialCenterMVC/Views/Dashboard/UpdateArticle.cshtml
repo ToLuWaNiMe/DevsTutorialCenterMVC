@@ -31,11 +31,11 @@
                             <input type="text" name="ImageUrl" id="@Model.ImageUrl" class="form-control" placeholder="Enter Image URL">
                         </div>
                     }
-                    <select class="col form-control form-select input-ify pb-3 mb-3" asp-for="TagId">
+                    <select class="col form-control form-select input-ify pb-3 mb-3" asp-for="Tags">
                         <option class="small text-secondary" selected disabled>--- Select Tag Option ---</option>
                         @if (Model != null)
                         {
-                            @foreach (var tag in Model.TagId)
+                            @foreach (var tag in Model.Tags)
                             {
                                 <option value="@tag.Id">@tag.Name</option>
                             }

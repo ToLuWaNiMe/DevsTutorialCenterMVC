@@ -1,8 +1,7 @@
 ﻿@using DevsTutorialCenterMVC.Utilities
 @model DevsTutorialCenterMVC.Models.Api.BlogPostVM;
-@*@model BlogPostItemVM;
 
-<div class="">
+<a class="block" asp-controller="Articles" asp-action="GetSingleArticle" asp-route-id="@Model.Id">
     <img class="aspect-[16/10] w-full object-cover object-center" src="@Model.ImageUrl"/>
     <div class="p-4">
         <div class="">
@@ -37,4 +36,4 @@
             <p class="text-gray-400">@Model.CreatedOn.FormatDate()</p>
         </div>
     </div>
-</div>*@
+</a>

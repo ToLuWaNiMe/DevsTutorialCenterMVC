@@ -15,13 +15,11 @@ builder.Services.AddScoped<AccountService>();
 builder.Services.AddScoped<AuthorService>();
 builder.Services.AddScoped<BlogPostService>();
 builder.Services.AddScoped<AuthService>();
-
-builder.Services.AddScoped<IArticleService, ArticleService>();
-builder.Services.AddScoped<ITagService, TagService>();
-
-builder.Services.AddScoped<LibraryPageService>();
+builder.Services.AddScoped<ArticleService>();
 builder.Services.AddScoped<TagService>();
+builder.Services.AddScoped<LibraryPageService>();
 builder.Services.AddScoped<StoryPageService>();
+builder.Services.AddScoped<EditorService>();
 
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

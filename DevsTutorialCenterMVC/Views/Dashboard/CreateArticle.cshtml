@@ -1,10 +1,10 @@
 ﻿@model CreateArticleDto
 
-<link href="~/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+<partial name="_LandingPageNavPartial"/>
+
+<link href="~/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="~/js/froala_editor.pkgd.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-@*
-<partial name="_WriteArticleNavBarPartial" />*@
 
 <section class="position-absolute d-flex flex-column w-100 h-100" style="left: 0; ">
     <div class="container">
@@ -12,44 +12,38 @@
             <h3 class="mb-3" style="font-size: 1.2rem; font-family: 'Inter'; letter-spacing: .1px;">Create Article</h3>
             <form method="post" asp-area="" asp-controller="DashBoard" asp-action="CreateArticle" id="articleForm">
                 <div class="d-flex flex-column justify-content-between pb-4 h-100">
-                    @if(Model != null)
-                    {
-                        <div id="" class="col p-0 d-flex align-items-center mb-3">
-                            <input name="Title" id="@Model.Title" class="form-control input-ify" placeholder="Title">
-                        </div>
-                    }
-                    @if (Model != null)
-                    {
+                    <div id="" class="col p-0 d-flex align-items-center mb-3">
+                        <input asp-for="@Model.Title" class="input" placeholder="Title">
+                    </div>
 
-                        <div id="@Model.PublicId" class="col p-0 d-flex align-items-center mb-3 pb-3">
+                    @* @if (Model != null) *@
+                    @* { *@
+                    @* *@
+                    @*     <div id="@Model.PublicId" class="col p-0 d-flex align-items-center mb-3 pb-3"> *@
+                    @* *@
+                    @*         <input name="PublicId" id="@Model.PublicId" class="form-control input-ify" placeholder="Public-Id"> *@
+                    @*     </div> *@
+                    @* } *@
 
-                            <input name="PublicId" id="@Model.PublicId" class="form-control input-ify" placeholder="Public-Id">
-                        </div>
-                    }
-                    @if (Model != null)
-                    {
-                        <div class="col mb-3 pb-3">
-                            <label for="imageUrl" class="form-label"></label>
-                            <input type="text" name="ImageUrl" id="@Model.ImageUrl" class="form-control" placeholder="Enter Image URL">
-                        </div>
-                    }
-                    <select class="col form-control form-select input-ify pb-3 mb-3" asp-for="TagId">
-                        <option class="small text-secondary" selected disabled>--- Select Tag Option ---</option>
-                        @if (Model != null)
+                    <div class="col mb-2 pb-3">
+                        <label for="imageUrl" class="form-label"></label>
+                        <input type="file" asp-for="@Model.ImageUrl" class="input" placeholder="Enter Image URL">
+                    </div>
+
+                    <select class="input mb-2" asp-for="@Model.Tags">
+                        <option selected disabled>--- Select Tag Option ---</option>
+                        @foreach (var tag in Model.Tags)
                         {
-                            @foreach (var tag in Model.TagId)
-                            {
-                                <option value="@tag.Id">@tag.Name</option>
-                            }
+                            <option value="@tag.Id">@tag.Name</option>
                         }
                     </select>
 
                     <div class="col-12 mb-3" id="@Model.Text">
-                        <textarea name="Text" id="article-ify" class="form-control" placeholder="Tell your story...."></textarea>
+                        <textarea name="Text" id="article-ify" class="input" placeholder="Tell your story...."></textarea>
                     </div>
                 </div>
                 <div>
-                    <button style="border: 1px solid black; mx-2 " id="publishButton" class="btn btn-success">Publish</button>
+                    <button id="publishButton" class="button" type="submit">Publish</button>
                 </div>
             </form>
             <script>
@@ -103,4 +97,3 @@
         });
     });
 </script>
-

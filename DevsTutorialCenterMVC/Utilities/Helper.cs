@@ -4,7 +4,7 @@
     {
         public static string FormatDate(this DateTime date)
         {
-            return date.ToString("yy MMM dd ddd");
+            return date.ToString("ddd dd MMM yy");
         }
     }
 }
