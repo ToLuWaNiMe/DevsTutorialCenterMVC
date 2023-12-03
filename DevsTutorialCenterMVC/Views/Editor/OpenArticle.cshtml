@@ -1,0 +1,34 @@
+@using DevsTutorialCenterMVC.Utilities
+@model SingleArticleVM;
+
+<partial name="_LandingPageNavPartial"/>
+
+<div class="container">
+    <div class="flex my-5 space-x-3 justify-end">
+        <form method="POST" asp-controller="Editor" asp-action="ApproveArticle" asp-route-articleId="@Model.Id">
+            <button type="submit" class="button">Approve</button>
+        </form>
+        <form method="POST" asp-controller="Editor" asp-action="RejectArticle" asp-route-articleId="@Model.Id">
+            <button type="submit" class="button-secondary">Decline</button>
+        </form>
+    </div>
+    
+    <div class="flex mt-2 space-x-5">
+        <div class="w-full">
+            <div class="relative">
+                <img class="-z-50 aspect-[16/10] w-full object-cover object-center" src="@Model.ImageUrl" alt=""/>
+                <div class="absolute -mt-36 w-full px-6">
+                    <div class="w-full bg-white p-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="inline-flex space-x-5 rounded-full bg-gray-100 px-3 py-1 text-sm uppercase text-slate-500">@Model.TagName</div>
+                            <div class="w-4 border-t border-gray-300"></div>
+                            <div class="text-sm text-gray-500">@Model.CreatedOn.FormatDate() </div>
+                        </div>
+                        <p class="mt-4 text-2xl font-medium">@Model.Title</p>
+                        <p class="mt-6 text-sm">@Model.Text</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

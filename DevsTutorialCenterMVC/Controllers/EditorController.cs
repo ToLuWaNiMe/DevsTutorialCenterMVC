@@ -7,10 +7,12 @@ namespace DevsTutorialCenterMVC.Controllers;
 public class EditorController : Controller
 {
     private readonly EditorService _editorService;
+    private readonly BlogPostService _blogPostService;
 
-    public EditorController(EditorService editorService)
+    public EditorController(EditorService editorService, BlogPostService blogPostService)
     {
         _editorService = editorService;
+        _blogPostService = blogPostService;
     }
     
     [HttpGet("")]
@@ -34,5 +36,12 @@ public class EditorController : Controller
         var isSuccessful = await _editorService.RejectArticle(articleId);
         if (!isSuccessful) return BadRequest();
         return RedirectToAction("Index");
+    }
+    
+    [HttpGet("articles/{articleId}")]
+    public async Task<IActionResult> OpenArticle(string articleId)
+    {
+        var article = await _blogPostService.GetArticleById(articleId);
+        return View(article);
     }
 }

@@ -17,15 +17,7 @@
             @Model.Title
         </div>
         <div class="mt-2">
-            @if (@Model.Text.Length > 50)
-            {
-                @Model.Text[..50]
-            }
-            else
-            {
-                @Model.Text
-            }
-            ...
+            @Model.Text.ShortenText(50)
         </div>
         <div class="my-3 border-t border-gray-100"></div>
         <div class="flex items-center justify-between">

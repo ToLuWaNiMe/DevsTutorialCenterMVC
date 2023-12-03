@@ -1,3 +1,4 @@
+@using DevsTutorialCenterMVC.Utilities
 @model DevsTutorialCenterMVC.Models.Api.BlogPostVM;
 
 <div class="flex justify-between space-x-5">
@@ -7,15 +8,7 @@
             @Model.Title
         </p>
         <p>
-            @if (@Model.Text.Length > 50)
-            {
-                @Model.Text[..50]
-            }
-            else
-            {
-                @Model.Text
-            }
-            ...
+            @Model.Text.ShortenText(50)
         </p>
     </div>
 </div>

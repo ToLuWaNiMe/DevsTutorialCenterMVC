@@ -1,21 +1,13 @@
 ﻿@using DevsTutorialCenterMVC.Utilities
 @model DevsTutorialCenterMVC.Models.Api.BlogPostVM
 
-<div class="flex justify-between space-x-5">
+<a class="flex justify-between space-x-5" asp-controller="Editor" asp-action="OpenArticle" asp-route-articleId="@Model.Id">
     <div class="w-1/2 flex flex-col justify-evenly">
         <div class="flex items-center mb-2 space-x-4">
         </div>
         <p class="text-gray-800 font-semibold text-xl">@Model.Title</p>
         <p>
-            @if (Model.Text.Length > 50)
-            {
-                @Model.Text[..50]
-            }
-            else
-            {
-                @Model.Text
-            }
-            ...
+            @Model.Text.ShortenText(100)
         </p>
 
         <div class="flex items-center space-x-4 text-gray-500 text-sm">
@@ -33,4 +25,4 @@
             <button type="submit" class="button-secondary">Decline</button>
         </form>
     </div>
-</div>
+</a>
